@@ -1,6 +1,6 @@
 {
-  "name": "typetags",
-  "version": "1.0.0",
+  "name": "@moatorres/typetags",
+  "version": "1.0.2",
   "decription": "Library of string representations of objects in Node.js",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -15,15 +15,15 @@
     "url": "git://github.com/moatorres/typetags.git"
   },
   "scripts": {
+    "clean": "rimraf dist/",
     "build": "yarn clean && rollup -c && yarn build:types",
     "build:dev": "rollup -c -w",
     "build:types": "copyfiles -u 1 \"lib/*.d.ts\" dist/types",
-    "release": "yarn build && cp README.md package.json dist/ && cd dist && yarn publish --access public",
     "test": "jest",
     "test:dev": "jest --watchAll --no-cache",
     "test:clear": "jest --clearCache",
     "test:coverage": "jest --coverage",
-    "clean": "rimraf dist/"
+    "release": "yarn build && cp README.md package.json dist/ && cd dist && yarn publish --access public"
   },
   "files": [
     "dist"
