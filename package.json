@@ -7,6 +7,13 @@
   "types": "dist/types/index.d.ts",
   "author": "Moa Torres",
   "license": "ISC",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/moatorres/typetags.git"
+  },
   "scripts": {
     "build": "yarn clean && rollup -c && yarn build:types",
     "build:dev": "rollup -c -w",
