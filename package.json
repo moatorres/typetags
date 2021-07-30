@@ -1,21 +1,19 @@
 {
-  "name": "@moatorres/typetags",
-  "version": "1.0.2",
-  "decription": "Library of string representations of objects in Node.js",
+  "name": "typetags",
+  "version": "1.0.0",
+  "decription": "String representations of objects in Node.js",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/types/index.d.ts",
   "author": "Moa Torres",
-  "license": "ISC",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
+  "license": "MIT",
+  "publishConfig": {},
   "repository": {
     "type": "git",
     "url": "git://github.com/moatorres/typetags.git"
   },
   "scripts": {
-    "clean": "rimraf dist/",
+    "clean": "rimraf dist/ coverage/",
     "build": "yarn clean && rollup -c && yarn build:types",
     "build:dev": "rollup -c -w",
     "build:types": "copyfiles -u 1 \"lib/*.d.ts\" dist/types",
@@ -23,10 +21,10 @@
     "test:dev": "jest --watchAll --no-cache",
     "test:clear": "jest --clearCache",
     "test:coverage": "jest --coverage",
-    "release": "yarn build && cp README.md package.json dist/ && cd dist && yarn publish --access public"
+    "release": "yarn build && yarn publish --access public --no-git-tag-version"
   },
   "files": [
-    "dist"
+    "dist/**/*"
   ],
   "jest": {
     "setupFilesAfterEnv": "jest-extended"
