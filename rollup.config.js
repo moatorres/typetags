@@ -1,7 +1,6 @@
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import { terser } from 'rollup-plugin-terser'
 import babel from '@rollup/plugin-babel'
-import pkg from './package.json'
 
 const input = ['lib/index.js']
 
@@ -17,7 +16,7 @@ export default [
       terser(),
     ],
     output: {
-      file: `dist/umd/${pkg.name}.min.js`,
+      file: `dist/umd/typetags.min.js`,
       format: 'umd',
       name: 'typetags',
       esModule: false,
