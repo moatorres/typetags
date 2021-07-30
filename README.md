@@ -2,15 +2,9 @@
 
 String representations of objects in Node.js
 
-This package is a list of default string representations of objects in Node.js as returned from calling `toString()` — [see the full list here](https://github.com/moatorres/typetags/blob/master/type-tags.d.ts).
+This package is a list of default string representations of objects in Node.js as returned from calling `toString()` — [see the full list here](https://github.com/moatorres/typetags/blob/master/lib/type-tags.js).
 
 ### 📦 Installation
-
-Yarn
-
-```sh
-yarn add typetags
-```
 
 NPM
 
@@ -18,11 +12,19 @@ NPM
 npm install typetags
 ```
 
+Yarn
+
+```sh
+yarn add typetags
+```
+
 Check the reference [here](https://github.com/moatorres/typetags/blob/master/type-tags.d.ts)
 
-### ⚡️ Usage
+### 🎉 Usage
 
 #### Using `typetags` to detect object class
+
+<sup>See [Mozilla MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/toString#description)</sup>
 
 Every object has a `toString()` method that is automatically called when the object is to be represented as a text value or when an object is referred to in a manner in which a string is expected.
 
@@ -32,8 +34,6 @@ By default, the `toString()` method is inherited by every object descended from 
 const o = new Object()
 o.toString() // → [object Object]
 ```
-
-<sub>See [Mozilla MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/toString#description)</sub>
 
 Although using `toString()` in this way is unreliable, as **objects can change the behavior of `Object.prototype.toString()`** this library might be helpful when you need to compare objects' tags inside a procedure call or if you just need a quick reference.
 
@@ -49,13 +49,13 @@ if (o.toString() === TypeTags.Object) {
 
 #### Bundles
 
-`es6 modules`
+`esm`
 
 ```js
 import { isDefaultTag } from 'typetags'
 ```
 
-`common-js`
+`cjs`
 
 ```js
 const { isDefaultTag } = require('typetags')
@@ -64,7 +64,7 @@ const { isDefaultTag } = require('typetags')
 `umd`
 
 ```html
-<script src="https://unpkg.com/typetags/umd/typetags.min.js"></script>
+<script src="dist/umd/typetags.min.js"></script>
 ```
 
 ### 📓 Reference
@@ -117,8 +117,6 @@ console.log(hasDefaultTag([1, 2, 3])) // → true
 
 ### 🧪 Tests
 
-Using TypeScript? We've got you covered.
-
 ```sh
 ---------------|---------|----------|---------|---------|-------------------
 File           | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
@@ -136,5 +134,9 @@ Time:        0.766 s, estimated 1 s
 Ran all test suites.
 ✨  Done in 1.98s.
 ```
+
+### ⚙️ TypeScript
+
+Using TypeScript? We've got you [covered](https://github.com/moatorres/typetags/blob/master/lib/type-tags.d.ts). The package comes with `d.ts` declaration files.
 
 <sub>⚡️ Powered by [**Moka Tecnologia**](https://github.com/mokatecnologia) — `< >` with lots of ☕️ by [**Moa Torres**](https://github.com/moatorres)</sub>
