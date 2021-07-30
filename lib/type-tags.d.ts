@@ -96,10 +96,10 @@ declare enum TypeTagsEnum {
 }
 
 export declare type ITypeTags = {
-  [key in TypeTagsEnum]: Tags
+  [key in Types]: Tags
 }
 
-export declare interface TypeTags {
+export declare interface TypeTagsInterface {
   Array: '[object Array]'
   ArrayBuffer: '[object ArrayBuffer]'
   BigInt64Array: '[object BigInt64Array]'
@@ -131,3 +131,5 @@ export declare interface TypeTags {
   WeakRef: '[object WeakRef]'
   WeakSet: '[object WeakSet]'
 }
+
+export declare const TypeTags: TypeTagsInterface
