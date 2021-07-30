@@ -1,0 +1,22 @@
+{
+  "name": "typetags",
+  "version": "1.0.0",
+  "decription": "Node object toString type tags",
+  "main": "index.js",
+  "keywords": [
+    "type",
+    "tags",
+    "typetags",
+    "node",
+    "object",
+    "tag",
+    "toString",
+    "node"
+  ],
+  "author": "Moa Torres",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^27.0.6",
+    "jest-extended": "^0.11.5"
+  }
+}
