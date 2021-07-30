@@ -1,10 +1,10 @@
-## Node.js Object [TypeTags](https://github.com/moatorres/typetags)
+# Node.js Object [TypeTags](https://github.com/moatorres/typetags)
 
 String representations of objects in Node.js
 
 This package is a list of default string representations of objects in Node.js as returned from calling `toString()` — [see the full list here](https://github.com/moatorres/typetags/blob/master/lib/type-tags.js).
 
-### 📦 Installation
+## Installation
 
 NPM
 
@@ -20,11 +20,9 @@ yarn add typetags
 
 Check the reference [here](https://github.com/moatorres/typetags/blob/master/type-tags.d.ts)
 
-### 🎉 Usage
+## Usage ⚡️
 
 #### Using `typetags` to detect object class
-
-<sup>See [Mozilla MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/toString#description)</sup>
 
 Every object has a `toString()` method that is automatically called when the object is to be represented as a text value or when an object is referred to in a manner in which a string is expected.
 
@@ -34,6 +32,8 @@ By default, the `toString()` method is inherited by every object descended from 
 const o = new Object()
 o.toString() // → [object Object]
 ```
+
+<sup>See [Mozilla MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/toString#description)</sup>
 
 Although using `toString()` in this way is unreliable, as **objects can change the behavior of `Object.prototype.toString()`** this library might be helpful when you need to compare objects' tags inside a procedure call or if you just need a quick reference.
 
@@ -67,9 +67,9 @@ const { isDefaultTag } = require('typetags')
 <script src="dist/umd/typetags.min.js"></script>
 ```
 
-### 📓 Reference
+## Reference
 
-##### `TypeTags`
+#### `TypeTags`
 
 - Object containing all available tags
 
@@ -83,7 +83,7 @@ console.log(TypeTags.Float64Array) // → [object Float64Array]
 
 **It has convenience methods (predicates) to assert objects' type tags:**
 
-##### `isDefaultTag` ⚡️
+#### `isDefaultTag()` ⚡️
 
 - Checks if a string is a native default tag
 
@@ -94,7 +94,7 @@ console.log(isDefaultTag('[object Hey]')) // → false
 console.log(isDefaultTag('[object Function]')) // → true
 ```
 
-##### `hasDefaultTag` ⚡️
+#### `hasDefaultTag()` ⚡️
 
 - Checks if the received datatype has a native default tag
 
@@ -115,7 +115,7 @@ console.log(hasDefaultTag(jack)) // → false
 console.log(hasDefaultTag([1, 2, 3])) // → true
 ```
 
-### 🧪 Tests
+## Tests
 
 ```sh
 ---------------|---------|----------|---------|---------|-------------------
@@ -135,7 +135,7 @@ Ran all test suites.
 ✨  Done in 1.98s.
 ```
 
-### ⚙️ TypeScript
+## TypeScript
 
 Using TypeScript? We've got you [covered](https://github.com/moatorres/typetags/blob/master/lib/type-tags.d.ts). The package comes with `d.ts` declaration files.
 
