@@ -132,8 +132,6 @@ export declare type Tags =
   | '[object WebAssembly.Table]'
   | '[object Window]'
   | '[object Worker]'
-  | 'Infinity'
-  | 'NaN'
 
 declare enum BigIntEnum {
   BigInt = '[object BigInt]',
@@ -186,16 +184,6 @@ declare enum ErrorEnum {
   URIError = '[object Error]',
 }
 
-declare enum NaNEnum {
-  NaN = 'NaN',
-  Number = '[object Number]',
-}
-
-declare enum InfinityEnum {
-  Infinity = 'Infinity',
-  Number = '[object Number]',
-}
-
 declare enum TypesEnum {
   Arguments = '[object Arguments]',
   Array = '[object Array]',
@@ -206,11 +194,13 @@ declare enum TypesEnum {
   Date = '[object Date]',
   FinalizationRegistry = '[object FinalizationRegistry]',
   Function = '[object Function]',
+  Infinity = '[object Number]',
   Generator = '[object Generator]',
   GeneratorFunction = '[object GeneratorFunction]',
   JSON = '[object JSON]',
   Map = '[object Map]',
   Math = '[object Math]',
+  NaN = '[object Number]',
   Null = '[object Null]',
   Number = '[object Number]',
   Object = '[object Object]',
@@ -256,10 +246,8 @@ declare type TypeTagsEnum =
   | ErrorEnum
   | FloatEnum
   | GlobalThisEnum
-  | InfinityEnum
   | IntEnum
   | IntlEnum
-  | NaNEnum
   | TypesEnum
   | UintEnum
   | WasmEnum
