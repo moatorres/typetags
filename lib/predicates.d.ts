@@ -58,6 +58,7 @@ export declare const isSharedArrayBufferTag: StringPredicate
 export declare const isStringTag: StringPredicate
 export declare const isSymbolTag: StringPredicate
 export declare const isSyntaxErrorTag: StringPredicate
+export declare const isTypedArrayTag: StringPredicate
 export declare const isTypeErrorTag: StringPredicate
 export declare const isUint8ArrayTag: StringPredicate
 export declare const isUint8ClampedArrayTag: StringPredicate
