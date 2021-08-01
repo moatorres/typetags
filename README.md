@@ -848,6 +848,19 @@ console.log(isSyntaxErrorTag(err.toString())) // → false
 console.log(isSyntaxErrorTag('[object Error]')) // → true
 ```
 
+##### `isTypedArrayTag()` ⚡️
+
+- Checks if _value_ is a default `TypedArray` typetag
+
+```js
+const { isTypedArrayTag, TypeTags } = require('typetags')
+
+let typedArray = new Int8Array(16))
+
+console.log(isTypedArrayTag(typedArray.toString())) // → false
+console.log(isTypedArrayTag(TypeTag.Float32Array)) // → true
+```
+
 ##### `isTypeErrorTag()` ⚡️
 
 - Checks if _value_ is a default `TypeError` typetag
