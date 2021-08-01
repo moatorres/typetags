@@ -1,6 +1,6 @@
 {
   "name": "@moatorres/typetags",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "decription": "String representations of objects in Node.js",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
