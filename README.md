@@ -2,7 +2,7 @@
 
 String representations of objects in Node.js
 
-This package contains a list of default string representations of [objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference) in Node.js, as returned from a `toString()` call — [see the full list here](https://github.com/moatorres/typetags/blob/master/lib/type-tags.js).
+This package contains a list of default string representations of [objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference) in Node.js, as returned from `Object.prototype.toString.call(value)` — [see the full list here](https://github.com/moatorres/typetags/blob/master/lib/type-tags.js).
 
 ## Installation
 
@@ -140,8 +140,8 @@ const { isAggregateErrorTag } = require('typetags')
 
 let err = new AggregateError([])
 
-console.log(isAggregateErrorTag('[object Error]')) // → true
-console.log(isAggregateErrorTag('[object Function]')) // → false
+console.log(isAggregateErrorTag(err.toString())) // → false
+console.log(isAggregateErrorTag('[object Error]')) // → false
 ```
 
 ##### `isArgumentsTag()` ⚡️
@@ -151,8 +151,14 @@ console.log(isAggregateErrorTag('[object Function]')) // → false
 ```js
 const { isArgumentsTag } = require('typetags')
 
+let tag
+;(function any() {
+  tag = Object.prototype.toString.call(arguments)
+  return
+})()
+
+console.log(isArgumentsTag(tag)) // → true
 console.log(isArgumentsTag('[object Error]')) // → false
-console.log(isArgumentsTag('[object Arguments]')) // → true
 ```
 
 ##### `isArrayTag()` ⚡️
