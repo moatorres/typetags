@@ -117,7 +117,7 @@ console.log(hasDefaultTag([1, 2, 3])) // → true
 
 #### `hasToStringMethod()` ⚡️
 
-- Checks if the received data type has "toString" function method
+- Checks if _value_ has valid `toString` method
 
 ```js
 import { hasToStringMethod } from 'typetags'
@@ -141,7 +141,7 @@ const { isAggregateErrorTag } = require('typetags')
 let err = new AggregateError([])
 
 console.log(isAggregateErrorTag(err.toString())) // → false
-console.log(isAggregateErrorTag('[object Error]')) // → false
+console.log(isAggregateErrorTag('[object Error]')) // → true
 ```
 
 ##### `isArgumentsTag()` ⚡️
@@ -158,7 +158,7 @@ let tag
 })()
 
 console.log(isArgumentsTag(tag)) // → true
-console.log(isArgumentsTag('[object Error]')) // → false
+console.log(isArgumentsTag('[object Function]')) // → false
 ```
 
 ##### `isArrayTag()` ⚡️
@@ -166,10 +166,12 @@ console.log(isArgumentsTag('[object Error]')) // → false
 - Checks if _value_ is a default `Array` typetag
 
 ```js
-const { isArrayTag } = require('typetags')
+const { isArrayTag, getTag } = require('typetags')
 
-console.log(isArrayTag(Object.create(null))) // → false
-console.log(isArrayTag(Object.create({}))) // → true
+let arr = []
+
+console.log(isArrayTag(arr.toString()) // → false
+console.log(isArrayTag(getTag(arr))) // → true
 ```
 
 ##### `isArrayBufferTag()` ⚡️
@@ -179,8 +181,10 @@ console.log(isArrayTag(Object.create({}))) // → true
 ```js
 const { isArrayBufferTag } = require('typetags')
 
-console.log(isArrayBufferTag('[object Error]')) // → false
-console.log(isArrayBufferTag('[object ArrayBuffer]')) // → true
+let buf = new ArrayBuffer(8)
+
+console.log(isArrayBufferTag(buf.toString())) // → true
+console.log(isArrayBufferTag('[object Array]')) // → false
 ```
 
 ##### `isAsyncFunctionTag()` ⚡️
@@ -188,12 +192,13 @@ console.log(isArrayBufferTag('[object ArrayBuffer]')) // → true
 - Checks if _value_ is a default `AsyncFunction` typetag
 
 ```js
-const { isAsyncFunctionTag } = require('typetags')
+const { isAsyncFunctionTag, getTag } = require('typetags')
 
 let fn = async () => 'oh, hi!'
+let tag = getTag(fn)
 
 console.log(isAsyncFunctionTag(fn.toString())) // → false
-console.log(isAsyncFunctionTag('[object AsyncFunction]')) // → true
+console.log(isAsyncFunctionTag(tag)) // → true
 ```
 
 ##### `isAtomicsTag()` ⚡️
@@ -203,8 +208,13 @@ console.log(isAsyncFunctionTag('[object AsyncFunction]')) // → true
 ```js
 const { isAtomicsTag } = require('typetags')
 
-console.log(isAtomicsTag('[object Error]')) // → false
-console.log(isAtomicsTag('[object Atomics]')) // → true
+const buffer = new SharedArrayBuffer(16)
+const uint8 = new Uint8Array(buffer)
+
+let atom = Atomics.add(uint8, 0, 2) // → 0
+
+console.log(isAtomicsTag(atom.toString())) // → false
+console.log(isAtomicsTag(Atomics.toString())) // → true
 ```
 
 ##### `isBigIntTag()` ⚡️
@@ -212,10 +222,13 @@ console.log(isAtomicsTag('[object Atomics]')) // → true
 - Checks if _value_ is a default `BigInt` typetag
 
 ```js
-const { isBigIntTag } = require('typetags')
+const { isBigIntTag, getTag } = require('typetags')
 
-console.log(isBigIntTag('[object BigInt]')) // → true
-console.log(isBigIntTag('[object BigInt64Array]')) // → true
+let bigint = BigInt(9007199254740991)
+let tag = getTag(bigint)
+
+console.log(isBigIntTag(bigint.toString())) // → false
+console.log(isBigIntTag(tag)) // → true
 ```
 
 ##### `isBigInt64ArrayTag()` ⚡️
@@ -223,10 +236,12 @@ console.log(isBigIntTag('[object BigInt64Array]')) // → true
 - Checks if _value_ is a default `BigInt64Array` typetag
 
 ```js
-const { isBigInt64ArrayTag } = require('typetags')
+const { isBigInt64ArrayTag, getTag } = require('typetags')
 
-console.log(isBigInt64ArrayTag('[object Error]')) // → false
-console.log(isBigInt64ArrayTag('[object BigInt64Array]')) // → true
+let bigint64 = new BigInt64Array(24)
+
+console.log(isBigInt64ArrayTag(bigint64.toString())) // → false
+console.log(isBigInt64ArrayTag(getTag(bigint64))) // → true
 ```
 
 ##### `isBigUint64ArrayTag()` ⚡️
@@ -234,10 +249,12 @@ console.log(isBigInt64ArrayTag('[object BigInt64Array]')) // → true
 - Checks if _value_ is a default `BigUint64Array` typetag
 
 ```js
-const { isBigUint64ArrayTag } = require('typetags')
+const { isBigUint64ArrayTag, getTag } = require('typetags')
 
-console.log(isBigUint64ArrayTag('[object Error]')) // → false
-console.log(isBigUint64ArrayTag('[object BigUint64Array]')) // → true
+let biguint = new BigUint64Array(24)
+
+console.log(isBigUint64ArrayTag(biguint.toString())) // → false
+console.log(isBigUint64ArrayTag(getTag(biguint))) // → true
 ```
 
 ##### `isBooleanTag()` ⚡️
@@ -245,10 +262,13 @@ console.log(isBigUint64ArrayTag('[object BigUint64Array]')) // → true
 - Checks if _value_ is a default `Boolean` typetag
 
 ```js
-const { isBooleanTag } = require('typetags')
+const { isBooleanTag, getTag } = require('typetags')
 
-console.log(isBooleanTag('[object Error]')) // → false
-console.log(isBooleanTag('[object Boolean]')) // → true
+let bool = true
+let tag = getTag(bool)
+
+console.log(isBooleanTag(bool.toString())) // → false
+console.log(isBooleanTag(tag)) // → true
 ```
 
 ##### `isDataViewTag()` ⚡️
@@ -258,7 +278,10 @@ console.log(isBooleanTag('[object Boolean]')) // → true
 ```js
 const { isDataViewTag } = require('typetags')
 
-console.log(isDataViewTag('[object Error]')) // → false
+let buff = new SharedArrayBuffer(1024)
+let view = new DataView(buff)
+
+console.log(isDataViewTag(view.toString())) // → true
 console.log(isDataViewTag('[object DataView]')) // → true
 ```
 
@@ -267,10 +290,13 @@ console.log(isDataViewTag('[object DataView]')) // → true
 - Checks if _value_ is a default `Date` typetag
 
 ```js
-const { isDateTag } = require('typetags')
+const { isDateTag, getTag } = require('typetags')
 
-console.log(isDateTag('[object Error]')) // → false
-console.log(isDateTag('[object Date]')) // → true
+let today = new Date()
+let tag = getTag(today)
+
+console.log(isDateTag(today.toString())) // → false
+console.log(isDateTag(tag)) // → true
 ```
 
 ##### `isErrorTag()` ⚡️
@@ -291,8 +317,10 @@ console.log(isErrorTag(TypeTags.TypeError)) // → true
 ```js
 const { isEvalErrorTag } = require('typetags')
 
-console.log(isEvalErrorTag('[object Error]')) // → false
-console.log(isEvalErrorTag('[object EvalError]')) // → false
+let err = new EvalError()
+
+console.log(isEvalErrorTag(err.toString())) // → false
+console.log(isEvalErrorTag(EvalError.toString())) // → false
 ```
 
 ##### `isFinalizationRegistryTag()` ⚡️
@@ -302,8 +330,10 @@ console.log(isEvalErrorTag('[object EvalError]')) // → false
 ```js
 const { isFinalizationRegistryTag } = require('typetags')
 
-console.log(isFinalizationRegistryTag('[object Error]')) // → false
-console.log(isFinalizationRegistryTag('[object FinalizationRegistry]')) // → true
+let final = new FinalizationRegistry((v) => {})
+
+console.log(isFinalizationRegistryTag(final.toString())) // → true
+console.log(isFinalizationRegistryTag('[object Function]')) // → false
 ```
 
 ##### `isFloat32ArrayTag()` ⚡️
@@ -311,10 +341,13 @@ console.log(isFinalizationRegistryTag('[object FinalizationRegistry]')) // → t
 - Checks if _value_ is a default `Float32Array` typetag
 
 ```js
-const { isFloat32ArrayTag } = require('typetags')
+const { isFloat32ArrayTag, getTag } = require('typetags')
 
-console.log(isFloat32ArrayTag('[object Error]')) // → false
-console.log(isFloat32ArrayTag('[object Float32Array]')) // → true
+let float32 = new Float32Array()
+let tag = getTag(float32)
+
+console.log(isFloat32ArrayTag(float32.toString())) // → false
+console.log(isFloat32ArrayTag(tag)) // → true
 ```
 
 ##### `isFloat64ArrayTag()` ⚡️
@@ -322,10 +355,12 @@ console.log(isFloat32ArrayTag('[object Float32Array]')) // → true
 - Checks if _value_ is a default `arguments` typetag
 
 ```js
-const { isFloat64ArrayTag } = require('typetags')
+const { isFloat64ArrayTag, getTag } = require('typetags')
 
-console.log(isFloat64ArrayTag('[object Error]')) // → false
-console.log(isFloat64ArrayTag('[object Float64Array]')) // → true
+let float64 = new Float64Array()
+
+console.log(isFloat64ArrayTag(float64.toString())) // → false
+console.log(isFloat64ArrayTag(getTag(float64))) // → true
 ```
 
 ##### `isFunctionTag()` ⚡️
@@ -333,12 +368,12 @@ console.log(isFloat64ArrayTag('[object Float64Array]')) // → true
 - Checks if _value_ is a default `Function` typetag
 
 ```js
-const { isFunctionTag } = require('typetags')
+const { isFunctionTag, getTag } = require('typetags')
 
 let fn = () => 'hey!'
 
 console.log(isFunctionTag(fn.toString())) // → false
-console.log(isFunctionTag(Object.prototype.toString.call(fn))) // → true
+console.log(isFunctionTag(getTag(fn))) // → true
 ```
 
 ##### `isGeneratorTag()` ⚡️
@@ -353,10 +388,9 @@ function* gene() {
 }
 
 let gen = gene()
-let tag = Object.prototype.toString.call(gen)
 
-console.log(isGeneratorTag(tag)) // → true
-console.log(isGeneratorTag('[object GeneratorFunction]')) // → false
+console.log(isGeneratorTag(gen.toString())) // → true
+console.log(isGeneratorTag(gene.toString())) // → false
 ```
 
 ##### `isGeneratorFunctionTag()` ⚡️
@@ -364,16 +398,16 @@ console.log(isGeneratorTag('[object GeneratorFunction]')) // → false
 - Checks if _value_ is a default `GeneratorFunction` typetag
 
 ```js
-const { isGeneratorFunctionTag } = require('typetags')
+const { isGeneratorFunctionTag, getTag } = require('typetags')
 
 function* gene() {
   yield 1
 }
 
-let res = Object.prototype.toString.call(gene)
+let tag = getTag(gene)
 
 console.log(isGeneratorFunctionTag(gene.toString())) // → false
-console.log(isGeneratorFunctionTag(res)) // → true
+console.log(isGeneratorFunctionTag(tag)) // → true
 ```
 
 ##### `isGlobalThisTag()` ⚡️
@@ -381,10 +415,12 @@ console.log(isGeneratorFunctionTag(res)) // → true
 - Checks if _value_ is a default `globalThis` typetag
 
 ```js
-const { isGlobalThisTag } = require('typetags')
+const { isGlobalThisTag, getTag } = require('typetags')
 
-console.log(isGlobalThisTag('[object GlobalThis]')) // → false
-console.log(isGlobalThisTag('[object Window]')) // → true
+let tag = getTag(globalThis)
+
+console.log(isGlobalThisTag(tag)) // → true
+console.log(isGlobalThisTag(process.toString())) // → false
 ```
 
 ##### `isInfinityTag()` ⚡️
@@ -394,8 +430,10 @@ console.log(isGlobalThisTag('[object Window]')) // → true
 ```js
 const { isInfinityTag } = require('typetags')
 
-console.log(isInfinityTag('[object Number]')) // → true
-console.log(isInfinityTag('[object Infinity]')) // → false
+let inf = 1 / 0
+
+console.log(isInfinityTag(inf.toString())) // → true
+console.log(isInfinityTag(Infinity.toString())) // → true
 ```
 
 ##### `isInt8ArrayTag()` ⚡️
@@ -438,9 +476,8 @@ console.log(isInt32ArrayTag('[object Int32Array]')) // → true
 ```js
 const { isIntlTag } = require('typetags')
 
-console.log(isIntlTag('[object Intl]')) // → true
-console.log(isIntlTag('[object Intl.Collator]')) // → true
-console.log(isIntlTag(TypeTags['Intl.Module'])) // → true
+console.log(isIntlTag(Intl.toString())) // → true
+console.log(isIntlTag(TypeTags['Intl.Locale'])) // → true
 ```
 
 ##### `isIntlCollatorTag()` ⚡️
@@ -450,8 +487,10 @@ console.log(isIntlTag(TypeTags['Intl.Module'])) // → true
 ```js
 const { isIntlCollatorTag } = require('typetags')
 
-console.log(isIntlCollatorTag('[object Error]')) // → false
-console.log(isIntlCollatorTag('[object IntlCollator]')) // → true
+let coll = new Intl.Collator('en')
+
+console.log(isIntlCollatorTag(coll.toString())) // → true
+console.log(isIntlCollatorTag(Intl.toString())) // → false
 ```
 
 ##### `isIntlDateTimeFormatTag()` ⚡️
@@ -542,8 +581,10 @@ console.log(isJsonTag('[object Json]')) // → false
 ```js
 const { isMapTag } = require('typetags')
 
-console.log(isMapTag('[object Error]')) // → false
-console.log(isMapTag('[object Map]')) // → true
+let map = new Map([[1, 2]])
+
+console.log(isMapTag(map.toString())) // → true
+console.log(isMapTag('[object WeakMap]')) // → false
 ```
 
 ##### `isMathTag()` ⚡️
@@ -566,7 +607,7 @@ console.log(isMathTag(Math.toString())) // → true
 ```js
 const { isNaNTag } = require('typetags')
 
-console.log(isNaNTag('[object NaN]')) // → false
+console.log(isNaNTag(NaN.toString())) // → true
 console.log(isNaNTag('[object Number]')) // → true
 ```
 
@@ -575,10 +616,12 @@ console.log(isNaNTag('[object Number]')) // → true
 - Checks if _value_ is a default `Null` typetag
 
 ```js
-const { isNullTag } = require('typetags')
+const { isNullTag, getTag } = require('typetags')
+
+let nu = null
 
 console.log(isNullTag(null)) // → false
-console.log(isNullTag('[object Null]')) // → true
+console.log(isNullTag(getTag(nu))) // → true
 ```
 
 ##### `isNumberTag()` ⚡️
@@ -586,12 +629,13 @@ console.log(isNullTag('[object Null]')) // → true
 - Checks if _value_ is a default `Number` typetag
 
 ```js
-const { isNumberTag } = require('typetags')
+const { isNumberTag, getTag } = require('typetags')
 
 let num = 1
+let tag = getTag(num)
 
 console.log(isNumberTag(num.toString())) // → false
-console.log(isNumberTag('[object Number]')) // → true
+console.log(isNumberTag(tag)) // → true
 ```
 
 ##### `isObjectTag()` ⚡️
