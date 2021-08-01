@@ -109,7 +109,7 @@ function isArray(value) {
 }
 ```
 
-#### Bundles
+### Bundles
 
 `esm`
 
