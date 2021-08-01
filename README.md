@@ -1183,11 +1183,11 @@ All files      |     100 |      100 |     100 |     100 |
 ---------------|---------|----------|---------|---------|-------------------
 
 Test Suites: 3 passed, 3 total
-Tests:       2 skipped, 283 passed, 285 total
+Tests:       2 skipped, 285 passed, 287 total
 Snapshots:   0 total
-Time:        0.861 s, estimated 1 s
+Time:        1.329 s
 Ran all test suites.
-✨  Done in 1.99s.
+✨  Done in 2.47s.
 ```
 
 ## TypeScript
