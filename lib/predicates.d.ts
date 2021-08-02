@@ -18,6 +18,7 @@ export declare const isBigIntTag: StringPredicate
 export declare const isBigInt64ArrayTag: StringPredicate
 export declare const isBigUint64ArrayTag: StringPredicate
 export declare const isBooleanTag: StringPredicate
+export declare const isConsoleTag: StringPredicate
 export declare const isDataViewTag: StringPredicate
 export declare const isDateTag: StringPredicate
 export declare const isErrorTag: StringPredicate
