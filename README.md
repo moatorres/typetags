@@ -304,6 +304,19 @@ console.log(isBooleanTag(bool.toString())) // → false
 console.log(isBooleanTag(typetag)) // → true
 ```
 
+##### `isConsoleTag()` ⚡️
+
+- Checks if _value_ is a default `Console` typetag
+
+```js
+const { isConsoleTag, getTag } = require('typetags')
+
+let consoleTypetag = getTag(console)
+
+console.log(isConsoleTag(console.toString())) // → true
+console.log(isConsoleTag(consoleTypetag)) // → true
+```
+
 ##### `isDataViewTag()` ⚡️
 
 - Checks if _value_ is a default `DataView` typetag
@@ -1170,11 +1183,11 @@ All files      |     100 |      100 |     100 |     100 |
 ---------------|---------|----------|---------|---------|-------------------
 
 Test Suites: 3 passed, 3 total
-Tests:       2 skipped, 283 passed, 285 total
+Tests:       2 skipped, 287 passed, 289 total
 Snapshots:   0 total
-Time:        0.861 s, estimated 1 s
+Time:        1.533 s, estimated 2 s
 Ran all test suites.
-✨  Done in 1.99s.
+✨  Done in 2.27s.
 ```
 
 ## TypeScript
