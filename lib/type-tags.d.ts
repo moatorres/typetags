@@ -9,6 +9,7 @@ export declare type Types =
   | 'BigInt64Array'
   | 'BigUint64Array'
   | 'Boolean'
+  | 'Console'
   | 'DataView'
   | 'Date'
   | 'Error'
@@ -82,6 +83,7 @@ export declare type Tags =
   | '[object BigInt64Array]'
   | '[object BigUint64Array]'
   | '[object Boolean]'
+  | '[object console]'
   | '[object DataView]'
   | '[object Date]'
   | '[object Error]'
@@ -190,6 +192,7 @@ declare enum TypesEnum {
   AsyncFunction = '[object AsyncFunction]',
   Atomics = '[object Atomics]',
   Boolean = '[object Boolean]',
+  Console = '[object console]',
   DataView = '[object DataView]',
   Date = '[object Date]',
   FinalizationRegistry = '[object FinalizationRegistry]',
