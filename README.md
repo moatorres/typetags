@@ -657,6 +657,20 @@ console.log(isMapTag(map.toString())) // → true
 console.log(isMapTag('[object WeakMap]')) // → false
 ```
 
+##### `isMapIteratorTag()` ⚡️
+
+- Checks if _value_ is a default `Map Iterator` typetag
+
+```js
+const { isMapIteratorTag, getTag } = require('typetags')
+
+let map = new Map([[1, 2]])
+let tag = getTag(map.values())
+
+console.log(isMapIteratorTag(tag)) // → true
+console.log(isMapIteratorTag(map.toString())) // → false
+```
+
 ##### `isMathTag()` ⚡️
 
 - Checks if _value_ is a default `Math` typetag
