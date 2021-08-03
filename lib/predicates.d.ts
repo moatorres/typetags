@@ -12,6 +12,7 @@ export declare const isDefaultTag: StringPredicate
 export declare const isAggregateErrorTag: StringPredicate
 export declare const isArgumentsTag: StringPredicate
 export declare const isArrayTag: StringPredicate
+export declare const isArrayIteratorTag: StringPredicate
 export declare const isArrayBufferTag: StringPredicate
 export declare const isAsyncFunctionTag: StringPredicate
 export declare const isAtomicsTag: StringPredicate
@@ -62,6 +63,7 @@ export declare const isSetTag: StringPredicate
 export declare const isSetIteratorTag: StringPredicate
 export declare const isSharedArrayBufferTag: StringPredicate
 export declare const isStringTag: StringPredicate
+export declare const isStringIteratorTag: StringPredicate
 export declare const isSymbolTag: StringPredicate
 export declare const isSyntaxErrorTag: StringPredicate
 export declare const isTypedArrayTag: StringPredicate
