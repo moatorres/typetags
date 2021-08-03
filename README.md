@@ -1072,6 +1072,19 @@ console.log(isURIErrorTag('[object Error]')) // → true
 console.log(isURIErrorTag(URIError.toString())) // → false
 ```
 
+##### `isURLTag()` ⚡️
+
+- Checks if _value_ is a default `URL` typetag
+
+```js
+const { isURLTag, getTag } = require('typetags')
+
+let url = new URL('https://npmjs.com/typetags') // → prints 'https://npmjs.com/typetags'
+
+console.log(isURLTag(url.toString())) // → false
+console.log(isURLTag(getTag(url))) // → true
+```
+
 ##### `isWeakMapTag()` ⚡️
 
 - Checks if _value_ is a default `WeakMap` typetag
