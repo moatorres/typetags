@@ -58,6 +58,8 @@ export declare type Types =
   | 'String.Iterator'
   | 'Symbol'
   | 'SyntaxError'
+  | 'TextDecoder'
+  | 'TextEncoder'
   | 'TypeError'
   | 'Uint8Array'
   | 'Uint8ClampedArray'
@@ -66,6 +68,7 @@ export declare type Types =
   | 'Undefined'
   | 'URIError'
   | 'URL'
+  | 'URLSearchParams'
   | 'WeakMap'
   | 'WeakRef'
   | 'WeakSet'
@@ -133,12 +136,15 @@ export declare type Tags =
   | '[object String]'
   | '[object String Iterator]'
   | '[object Symbol]'
+  | '[object TextDecoder]'
+  | '[object TextEncoder]'
   | '[object Uint8Array]'
   | '[object Uint8ClampedArray]'
   | '[object Uint16Array]'
   | '[object Uint32Array]'
   | '[object Undefined]'
   | '[object URL]'
+  | '[object URLSearchParams]'
   | '[object WeakMap]'
   | '[object WeakRef]'
   | '[object WeakSet]'
@@ -239,8 +245,11 @@ declare enum TypesEnum {
   Set = '[object Set]',
   String = '[object String]',
   Symbol = '[object Symbol]',
+  TextDecoder = '[object TextDecoder]',
+  TextEncoder = '[object TextEncoder]',
   Undefined = '[object Undefined]',
   URL = '[object URL]',
+  URLSearchParams = '[object URLSearchParams]',
   WeakMap = '[object WeakMap]',
   WeakRef = '[object WeakRef]',
   WeakSet = '[object WeakSet]',

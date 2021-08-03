@@ -66,6 +66,8 @@ export declare const isStringTag: StringPredicate
 export declare const isStringIteratorTag: StringPredicate
 export declare const isSymbolTag: StringPredicate
 export declare const isSyntaxErrorTag: StringPredicate
+export declare const isTextDecoderTag: StringPredicate
+export declare const isTextEncoderTag: StringPredicate
 export declare const isTypedArrayTag: StringPredicate
 export declare const isTypeErrorTag: StringPredicate
 export declare const isUint8ArrayTag: StringPredicate
@@ -75,6 +77,7 @@ export declare const isUint32ArrayTag: StringPredicate
 export declare const isUndefinedTag: StringPredicate
 export declare const isURIErrorTag: StringPredicate
 export declare const isURLTag: StringPredicate
+export declare const isURLSearchParamsTag: StringPredicate
 export declare const isWeakMapTag: StringPredicate
 export declare const isWeakRefTag: StringPredicate
 export declare const isWeakSetTag: StringPredicate
