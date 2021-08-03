@@ -216,6 +216,7 @@ declare enum TypesEnum {
   Promise = '[object Promise]',
   RegExp = '[object RegExp]',
   Set = '[object Set]',
+  'Set.Iterator' = '[object Set Iterator]',
   String = '[object String]',
   Symbol = '[object Symbol]',
   Undefined = '[object Undefined]',
