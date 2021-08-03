@@ -47,6 +47,7 @@ export declare type Types =
   | 'RangeError'
   | 'ReferenceError'
   | 'RegExp'
+  | 'Reflect'
   | 'Set'
   | 'Set.Iterator'
   | 'SharedArrayBuffer'
@@ -116,6 +117,7 @@ export declare type Tags =
   | '[object Object]'
   | '[object process]'
   | '[object Promise]'
+  | '[object Reflect]'
   | '[object RegExp]'
   | '[object Set]'
   | '[object Set Iterator]'
@@ -214,6 +216,7 @@ declare enum TypesEnum {
   Object = '[object Object]',
   Process = '[object process]',
   Promise = '[object Promise]',
+  Reflect = '[object Reflect]',
   RegExp = '[object RegExp]',
   Set = '[object Set]',
   'Set.Iterator' = '[object Set Iterator]',
