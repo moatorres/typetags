@@ -1085,6 +1085,19 @@ console.log(isURLTag(url.toString())) // → false
 console.log(isURLTag(getTag(url))) // → true
 ```
 
+##### `isURLSearchParamsTag()` ⚡️
+
+- Checks if _value_ is a default `URLSearchParams` typetag
+
+```js
+const { isURLSearchParamsTag, getTag } = require('typetags')
+
+let params = new URLSearchParams('id') // .toString() → 'id='
+
+console.log(isURLSearchParamsTag(params.toString())) // → false
+console.log(isURLSearchParamsTag(getTag(params))) // → true
+```
+
 ##### `isWeakMapTag()` ⚡️
 
 - Checks if _value_ is a default `WeakMap` typetag
