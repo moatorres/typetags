@@ -235,6 +235,19 @@ console.log(isArrayTag(arr.toString()) // → false
 console.log(isArrayTag(getTag(arr))) // → true
 ```
 
+##### `isArrayIteratorTag()` ⚡️
+
+- Checks if _value_ is a default `Array Iterator` typetag
+
+```js
+const { isArrayIteratorTag, getTag } = require('typetags')
+
+let iterator = [][Symbol.iterator]()
+
+console.log(isArrayIteratorTag(iterator.toString()) // → true
+console.log(isArrayIteratorTag(getTag(iterator))) // → true
+```
+
 ##### `isArrayBufferTag()` ⚡️
 
 - Checks if _value_ is a default `ArrayBuffer` typetag
@@ -914,6 +927,19 @@ let str = 'hey'
 
 console.log(isStringTag(str.toString())) // → false
 console.log(isStringTag('[object String]')) // → true
+```
+
+##### `isStringIteratorTag()` ⚡️
+
+- Checks if _value_ is a default `String Iterator` typetag
+
+```js
+const { isStringIteratorTag, getTag } = require('typetags')
+
+let iterator = ''[Symbol.iterator]()
+
+console.log(isStringIteratorTag(iterator.toString()) // → true
+console.log(isStringIteratorTag(getTag(iterator))) // → true
 ```
 
 ##### `isSymbolTag()` ⚡️
