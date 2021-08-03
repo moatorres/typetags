@@ -74,6 +74,7 @@ export declare const isUint16ArrayTag: StringPredicate
 export declare const isUint32ArrayTag: StringPredicate
 export declare const isUndefinedTag: StringPredicate
 export declare const isURIErrorTag: StringPredicate
+export declare const isURLTag: StringPredicate
 export declare const isWeakMapTag: StringPredicate
 export declare const isWeakRefTag: StringPredicate
 export declare const isWeakSetTag: StringPredicate
