@@ -633,6 +633,19 @@ console.log(isIntlRelativeTimeFormatTag(intl.toString())) // → true
 console.log(isIntlRelativeTimeFormatTag('DD mm')) // → false
 ```
 
+##### `isIteratorTag()` ⚡️
+
+- Checks if _value_ is a default `<type> Iterator` typetag
+
+```js
+const { isIteratorTag, getTag } = require('typetags')
+
+let iterator = ['Array'][Symbol.iterator]()
+
+console.log(isIteratorTag(getTag(iterator))) // → true
+console.log(isIteratorTag(iterator.toString())) // → true
+```
+
 ##### `isJsonTag()` ⚡️
 
 - Checks if _value_ is a default `JSON` typetag
@@ -793,6 +806,19 @@ let errorTypetag = getTag(err)
 
 console.log(isReferenceErrorTag(err.toString())) // → false
 console.log(isReferenceErrorTag(errorTypetag)) // → true
+```
+
+##### `isReflectTag()` ⚡️
+
+- Checks if _value_ is a default `Reflect` typetag
+
+```js
+const { isReflectTag } = require('typetags')
+
+let reflectTag = getTag(Reflect)
+
+console.log(isReflectTag(reflectTag)) // → true
+console.log(isReflectTag(Reflect.toString())) // → true
 ```
 
 ##### `isRegExpTag()` ⚡️
