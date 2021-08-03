@@ -65,6 +65,7 @@ export declare type Types =
   | 'Uint32Array'
   | 'Undefined'
   | 'URIError'
+  | 'URL'
   | 'WeakMap'
   | 'WeakRef'
   | 'WeakSet'
@@ -137,6 +138,7 @@ export declare type Tags =
   | '[object Uint16Array]'
   | '[object Uint32Array]'
   | '[object Undefined]'
+  | '[object URL]'
   | '[object WeakMap]'
   | '[object WeakRef]'
   | '[object WeakSet]'
@@ -238,6 +240,7 @@ declare enum TypesEnum {
   String = '[object String]',
   Symbol = '[object Symbol]',
   Undefined = '[object Undefined]',
+  URL = '[object URL]',
   WeakMap = '[object WeakMap]',
   WeakRef = '[object WeakRef]',
   WeakSet = '[object WeakSet]',
