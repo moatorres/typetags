@@ -6,7 +6,8 @@ declare type AnyPredicate = (value: any) => boolean
 
 export declare const hasDefaultTag: AnyPredicate
 export declare const hasToStringMethod: AnyPredicate
-
+export declare const isAbortControllerTag: StringPredicate
+export declare const isAbortSignalTag: StringPredicate
 export declare const isDefaultTag: StringPredicate
 export declare const isAggregateErrorTag: StringPredicate
 export declare const isArgumentsTag: StringPredicate
