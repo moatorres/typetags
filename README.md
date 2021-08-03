@@ -969,6 +969,34 @@ console.log(isSyntaxErrorTag(err.toString())) // → false
 console.log(isSyntaxErrorTag('[object Error]')) // → true
 ```
 
+##### `isTextDecoderTag()` ⚡️
+
+- Checks if _value_ is a default `TextDecoder` typetag
+
+```js
+const { isTextDecoderTag, getTag } = require('typetags')
+
+let decoder = new TextDecoder()
+let tag = decoder.toString()
+
+console.log(isTextDecoderTag(tag)) // → true
+console.log(isTextDecoderTag(getTag(decoder))) // → true
+```
+
+##### `isTextEncoderTag()` ⚡️
+
+- Checks if _value_ is a default `TextEncoder` typetag
+
+```js
+const { isTextEncoderTag, getTag } = require('typetags')
+
+let encoder = new TextEncoder()
+let tag = getTag(encoder)
+
+console.log(isTextEncoderTag(tag)) // → true
+console.log(isTextEncoderTag(encoder.toString())) // → true
+```
+
 ##### `isTypedArrayTag()` ⚡️
 
 - Checks if _value_ is a default `TypedArray` typetag
