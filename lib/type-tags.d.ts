@@ -4,6 +4,7 @@ export declare type Types =
   | 'AggregateError'
   | 'Arguments'
   | 'Array'
+  | 'Array.Iterator'
   | 'ArrayBuffer'
   | 'AsyncFunction'
   | 'Atomics'
@@ -54,6 +55,7 @@ export declare type Types =
   | 'Set.Iterator'
   | 'SharedArrayBuffer'
   | 'String'
+  | 'String.Iterator'
   | 'Symbol'
   | 'SyntaxError'
   | 'TypeError'
@@ -83,6 +85,7 @@ export declare type Tags =
   | '[object AbortSignal]'
   | '[object Arguments]'
   | '[object Array]'
+  | '[object Array Iterator]'
   | '[object ArrayBuffer]'
   | '[object AsyncFunction]'
   | '[object Atomics]'
@@ -127,6 +130,7 @@ export declare type Tags =
   | '[object Set Iterator]'
   | '[object SharedArrayBuffer]'
   | '[object String]'
+  | '[object String Iterator]'
   | '[object Symbol]'
   | '[object Uint8Array]'
   | '[object Uint8ClampedArray]'
@@ -154,6 +158,18 @@ declare enum BigIntEnum {
 declare enum BufferEnum {
   ArrayBuffer = '[object ArrayBuffer]',
   SharedArrayBuffer = '[object SharedArrayBuffer]',
+}
+
+declare enum ErrorEnum {
+  Error = '[object Error]',
+  AggregateError = '[object Error]',
+  EvalError = '[object Error]',
+  InternalError = '[object Error]',
+  RangeError = '[object Error]',
+  ReferenceError = '[object Error]',
+  SyntaxError = '[object Error]',
+  TypeError = '[object Error]',
+  URIError = '[object Error]',
 }
 
 declare enum FloatEnum {
@@ -184,16 +200,11 @@ export declare enum IntlEnum {
   'Intl.RelativeTimeFormat' = '[object Intl.RelativeTimeFormat]',
 }
 
-declare enum ErrorEnum {
-  Error = '[object Error]',
-  AggregateError = '[object Error]',
-  EvalError = '[object Error]',
-  InternalError = '[object Error]',
-  RangeError = '[object Error]',
-  ReferenceError = '[object Error]',
-  SyntaxError = '[object Error]',
-  TypeError = '[object Error]',
-  URIError = '[object Error]',
+declare enum IteratorEnum {
+  'Array.Iterator' = '[object Array Iterator]',
+  'Map.Iterator' = '[object Map Iterator]',
+  'Set.Iterator' = '[object Set Iterator]',
+  'String.Iterator' = '[object String Iterator]',
 }
 
 declare enum TypesEnum {
@@ -214,7 +225,6 @@ declare enum TypesEnum {
   GeneratorFunction = '[object GeneratorFunction]',
   JSON = '[object JSON]',
   Map = '[object Map]',
-  'Map.Iterator' = '[object Map Iterator]',
   Math = '[object Math]',
   NaN = '[object Number]',
   Null = '[object Null]',
@@ -225,7 +235,6 @@ declare enum TypesEnum {
   Reflect = '[object Reflect]',
   RegExp = '[object RegExp]',
   Set = '[object Set]',
-  'Set.Iterator' = '[object Set Iterator]',
   String = '[object String]',
   Symbol = '[object Symbol]',
   Undefined = '[object Undefined]',
@@ -266,6 +275,7 @@ declare type TypeTagsEnum =
   | GlobalThisEnum
   | IntEnum
   | IntlEnum
+  | IteratorEnum
   | TypesEnum
   | UintEnum
   | WasmEnum
