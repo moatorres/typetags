@@ -163,6 +163,34 @@ console.log(isDefaultTag('[object Function]')) // → true
 
 #### `String → Boolean`
 
+##### `isAbortControllerTag()` ⚡️
+
+- Checks if _value_ is a default `AbortController` typetag
+
+```js
+const { isAbortControllerTag, getTag } = require('typetags')
+
+let abort = new AbortController()
+let tag = getTag(abort)
+
+console.log(isAbortControllerTag(abort.toString())) // → true
+console.log(isAbortControllerTag(tag)) // → true
+```
+
+##### `isAbortSignalTag()` ⚡️
+
+- Checks if _value_ is a default `AbortSignal` typetag
+
+```js
+const { isAbortSignalTag, getTag } = require('typetags')
+
+let abort = new AbortControllerl()
+let tag = getTag(abort.signal)
+
+console.log(isAbortSignalTag(tag)) // → true
+console.log(isAbortSignalTag(abort.signal.toString())) // → true
+```
+
 ##### `isAggregateErrorTag()` ⚡️
 
 - Checks if _value_ is a default `AggregateError` typetag
@@ -205,6 +233,19 @@ let arr = []
 
 console.log(isArrayTag(arr.toString()) // → false
 console.log(isArrayTag(getTag(arr))) // → true
+```
+
+##### `isArrayIteratorTag()` ⚡️
+
+- Checks if _value_ is a default `Array Iterator` typetag
+
+```js
+const { isArrayIteratorTag, getTag } = require('typetags')
+
+let iterator = [][Symbol.iterator]()
+
+console.log(isArrayIteratorTag(iterator.toString()) // → true
+console.log(isArrayIteratorTag(getTag(iterator))) // → true
 ```
 
 ##### `isArrayBufferTag()` ⚡️
@@ -302,6 +343,19 @@ let typetag = getTag(bool)
 
 console.log(isBooleanTag(bool.toString())) // → false
 console.log(isBooleanTag(typetag)) // → true
+```
+
+##### `isConsoleTag()` ⚡️
+
+- Checks if _value_ is a default `Console` typetag
+
+```js
+const { isConsoleTag, getTag } = require('typetags')
+
+let consoleTypetag = getTag(console)
+
+console.log(isConsoleTag(console.toString())) // → true
+console.log(isConsoleTag(consoleTypetag)) // → true
 ```
 
 ##### `isDataViewTag()` ⚡️
@@ -620,6 +674,19 @@ console.log(isIntlRelativeTimeFormatTag(intl.toString())) // → true
 console.log(isIntlRelativeTimeFormatTag('DD mm')) // → false
 ```
 
+##### `isIteratorTag()` ⚡️
+
+- Checks if _value_ is a default `<type> Iterator` typetag
+
+```js
+const { isIteratorTag, getTag } = require('typetags')
+
+let iterator = ['Array'][Symbol.iterator]()
+
+console.log(isIteratorTag(getTag(iterator))) // → true
+console.log(isIteratorTag(iterator.toString())) // → true
+```
+
 ##### `isJsonTag()` ⚡️
 
 - Checks if _value_ is a default `JSON` typetag
@@ -642,6 +709,20 @@ let map = new Map([[1, 2]])
 
 console.log(isMapTag(map.toString())) // → true
 console.log(isMapTag('[object WeakMap]')) // → false
+```
+
+##### `isMapIteratorTag()` ⚡️
+
+- Checks if _value_ is a default `Map Iterator` typetag
+
+```js
+const { isMapIteratorTag, getTag } = require('typetags')
+
+let map = new Map([[1, 2]])
+let tag = getTag(map.values())
+
+console.log(isMapIteratorTag(tag)) // → true
+console.log(isMapIteratorTag(map.toString())) // → false
 ```
 
 ##### `isMathTag()` ⚡️
@@ -768,6 +849,19 @@ console.log(isReferenceErrorTag(err.toString())) // → false
 console.log(isReferenceErrorTag(errorTypetag)) // → true
 ```
 
+##### `isReflectTag()` ⚡️
+
+- Checks if _value_ is a default `Reflect` typetag
+
+```js
+const { isReflectTag, getTag } = require('typetags')
+
+let reflectTag = getTag(Reflect)
+
+console.log(isReflectTag(reflectTag)) // → true
+console.log(isReflectTag(Reflect.toString())) // → true
+```
+
 ##### `isRegExpTag()` ⚡️
 
 - Checks if _value_ is a default `RegExp` typetag
@@ -793,6 +887,20 @@ let mySet = new Set([1])
 
 console.log(isSetTag('[object Set]')) // → true
 console.log(isSetTag(mySet.toString())) // → true
+```
+
+##### `isSetIteratorTag()` ⚡️
+
+- Checks if _value_ is a default `Set Iterator` typetag
+
+```js
+const { isSetIteratorTag, getTag } = require('typetags')
+
+let s = new Set([1])
+let iteratorTag = getTag(s.values())
+
+console.log(isSetIteratorTag(s.toString())) // → false
+console.log(isSetIteratorTag(iteratorTag)) // → true
 ```
 
 ##### `isSharedArrayBufferTag()` ⚡️
@@ -821,6 +929,19 @@ console.log(isStringTag(str.toString())) // → false
 console.log(isStringTag('[object String]')) // → true
 ```
 
+##### `isStringIteratorTag()` ⚡️
+
+- Checks if _value_ is a default `String Iterator` typetag
+
+```js
+const { isStringIteratorTag, getTag } = require('typetags')
+
+let iterator = ''[Symbol.iterator]()
+
+console.log(isStringIteratorTag(iterator.toString()) // → true
+console.log(isStringIteratorTag(getTag(iterator))) // → true
+```
+
 ##### `isSymbolTag()` ⚡️
 
 - Checks if _value_ is a default `Symbol` typetag
@@ -846,6 +967,47 @@ let err = new SyntaxError()
 
 console.log(isSyntaxErrorTag(err.toString())) // → false
 console.log(isSyntaxErrorTag('[object Error]')) // → true
+```
+
+##### `isTextDecoderTag()` ⚡️
+
+- Checks if _value_ is a default `TextDecoder` typetag
+
+```js
+const { isTextDecoderTag, getTag } = require('typetags')
+
+let decoder = new TextDecoder()
+let tag = decoder.toString()
+
+console.log(isTextDecoderTag(tag)) // → true
+console.log(isTextDecoderTag(getTag(decoder))) // → true
+```
+
+##### `isTextEncoderTag()` ⚡️
+
+- Checks if _value_ is a default `TextEncoder` typetag
+
+```js
+const { isTextEncoderTag, getTag } = require('typetags')
+
+let encoder = new TextEncoder()
+let tag = getTag(encoder)
+
+console.log(isTextEncoderTag(tag)) // → true
+console.log(isTextEncoderTag(encoder.toString())) // → true
+```
+
+##### `isTypedArrayTag()` ⚡️
+
+- Checks if _value_ is a default `TypedArray` typetag
+
+```js
+const { isTypedArrayTag, TypeTags } = require('typetags')
+
+let typedArray = new Int8Array(16))
+
+console.log(isTypedArrayTag(typedArray.toString())) // → false
+console.log(isTypedArrayTag(TypeTag.Float32Array)) // → true
 ```
 
 ##### `isTypeErrorTag()` ⚡️
@@ -936,6 +1098,32 @@ const { isURIErrorTag } = require('typetags')
 
 console.log(isURIErrorTag('[object Error]')) // → true
 console.log(isURIErrorTag(URIError.toString())) // → false
+```
+
+##### `isURLTag()` ⚡️
+
+- Checks if _value_ is a default `URL` typetag
+
+```js
+const { isURLTag, getTag } = require('typetags')
+
+let url = new URL('https://npmjs.com/typetags') // → prints 'https://npmjs.com/typetags'
+
+console.log(isURLTag(url.toString())) // → false
+console.log(isURLTag(getTag(url))) // → true
+```
+
+##### `isURLSearchParamsTag()` ⚡️
+
+- Checks if _value_ is a default `URLSearchParams` typetag
+
+```js
+const { isURLSearchParamsTag, getTag } = require('typetags')
+
+let params = new URLSearchParams('id') // .toString() → 'id='
+
+console.log(isURLSearchParamsTag(params.toString())) // → false
+console.log(isURLSearchParamsTag(getTag(params))) // → true
 ```
 
 ##### `isWeakMapTag()` ⚡️
@@ -1170,11 +1358,11 @@ All files      |     100 |      100 |     100 |     100 |
 ---------------|---------|----------|---------|---------|-------------------
 
 Test Suites: 3 passed, 3 total
-Tests:       2 skipped, 283 passed, 285 total
+Tests:       2 skipped, 323 passed, 325 total
 Snapshots:   0 total
-Time:        0.861 s, estimated 1 s
+Time:        1.571 s, estimated 2 s
 Ran all test suites.
-✨  Done in 1.99s.
+✨  Done in 2.40s.
 ```
 
 ## TypeScript

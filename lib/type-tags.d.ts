@@ -1,7 +1,10 @@
 export declare type Types =
+  | 'AbortController'
+  | 'AbortSignal'
   | 'AggregateError'
   | 'Arguments'
   | 'Array'
+  | 'Array.Iterator'
   | 'ArrayBuffer'
   | 'AsyncFunction'
   | 'Atomics'
@@ -9,6 +12,7 @@ export declare type Types =
   | 'BigInt64Array'
   | 'BigUint64Array'
   | 'Boolean'
+  | 'Console'
   | 'DataView'
   | 'Date'
   | 'Error'
@@ -35,6 +39,7 @@ export declare type Types =
   | 'Intl.RelativeTimeFormat'
   | 'JSON'
   | 'Map'
+  | 'Map.Iterator'
   | 'Math'
   | 'NaN'
   | 'Null'
@@ -45,11 +50,16 @@ export declare type Types =
   | 'RangeError'
   | 'ReferenceError'
   | 'RegExp'
+  | 'Reflect'
   | 'Set'
+  | 'Set.Iterator'
   | 'SharedArrayBuffer'
   | 'String'
+  | 'String.Iterator'
   | 'Symbol'
   | 'SyntaxError'
+  | 'TextDecoder'
+  | 'TextEncoder'
   | 'TypeError'
   | 'Uint8Array'
   | 'Uint8ClampedArray'
@@ -57,6 +67,8 @@ export declare type Types =
   | 'Uint32Array'
   | 'Undefined'
   | 'URIError'
+  | 'URL'
+  | 'URLSearchParams'
   | 'WeakMap'
   | 'WeakRef'
   | 'WeakSet'
@@ -73,8 +85,11 @@ export declare type Types =
   | 'Worker'
 
 export declare type Tags =
+  | '[object AbortController]'
+  | '[object AbortSignal]'
   | '[object Arguments]'
   | '[object Array]'
+  | '[object Array Iterator]'
   | '[object ArrayBuffer]'
   | '[object AsyncFunction]'
   | '[object Atomics]'
@@ -82,6 +97,7 @@ export declare type Tags =
   | '[object BigInt64Array]'
   | '[object BigUint64Array]'
   | '[object Boolean]'
+  | '[object console]'
   | '[object DataView]'
   | '[object Date]'
   | '[object Error]'
@@ -105,22 +121,30 @@ export declare type Tags =
   | '[object Intl.RelativeTimeFormat]'
   | '[object JSON]'
   | '[object Map]'
+  | '[object Map Iterator]'
   | '[object Math]'
   | '[object Null]'
   | '[object Number]'
   | '[object Object]'
   | '[object process]'
   | '[object Promise]'
+  | '[object Reflect]'
   | '[object RegExp]'
   | '[object Set]'
+  | '[object Set Iterator]'
   | '[object SharedArrayBuffer]'
   | '[object String]'
+  | '[object String Iterator]'
   | '[object Symbol]'
+  | '[object TextDecoder]'
+  | '[object TextEncoder]'
   | '[object Uint8Array]'
   | '[object Uint8ClampedArray]'
   | '[object Uint16Array]'
   | '[object Uint32Array]'
   | '[object Undefined]'
+  | '[object URL]'
+  | '[object URLSearchParams]'
   | '[object WeakMap]'
   | '[object WeakRef]'
   | '[object WeakSet]'
@@ -142,6 +166,18 @@ declare enum BigIntEnum {
 declare enum BufferEnum {
   ArrayBuffer = '[object ArrayBuffer]',
   SharedArrayBuffer = '[object SharedArrayBuffer]',
+}
+
+declare enum ErrorEnum {
+  Error = '[object Error]',
+  AggregateError = '[object Error]',
+  EvalError = '[object Error]',
+  InternalError = '[object Error]',
+  RangeError = '[object Error]',
+  ReferenceError = '[object Error]',
+  SyntaxError = '[object Error]',
+  TypeError = '[object Error]',
+  URIError = '[object Error]',
 }
 
 declare enum FloatEnum {
@@ -172,24 +208,22 @@ export declare enum IntlEnum {
   'Intl.RelativeTimeFormat' = '[object Intl.RelativeTimeFormat]',
 }
 
-declare enum ErrorEnum {
-  Error = '[object Error]',
-  AggregateError = '[object Error]',
-  EvalError = '[object Error]',
-  InternalError = '[object Error]',
-  RangeError = '[object Error]',
-  ReferenceError = '[object Error]',
-  SyntaxError = '[object Error]',
-  TypeError = '[object Error]',
-  URIError = '[object Error]',
+declare enum IteratorEnum {
+  'Array.Iterator' = '[object Array Iterator]',
+  'Map.Iterator' = '[object Map Iterator]',
+  'Set.Iterator' = '[object Set Iterator]',
+  'String.Iterator' = '[object String Iterator]',
 }
 
 declare enum TypesEnum {
+  AbortController = '[object AbortController]',
+  AbortSignal = '[object AbortSignal]',
   Arguments = '[object Arguments]',
   Array = '[object Array]',
   AsyncFunction = '[object AsyncFunction]',
   Atomics = '[object Atomics]',
   Boolean = '[object Boolean]',
+  Console = '[object console]',
   DataView = '[object DataView]',
   Date = '[object Date]',
   FinalizationRegistry = '[object FinalizationRegistry]',
@@ -206,11 +240,16 @@ declare enum TypesEnum {
   Object = '[object Object]',
   Process = '[object process]',
   Promise = '[object Promise]',
+  Reflect = '[object Reflect]',
   RegExp = '[object RegExp]',
   Set = '[object Set]',
   String = '[object String]',
   Symbol = '[object Symbol]',
+  TextDecoder = '[object TextDecoder]',
+  TextEncoder = '[object TextEncoder]',
   Undefined = '[object Undefined]',
+  URL = '[object URL]',
+  URLSearchParams = '[object URLSearchParams]',
   WeakMap = '[object WeakMap]',
   WeakRef = '[object WeakRef]',
   WeakSet = '[object WeakSet]',
@@ -248,6 +287,7 @@ declare type TypeTagsEnum =
   | GlobalThisEnum
   | IntEnum
   | IntlEnum
+  | IteratorEnum
   | TypesEnum
   | UintEnum
   | WasmEnum
