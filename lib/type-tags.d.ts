@@ -1,4 +1,6 @@
 export declare type Types =
+  | 'AbortController'
+  | 'AbortSignal'
   | 'AggregateError'
   | 'Arguments'
   | 'Array'
@@ -77,6 +79,8 @@ export declare type Types =
   | 'Worker'
 
 export declare type Tags =
+  | '[object AbortController]'
+  | '[object AbortSignal]'
   | '[object Arguments]'
   | '[object Array]'
   | '[object ArrayBuffer]'
@@ -193,6 +197,8 @@ declare enum ErrorEnum {
 }
 
 declare enum TypesEnum {
+  AbortController = '[object AbortController]',
+  AbortSignal = '[object AbortSignal]',
   Arguments = '[object Arguments]',
   Array = '[object Array]',
   AsyncFunction = '[object AsyncFunction]',
