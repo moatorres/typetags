@@ -808,6 +808,20 @@ console.log(isSetTag('[object Set]')) // → true
 console.log(isSetTag(mySet.toString())) // → true
 ```
 
+##### `isSetIteratorTag()` ⚡️
+
+- Checks if _value_ is a default `Set Iterator` typetag
+
+```js
+const { isSetIteratorTag, getTag } = require('typetags')
+
+let s = new Set([1])
+let iteratorTag = getTag(s.values())
+
+console.log(isSetIteratorTag(s.toString())) // → false
+console.log(isSetIteratorTag(iteratorTag)) // → true
+```
+
 ##### `isSharedArrayBufferTag()` ⚡️
 
 - Checks if _value_ is a default `SharedArrayBuffer` typetag
