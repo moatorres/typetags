@@ -1317,11 +1317,11 @@ All files      |     100 |      100 |     100 |     100 |
 ---------------|---------|----------|---------|---------|-------------------
 
 Test Suites: 3 passed, 3 total
-Tests:       2 skipped, 287 passed, 289 total
+Tests:       2 skipped, 323 passed, 325 total
 Snapshots:   0 total
-Time:        1.533 s, estimated 2 s
+Time:        1.571 s, estimated 2 s
 Ran all test suites.
-✨  Done in 2.27s.
+✨  Done in 2.40s.
 ```
 
 ## TypeScript
