@@ -813,7 +813,7 @@ console.log(isReferenceErrorTag(errorTypetag)) // → true
 - Checks if _value_ is a default `Reflect` typetag
 
 ```js
-const { isReflectTag } = require('typetags')
+const { isReflectTag, getTag } = require('typetags')
 
 let reflectTag = getTag(Reflect)
 
