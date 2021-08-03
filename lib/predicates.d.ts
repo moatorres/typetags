@@ -44,6 +44,7 @@ export declare const isIntlPluralRulesTag: StringPredicate
 export declare const isIntlRelativeTimeFormatTag: StringPredicate
 export declare const isJsonTag: StringPredicate
 export declare const isMapTag: StringPredicate
+export declare const isMapIteratorTag: StringPredicate
 export declare const isMathTag: StringPredicate
 export declare const isNaNTag: StringPredicate
 export declare const isNullTag: StringPredicate

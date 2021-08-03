@@ -36,6 +36,7 @@ export declare type Types =
   | 'Intl.RelativeTimeFormat'
   | 'JSON'
   | 'Map'
+  | 'Map.Iterator'
   | 'Math'
   | 'NaN'
   | 'Null'
@@ -107,6 +108,7 @@ export declare type Tags =
   | '[object Intl.RelativeTimeFormat]'
   | '[object JSON]'
   | '[object Map]'
+  | '[object Map Iterator]'
   | '[object Math]'
   | '[object Null]'
   | '[object Number]'
@@ -202,6 +204,7 @@ declare enum TypesEnum {
   GeneratorFunction = '[object GeneratorFunction]',
   JSON = '[object JSON]',
   Map = '[object Map]',
+  'Map.Iterator' = '[object Map Iterator]',
   Math = '[object Math]',
   NaN = '[object Number]',
   Null = '[object Null]',
