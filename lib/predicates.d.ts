@@ -55,6 +55,7 @@ export declare const isRangeErrorTag: StringPredicate
 export declare const isReferenceErrorTag: StringPredicate
 export declare const isRegExpTag: StringPredicate
 export declare const isSetTag: StringPredicate
+export declare const isSetIteratorTag: StringPredicate
 export declare const isSharedArrayBufferTag: StringPredicate
 export declare const isStringTag: StringPredicate
 export declare const isSymbolTag: StringPredicate
