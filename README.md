@@ -163,6 +163,34 @@ console.log(isDefaultTag('[object Function]')) // → true
 
 #### `String → Boolean`
 
+##### `isAbortControllerTag()` ⚡️
+
+- Checks if _value_ is a default `AbortController` typetag
+
+```js
+const { isAbortControllerTag, getTag } = require('typetags')
+
+let abort = new AbortController()
+let tag = getTag(abort)
+
+console.log(isAbortControllerTag(abort.toString())) // → true
+console.log(isAbortControllerTag(tag)) // → true
+```
+
+##### `isAbortSignalTag()` ⚡️
+
+- Checks if _value_ is a default `AbortSignal` typetag
+
+```js
+const { isAbortSignalTag, getTag } = require('typetags')
+
+let abort = new AbortControllerl()
+let tag = getTag(abort.signal)
+
+console.log(isAbortSignalTag(tag)) // → true
+console.log(isAbortSignalTag(abort.signal.toString())) // → true
+```
+
 ##### `isAggregateErrorTag()` ⚡️
 
 - Checks if _value_ is a default `AggregateError` typetag
