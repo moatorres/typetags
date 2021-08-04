@@ -31,6 +31,7 @@ export declare const isFloat64ArrayTag: StringPredicate
 export declare const isFunctionTag: StringPredicate
 export declare const isGeneratorTag: StringPredicate
 export declare const isGeneratorFunctionTag: StringPredicate
+export declare const isGlobalTag: StringPredicate
 export declare const isGlobalThisTag: StringPredicate
 export declare const isInfinityTag: StringPredicate
 export declare const isInt8ArrayTag: StringPredicate

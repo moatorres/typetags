@@ -24,6 +24,7 @@ export declare type Types =
   | 'Generator'
   | 'GeneratorFunction'
   | 'GlobalThis'
+  | 'Global'
   | 'Infinity'
   | 'Int8Array'
   | 'Int16Array'
@@ -297,4 +298,3 @@ export declare type ITypeTags = {
 }
 
 export declare const TypeTags: ITypeTags
-// export declare const TypeTags: Record<Types, Tags>
