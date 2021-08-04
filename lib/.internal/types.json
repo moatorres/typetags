@@ -1,0 +1,682 @@
+{
+  "AbortController": {
+    "type": "AbortController",
+    "static": false,
+    "group": "abort",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object AbortController]"
+  },
+  "AbortSignal": {
+    "type": "AbortSignal",
+    "static": false,
+    "group": "abort",
+    "constructor": false,
+    "instantiable": false,
+    "tag": "[object AbortSignal]"
+  },
+  "AggregateError": {
+    "type": "AggregateError",
+    "static": false,
+    "group": "error",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object Error]"
+  },
+  "Arguments": {
+    "type": "Arguments",
+    "static": false,
+    "group": "function",
+    "constructor": false,
+    "instantiable": false,
+    "tag": "[object Arguments]"
+  },
+  "Array": {
+    "type": "Array",
+    "static": false,
+    "group": "datatype",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object Array]"
+  },
+  "Array.Iterator": {
+    "type": "Array Iterator",
+    "static": false,
+    "group": "iterator",
+    "constructor": false,
+    "instantiable": false,
+    "tag": "[object Array Iterator]"
+  },
+  "ArrayBuffer": {
+    "type": "ArrayBuffer",
+    "static": false,
+    "group": "buffer",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object ArrayBuffer]"
+  },
+  "AsyncFunction": {
+    "type": "AsyncFunction",
+    "static": false,
+    "group": "function",
+    "constructor": false,
+    "instantiable": false,
+    "tag": "[object AsyncFunction]"
+  },
+  "Atomics": {
+    "type": "Atomics",
+    "static": true,
+    "group": "buffer",
+    "constructor": false,
+    "instantiable": false,
+    "tag": "[object Atomics]"
+  },
+  "BigInt": {
+    "type": "BigInt",
+    "static": false,
+    "group": "primitive",
+    "constructor": true,
+    "instantiable": false,
+    "tag": "[object BigInt]"
+  },
+  "BigInt64Array": {
+    "type": "BigInt64Array",
+    "static": false,
+    "group": "typedarr",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object BigInt64Array]"
+  },
+  "BigUint64Array": {
+    "type": "BigUint64Array",
+    "static": false,
+    "group": "typedarr",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object BigUint64Array]"
+  },
+  "Boolean": {
+    "type": "Boolean",
+    "static": false,
+    "group": "primitive",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object Boolean]"
+  },
+  "Console": {
+    "type": "console",
+    "static": false,
+    "group": "system",
+    "constructor": false,
+    "instantiable": false,
+    "tag": "[object console]"
+  },
+  "DataView": {
+    "type": "DataView",
+    "static": false,
+    "group": "buffer",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object DataView]"
+  },
+  "Date": {
+    "type": "Date",
+    "static": false,
+    "group": "number",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object Date]"
+  },
+  "Error": {
+    "type": "Error",
+    "static": false,
+    "group": "error",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object Error]"
+  },
+  "EvalError": {
+    "type": "Error",
+    "static": false,
+    "group": "error",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object Error]"
+  },
+  "FinalizationRegistry": {
+    "type": "FinalizationRegistry",
+    "static": false,
+    "group": "special",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object FinalizationRegistry]"
+  },
+  "Float32Array": {
+    "type": "Float32Array",
+    "static": false,
+    "group": "typedarr",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object Float32Array]"
+  },
+  "Float64Array": {
+    "type": "Float64Array",
+    "static": false,
+    "group": "typedarr",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object Float64Array]"
+  },
+  "Function": {
+    "type": "Function",
+    "static": false,
+    "group": "function",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object Function]"
+  },
+  "Generator": {
+    "type": "Generator",
+    "static": false,
+    "group": "function",
+    "constructor": false,
+    "instantiable": false,
+    "tag": "[object Generator]"
+  },
+  "GeneratorFunction": {
+    "type": "GeneratorFunction",
+    "static": false,
+    "group": "function",
+    "constructor": false,
+    "instantiable": false,
+    "tag": "[object GeneratorFunction]"
+  },
+  "GlobalThis": {
+    "type": "globalThis",
+    "static": false,
+    "group": "system",
+    "constructor": false,
+    "instantiable": false,
+    "tag": "Object.prototype.toString.call(globalThis)"
+  },
+  "Global": {
+    "type": "global",
+    "static": false,
+    "group": "system",
+    "constructor": false,
+    "instantiable": false,
+    "tag": "Object.prototype.toString.call(global)"
+  },
+  "Infinity": {
+    "type": "Infinity",
+    "static": true,
+    "group": "number",
+    "constructor": false,
+    "instantiable": false,
+    "tag": "[object Number]"
+  },
+  "Int8Array": {
+    "type": "Int8Array",
+    "static": false,
+    "group": "typedarr",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object Int8Array]"
+  },
+  "Int16Array": {
+    "type": "Int16Array",
+    "static": false,
+    "group": "typedarr",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object Int16Array]"
+  },
+  "Int32Array": {
+    "type": "Int32Array",
+    "static": false,
+    "group": "typedarr",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object Int32Array]"
+  },
+  "InternalError": {
+    "type": "Error",
+    "static": false,
+    "group": "error",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object Error]"
+  },
+  "Intl": {
+    "type": "Intl",
+    "static": false,
+    "group": "intl",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object Intl]"
+  },
+  "Intl.Collator": {
+    "type": "Intl.Collator",
+    "static": false,
+    "group": "intl",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object Intl.Collator]"
+  },
+  "Intl.DateTimeFormat": {
+    "type": "Intl.DateTimeFormat",
+    "static": false,
+    "group": "intl",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object Intl.DateTimeFormat]"
+  },
+  "Intl.ListFormat": {
+    "type": "Intl.ListFormat",
+    "static": false,
+    "group": "intl",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object Intl.ListFormat]"
+  },
+  "Intl.Locale": {
+    "type": "Intl.Locale",
+    "static": false,
+    "group": "intl",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object Intl.Locale]"
+  },
+  "Intl.NumberFormat": {
+    "type": "Intl.NumberFormat",
+    "static": false,
+    "group": "intl",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object Intl.NumberFormat]"
+  },
+  "Intl.PluralRules": {
+    "type": "Intl.PluralRules",
+    "static": false,
+    "group": "intl",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object Intl.PluralRules]"
+  },
+  "Intl.RelativeTimeFormat": {
+    "type": "Intl.RelativeTimeFormat",
+    "static": false,
+    "group": "intl",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object Intl.RelativeTimeFormat]"
+  },
+  "JSON": {
+    "type": "JSON",
+    "static": false,
+    "group": "buffer",
+    "constructor": false,
+    "instantiable": false,
+    "tag": "[object JSON]"
+  },
+  "Map": {
+    "type": "Map",
+    "static": false,
+    "group": "datatype",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object Map]"
+  },
+  "Map.Iterator": {
+    "type": "Map Iterator",
+    "static": false,
+    "group": "iterator",
+    "constructor": false,
+    "instantiable": false,
+    "tag": "[object Map Iterator]"
+  },
+  "Math": {
+    "type": "Math",
+    "static": true,
+    "group": "number",
+    "constructor": false,
+    "instantiable": false,
+    "tag": "[object Math]"
+  },
+  "NaN": {
+    "type": "NaN",
+    "static": true,
+    "group": "number",
+    "constructor": false,
+    "instantiable": false,
+    "tag": "[object Number]"
+  },
+  "Null": {
+    "type": "null",
+    "static": false,
+    "group": "primitive",
+    "constructor": false,
+    "instantiable": false,
+    "tag": "[object Null]"
+  },
+  "Number": {
+    "type": "Number",
+    "static": false,
+    "group": "primitive",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object Number]"
+  },
+  "Object": {
+    "type": "Object",
+    "static": false,
+    "group": false,
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object Object]"
+  },
+  "Process": {
+    "type": "process",
+    "static": false,
+    "group": false,
+    "constructor": false,
+    "instantiable": false,
+    "tag": "[object process]"
+  },
+  "Promise": {
+    "type": "Promise",
+    "static": false,
+    "group": "function",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object Promise]"
+  },
+  "RangeError": {
+    "type": "Error",
+    "static": false,
+    "group": "error",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object Error]"
+  },
+  "ReferenceError": {
+    "type": "Error",
+    "static": false,
+    "group": "error",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object Error]"
+  },
+  "Reflect": {
+    "type": "Reflect",
+    "static": true,
+    "group": "built-in",
+    "constructor": false,
+    "instantiable": false,
+    "tag": "[object Reflect]"
+  },
+  "RegExp": {
+    "type": "RegExp",
+    "static": false,
+    "group": "datatype",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object RegExp]"
+  },
+  "Set": {
+    "type": "Set",
+    "static": false,
+    "group": "datatype",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object Set]"
+  },
+  "Set.Iterator": {
+    "type": "Set Iterator",
+    "static": false,
+    "group": "iterator",
+    "constructor": false,
+    "instantiable": false,
+    "tag": "[object Set Iterator]"
+  },
+  "SharedArrayBuffer": {
+    "type": "SharedArrayBuffer",
+    "static": false,
+    "group": "buffer",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object SharedArrayBuffer]"
+  },
+  "String": {
+    "type": "String",
+    "static": false,
+    "group": "primitive",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object String]"
+  },
+  "String.Iterator": {
+    "type": "String Iterator",
+    "static": false,
+    "group": "iterator",
+    "constructor": false,
+    "instantiable": false,
+    "tag": "[object String Iterator]"
+  },
+  "Symbol": {
+    "type": "Symbol",
+    "static": false,
+    "group": "primitive",
+    "constructor": true,
+    "instantiable": false,
+    "tag": "[object Symbol]"
+  },
+  "SyntaxError": {
+    "type": "Error",
+    "static": false,
+    "group": "error",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object Error]"
+  },
+  "TextDecoder": {
+    "type": "TextDecoder",
+    "static": false,
+    "group": "webapi",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object TextDecoder]"
+  },
+  "TextEncoder": {
+    "type": "TextEncoder",
+    "static": false,
+    "group": "webapi",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object TextEncoder]"
+  },
+  "TypeError": {
+    "type": "TypeError",
+    "static": false,
+    "group": "error",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object Error]"
+  },
+  "Uint8Array": {
+    "type": "Uint8Array",
+    "static": false,
+    "group": "typedarr",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object Uint8Array]"
+  },
+  "Uint8ClampedArray": {
+    "type": "Uint8ClampedArray",
+    "static": false,
+    "group": "typedarr",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object Uint8ClampedArray]"
+  },
+  "Uint16Array": {
+    "type": "Uint16Array",
+    "static": false,
+    "group": "typedarr",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object Uint16Array]"
+  },
+  "Uint32Array": {
+    "type": "Uint32Array",
+    "static": false,
+    "group": "typedarr",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object Uint32Array]"
+  },
+  "Undefined": {
+    "type": "undefined",
+    "static": false,
+    "group": "primitive",
+    "constructor": false,
+    "instantiable": false,
+    "tag": "[object Undefined]"
+  },
+  "URIError": {
+    "type": "Error",
+    "static": false,
+    "group": "error",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object Error]"
+  },
+  "URL": {
+    "type": "URL",
+    "static": false,
+    "group": "webapi",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object URL]"
+  },
+  "URLSearchParams": {
+    "type": "URLSearchParams",
+    "static": false,
+    "group": "webapi",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object URLSearchParams]"
+  },
+  "WeakMap": {
+    "type": "WeakMap",
+    "static": false,
+    "group": "datatype",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object WeakMap]"
+  },
+  "WeakRef": {
+    "type": "WeakRef",
+    "static": false,
+    "group": "datatype",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object WeakRef]"
+  },
+  "WeakSet": {
+    "type": "WeakSet",
+    "static": false,
+    "group": "datatype",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object WeakSet]"
+  },
+  "WebAssembly": {
+    "type": "WebAssembly",
+    "static": false,
+    "group": "wasm",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object WebAssembly]"
+  },
+  "WebAssembly.Module": {
+    "type": "WebAssembly.Module",
+    "static": false,
+    "group": "wasm",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object WebAssembly.Module]"
+  },
+  "WebAssembly.Global": {
+    "type": "WebAssembly.Global",
+    "static": false,
+    "group": "wasm",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object WebAssembly.Global]"
+  },
+  "WebAssembly.Instance": {
+    "type": "WebAssembly.Instance",
+    "static": false,
+    "group": "wasm",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object WebAssembly.Instance]"
+  },
+  "WebAssembly.Memory": {
+    "type": "WebAssembly.Memory",
+    "static": false,
+    "group": "wasm",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object WebAssembly.Memory]"
+  },
+  "WebAssembly.Table": {
+    "type": "WebAssembly.Table",
+    "static": false,
+    "group": "wasm",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object WebAssembly.Table]"
+  },
+  "WebAssembly.CompileError": {
+    "type": "Error",
+    "static": false,
+    "group": "wasm",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object Error]"
+  },
+  "WebAssembly.LinkError": {
+    "type": "Error",
+    "static": false,
+    "group": "wasm",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object Error]"
+  },
+  "WebAssembly.RuntimeError": {
+    "type": "Error",
+    "static": false,
+    "group": "wasm",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object Error]"
+  },
+  "Window": {
+    "type": "Window",
+    "static": false,
+    "group": "system",
+    "constructor": false,
+    "instantiable": false,
+    "tag": "[object Window]"
+  },
+  "Worker": {
+    "type": "Worker",
+    "static": false,
+    "group": "webapi",
+    "constructor": true,
+    "instantiable": true,
+    "tag": "[object Worker]"
+  }
+}
