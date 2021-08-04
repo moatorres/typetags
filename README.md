@@ -2,7 +2,7 @@
 
 String representations of objects in Node.js
 
-This package contains a list of default string representations of [objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference) in Node.js, as returned from `Object.prototype.toString.call(value)` — [see the full list here](https://github.com/moatorres/typetags/blob/master/lib/type-tags.js).
+This package contains a list of default string representations of [objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference) in Node.js, as returned from `Object.prototype.toString.call(value)` — [see the full list here](https://github.com/moatorres/typetags/blob/master/lib/.internal/types.json).
 
 ## Installation
 
