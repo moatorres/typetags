@@ -136,7 +136,7 @@
     "tag": "[object Error]"
   },
   "EvalError": {
-    "type": "Error",
+    "type": "EvalError",
     "static": false,
     "group": "error",
     "constructor": true,
@@ -240,7 +240,7 @@
     "tag": "[object Int32Array]"
   },
   "InternalError": {
-    "type": "Error",
+    "type": "InternalError",
     "static": false,
     "group": "error",
     "constructor": true,
@@ -392,7 +392,7 @@
     "tag": "[object Promise]"
   },
   "RangeError": {
-    "type": "Error",
+    "type": "RangeError",
     "static": false,
     "group": "error",
     "constructor": true,
@@ -400,7 +400,7 @@
     "tag": "[object Error]"
   },
   "ReferenceError": {
-    "type": "Error",
+    "type": "ReferenceError",
     "static": false,
     "group": "error",
     "constructor": true,
@@ -472,7 +472,7 @@
     "tag": "[object Symbol]"
   },
   "SyntaxError": {
-    "type": "Error",
+    "type": "SyntaxError",
     "static": false,
     "group": "error",
     "constructor": true,
@@ -544,7 +544,7 @@
     "tag": "[object Undefined]"
   },
   "URIError": {
-    "type": "Error",
+    "type": "URIError",
     "static": false,
     "group": "error",
     "constructor": true,
@@ -640,7 +640,7 @@
     "tag": "[object WebAssembly.Table]"
   },
   "WebAssembly.CompileError": {
-    "type": "Error",
+    "type": "WebAssembly.CompileError",
     "static": false,
     "group": "wasm",
     "constructor": true,
@@ -648,7 +648,7 @@
     "tag": "[object Error]"
   },
   "WebAssembly.LinkError": {
-    "type": "Error",
+    "type": "WebAssembly.LinkError",
     "static": false,
     "group": "wasm",
     "constructor": true,
@@ -656,7 +656,7 @@
     "tag": "[object Error]"
   },
   "WebAssembly.RuntimeError": {
-    "type": "Error",
+    "type": "WebAssembly.RuntimeError",
     "static": false,
     "group": "wasm",
     "constructor": true,
@@ -664,7 +664,7 @@
     "tag": "[object Error]"
   },
   "Window": {
-    "type": "Window",
+    "type": "window",
     "static": false,
     "group": "system",
     "constructor": false,
