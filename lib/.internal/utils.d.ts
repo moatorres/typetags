@@ -23,7 +23,7 @@ declare type TextMethods =
   | 'toPredicate'
   | 'toRemoveDot'
 
-declare interface ITextUtils {
+declare type ITextUtils = {
   [key in TextMethods]: TextUtil
 }
 
