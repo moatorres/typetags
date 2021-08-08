@@ -13,7 +13,7 @@ export declare const define: <T>(
   value: U
 ) => U & T
 
-declare type TextUtil = (str: string) => string
+declare type TextUtil = (str: string) => String
 declare type TextMethods =
   | 'toTag'
   | 'toLower'
