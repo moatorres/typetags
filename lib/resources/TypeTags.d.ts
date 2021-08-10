@@ -1,10 +1,51 @@
-export declare type Types =
+declare type NestedTypes =
+  | 'Array.Iterator'
+  | 'Map.Iterator'
+  | 'Set.Iterator'
+  | 'String.Iterator'
+  | 'Intl.Collator'
+  | 'Intl.DateTimeFormat'
+  | 'Intl.ListFormat'
+  | 'Intl.Locale'
+  | 'Intl.NumberFormat'
+  | 'Intl.PluralRules'
+  | 'Intl.RelativeTimeFormat'
+  | 'WebAssembly.Module'
+  | 'WebAssembly.Global'
+  | 'WebAssembly.Instance'
+  | 'WebAssembly.Memory'
+  | 'WebAssembly.Table'
+  | 'WebAssembly.CompileError'
+  | 'WebAssembly.LinkError'
+  | 'WebAssembly.RuntimeError'
+
+declare type NestedPredicates =
+  | 'ArrayIterator'
+  | 'MapIterator'
+  | 'SetIterator'
+  | 'StringIterator'
+  | 'IntlCollator'
+  | 'IntlDateTimeFormat'
+  | 'IntlListFormat'
+  | 'IntlLocale'
+  | 'IntlNumberFormat'
+  | 'IntlPluralRules'
+  | 'IntlRelativeTimeFormat'
+  | 'WebAssemblyModule'
+  | 'WebAssemblyGlobal'
+  | 'WebAssemblyInstance'
+  | 'WebAssemblyMemory'
+  | 'WebAssemblyTable'
+  | 'WebAssemblyCompileError'
+  | 'WebAssemblyLinkError'
+  | 'WebAssemblyRuntimeError'
+
+declare type Types =
   | 'AbortController'
   | 'AbortSignal'
   | 'AggregateError'
   | 'Arguments'
   | 'Array'
-  | 'Array.Iterator'
   | 'ArrayBuffer'
   | 'AsyncFunction'
   | 'Atomics'
@@ -29,18 +70,9 @@ export declare type Types =
   | 'Int8Array'
   | 'Int16Array'
   | 'Int32Array'
-  // | 'InternalError' // non-standard
   | 'Intl'
-  | 'Intl.Collator'
-  | 'Intl.DateTimeFormat'
-  | 'Intl.ListFormat'
-  | 'Intl.Locale'
-  | 'Intl.NumberFormat'
-  | 'Intl.PluralRules'
-  | 'Intl.RelativeTimeFormat'
   | 'JSON'
   | 'Map'
-  | 'Map.Iterator'
   | 'Math'
   | 'NaN'
   | 'Null'
@@ -53,10 +85,8 @@ export declare type Types =
   | 'RegExp'
   | 'Reflect'
   | 'Set'
-  | 'Set.Iterator'
   | 'SharedArrayBuffer'
   | 'String'
-  | 'String.Iterator'
   | 'Symbol'
   | 'SyntaxError'
   | 'TextDecoder'
@@ -74,18 +104,10 @@ export declare type Types =
   | 'WeakRef'
   | 'WeakSet'
   | 'WebAssembly'
-  | 'WebAssembly.Module'
-  | 'WebAssembly.Global'
-  | 'WebAssembly.Instance'
-  | 'WebAssembly.Memory'
-  | 'WebAssembly.Table'
-  | 'WebAssembly.CompileError'
-  | 'WebAssembly.LinkError'
-  | 'WebAssembly.RuntimeError'
   | 'Window'
   | 'Worker'
 
-export declare type Tags =
+declare type Tags =
   | '[object AbortController]'
   | '[object AbortSignal]'
   | '[object Arguments]'
@@ -158,22 +180,17 @@ export declare type Tags =
   | '[object Window]'
   | '[object Worker]'
 
-declare type Predicate<T> = {
-  ['is' + key in T]: (value: any) => boolean
-}
+declare type PredicateName = `is${Types | NestedPredicates}`
 
-export declare type ITypeTags = {
-  [key in Types]: Tags
-}
-
-export declare class TypeTags {
-  constructor() {
-    TypeTags.instance = this
+declare type Predicates = {
+  [key in PredicateName]: {
+    (value: any): boolean
+    available(): boolean
   }
-
-  static create() {
-    return new TypeTags()
-  }
-
-  get [key in Types](): Tags
 }
+
+declare type ITypeTags = {
+  [key in Types | NestedTypes]: Tags
+}
+
+export declare const TypeTags: ITypeTags & Predicates
