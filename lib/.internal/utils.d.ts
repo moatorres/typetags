@@ -29,3 +29,4 @@ declare type ITextUtils = {
 
 export declare const TextUtils: ITextUtils
 export declare const getGlobalTypes: () => Array<[string, Function]>
+export declare const checkRuntime: () => string
