@@ -1,5 +1,4 @@
 import { InstanceReport, ReportOptions } from './Report'
-import { TType } from './TType'
 
 declare interface TTypeProps {
   type: string
@@ -29,4 +28,4 @@ declare type ITType<T> = {
   ownKeys(): Array<keyof T>
 }
 
-export declare const TType: ITTypeClass<T>
+export declare const TType: ITTypeClass<any>

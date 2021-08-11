@@ -58,4 +58,4 @@ declare type ReportType<T> = {
   introspect(value: T, options?: ReportOptions): InstrospectReport<T>
 }
 
-export declare const Report: ReportType<T>
+export declare const Report: ReportType<any>

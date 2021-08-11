@@ -197,9 +197,9 @@ declare interface ITypes {
     tag: Tags
   }>
   get(name: TypesNames | NestedTypes): any
-  list(): Array<string, any>
-  available(): Array<string, any>
-  unavailable(): Array<string, any>
+  list(): Array<[string, any]>
+  available(): Array<[string, any]>
+  unavailable(): Array<[string, any]>
   report(): {
     types: number
     available: number
