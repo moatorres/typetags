@@ -1,13 +1,12 @@
-export declare const toString: (v: T) => string | undefined
+export declare const toString: <T>(v: T) => string | undefined
 export declare const hasOwn: (obj: object, prop: string) => boolean
 
-// TODO: double-check this one
-export declare const comparer: (
+export declare const comparer: <T>(
   other: Array<T>
-) => (current: Array<U>) => Array<T | U>
+) => <U>(current: Array<U>) => Array<T | U>
 
 export declare const memoize: (fn: Function) => any
-export declare const define: <T>(
+export declare const define: <T, U>(
   object: object,
   name: string,
   value: U
