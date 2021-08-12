@@ -7,6 +7,8 @@ export declare type Types =
   | 'Array.Iterator'
   | 'ArrayBuffer'
   | 'AsyncFunction'
+  | 'AsyncGenerator'
+  | 'AsyncGeneratorFunction'
   | 'Atomics'
   | 'BigInt'
   | 'BigInt64Array'
@@ -93,6 +95,8 @@ export declare type Tags =
   | '[object Array Iterator]'
   | '[object ArrayBuffer]'
   | '[object AsyncFunction]'
+  | '[object AsyncGenerator]'
+  | '[object AsyncGeneratorFunction]'
   | '[object Atomics]'
   | '[object BigInt]'
   | '[object BigInt64Array]'
@@ -222,6 +226,8 @@ declare enum TypesEnum {
   Arguments = '[object Arguments]',
   Array = '[object Array]',
   AsyncFunction = '[object AsyncFunction]',
+  AsyncGenerator = '[object AsyncGenerator]',
+  AsyncGeneratorFunction = '[object AsyncGeneratorFunction]',
   Atomics = '[object Atomics]',
   Boolean = '[object Boolean]',
   Console = '[object console]',
