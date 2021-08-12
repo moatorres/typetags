@@ -186,19 +186,31 @@ export declare type Tags =
   | '[object Window]'
   | '[object Worker]'
 
+export declare type SyntaticTags =
+  | '[object AsyncFunction]'
+  | '[object AsyncGenerator]'
+  | '[object AsyncGeneratorFunction]'
+  | '[object Arguments]'
+  | '[object Generator]'
+  | '[object GeneratorFunction]'
+  | '[object Null]'
+  | '[object Undefined]'
+
 export declare type PrimitiveTypes =
-  | 'boolean'
-  | 'string'
   | 'bigint'
-  | 'number'
-  | 'undefined'
-  | 'symbol'
+  | 'boolean'
   | 'function'
+  | 'string'
   | 'null'
+  | 'number'
+  // | 'object'
+  | 'symbol'
+  | 'undefined'
 
 export declare type NumberTypes = 'NaN' | 'Infinity'
 
 export declare const ALL_TYPES: Array<Types & NestedTypes>
 export declare const NESTED_TYPES: Array<NestedTypes>
-export declare const NUMBER_TYPES: Array<PrimitiveTypes>
+export declare const NUMBER_TYPES: Array<NumberTypes>
 export declare const PRIMITIVE_TYPES: Array<PrimitiveTypes>
+export declare const SYNTATIC_TAGS: Array<SyntaticTags>

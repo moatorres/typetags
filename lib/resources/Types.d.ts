@@ -1,4 +1,9 @@
-import { Types as TypeNames, Tags, NestedTypes } from '../.internal/types'
+import {
+  Types as TypeNames,
+  Tags,
+  NestedTypes,
+  PrimitiveTypes,
+} from '../.internal/types'
 
 declare interface TypeMeta {
   inGlobal: boolean
@@ -12,15 +17,7 @@ declare interface TypeMeta {
   istStringifiable: boolean
   name: TypeNames | NestedTypes
   tag: Tags
-  typeof:
-    | 'boolean'
-    | 'bigint'
-    | 'function'
-    | 'object'
-    | 'number'
-    | 'string'
-    | 'symbol'
-    | 'undefined'
+  typeof: PrimitiveTypes
 }
 
 declare interface TypeMetaEmpty {
