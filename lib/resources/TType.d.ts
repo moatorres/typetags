@@ -18,10 +18,6 @@ declare type ITType<T> = {
   isConstructor(): boolean
   isFactory(): boolean
   isStringifiable(): boolean
-  create(...args: any): T
-  build(...args: any): T
-  from(...args: any): T
-  of(...args: any): T
   info(options?: ReportOptions): InstanceReport<T> | never
   instance(...args: any): string | object | T
   isAvailable(): boolean
