@@ -20,7 +20,6 @@ declare interface ITextUtils {
 }
 
 export declare const TextUtils: ITextUtils
-export declare const getGlobalTypes: () => Array<[string, Function]>
 export declare const getOwnKeys: (target: object) => (string | symbol)[]
 
 export declare const isArray: Pick<ArrayConstructor, 'isArray'>
