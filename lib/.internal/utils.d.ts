@@ -1,31 +1,34 @@
-export declare const toString: <T>(v: T) => string | undefined
-export declare const hasOwn: (obj: object, prop: string) => boolean
+declare type PropertyKey = string | number | symbol
+
+export declare const toString: <T>(v: T) => string
+export declare const hasOwn: <T>(obj: T, prop: PropertyKey) => boolean
 
 export declare const comparer: <T>(
   other: Array<T>
 ) => <U>(current: Array<U>) => Array<T | U>
 
-export declare const memoize: (fn: Function) => any
-export declare const define: <T, U>(
-  object: object,
-  name: string,
-  value: U
-) => U & T
+export declare const memoize: (fn: Function) => (...args: any) => any
 
-declare type TextUtil = (str: string) => String
-declare type TextMethods =
-  | 'toTag'
-  | 'toLower'
-  | 'toUpper'
-  | 'toFirstUpper'
-  | 'toFirstLower'
-  | 'toPredicate'
-  | 'toRemoveDot'
-
-declare type ITextUtils = {
-  [key in TextMethods]: TextUtil
+declare interface ITextUtils {
+  toTag(str: string): string
+  toLower(str: string): string
+  toUpper(str: string): string
+  toFirstUpper(str: string): string
+  toFirstLower(str: string): string
+  toPredicate(str: string): string
+  toRemoveDot(str: string): string
 }
 
 export declare const TextUtils: ITextUtils
 export declare const getGlobalTypes: () => Array<[string, Function]>
-export declare const checkRuntime: () => string
+export declare const getOwnKeys: (target: object) => (string | symbol)[]
+
+export declare const isArray: Pick<ArrayConstructor, 'isArray'>
+export declare const define: Pick<ObjectConstructor, 'defineProperty'>
+export declare const getProps: Pick<ObjectConstructor, 'getOwnPropertyNames'>
+export declare const getKeys: Pick<ObjectConstructor, 'keys'>
+export declare const getEntries: Pick<ObjectConstructor, 'entries'>
+export declare const getDescriptors: Pick<
+  ObjectConstructor,
+  'getOwnPropertyDescriptors'
+>
