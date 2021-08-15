@@ -15,9 +15,14 @@ declare type ITType<T> = {
   tag: string
   isNotAvailable: string | boolean
   toString(): string
+  hasSpecialArgs(): boolean
+  isSyntatic(): boolean
+  isTypedArray(): boolean
   isConstructor(): boolean
   isFactory(): boolean
   isStringifiable(): boolean
+  isObject(): boolean
+  isFunction(): boolean
   info(options?: ReportOptions): InstanceReport<T> | never
   instance(...args: any): string | object | T
   isAvailable(): boolean
