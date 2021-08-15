@@ -4,7 +4,6 @@ declare interface ReportOptions {
 }
 
 declare interface InstanceReport<T> {
-  name: string
   value: T
   typeof: string
   prototype: T | Function | string
