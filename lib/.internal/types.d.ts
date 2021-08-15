@@ -194,6 +194,16 @@ export declare type SyntaticTags =
   | '[object Null]'
   | '[object Undefined]'
 
+export declare type SyntaticTypes =
+  | 'AsyncFunction'
+  | 'AsyncGenerator'
+  | 'AsyncGeneratorFunction'
+  | 'Arguments'
+  | 'Generator'
+  | 'GeneratorFunction'
+  | 'Null'
+  | 'Undefined'
+
 export declare type PrimitiveTypes =
   | 'bigint'
   | 'boolean'
@@ -211,4 +221,4 @@ export declare const ALL_TYPES: Array<Types & NestedTypes>
 export declare const NESTED_TYPES: Array<NestedTypes>
 export declare const NUMBER_TYPES: Array<NumberTypes>
 export declare const PRIMITIVE_TYPES: Array<PrimitiveTypes>
-export declare const SYNTATIC_TAGS: Array<SyntaticTags>
+export declare const SYNTATIC_TYPES: Array<SyntaticTypes>
