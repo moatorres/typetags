@@ -16,6 +16,7 @@ export declare type ITType<T> = {
   isAvailable(): boolean
   isSyntatic(): boolean
   isTypedArray(): boolean
+  isPrimitive(): boolean
   isConstructor(): boolean
   isFactory(): boolean
   isObject(): boolean
