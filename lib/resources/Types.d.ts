@@ -14,7 +14,7 @@ declare interface TypeMeta {
   isNested: boolean
   isPrimitive: boolean
   isSyntatic: boolean
-  istStringifiable: boolean
+  isStringifiable: boolean
   name: TypeNames | NestedTypes
   tag: Tags
   typeof: PrimitiveTypes
