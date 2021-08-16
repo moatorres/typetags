@@ -30,6 +30,7 @@ export declare type ITType<T> = {
   inGlobal(): boolean
   info(options?: ReportOptions): InstanceReport<T> | never
   instance(...args: any): T | string | object
+  builtin<T>(): T
   ownKeys<T>(): Array<keyof T>
 }
 
