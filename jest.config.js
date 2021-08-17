@@ -4,4 +4,5 @@ module.exports = {
   moduleFileExtensions: ['ts', 'js', 'node'],
   setupFilesAfterEnv: ['jest-extended'],
   watchPathIgnorePatterns: ['/init/*', '/data/*'],
+  modulePathIgnorePatterns: ['temp', 'benchmarks'],
 }
