@@ -7,6 +7,8 @@ export declare type Types =
   | 'Array.Iterator'
   | 'ArrayBuffer'
   | 'AsyncFunction'
+  | 'AsyncGenerator'
+  | 'AsyncGeneratorFunction'
   | 'Atomics'
   | 'BigInt'
   | 'BigInt64Array'
@@ -24,6 +26,7 @@ export declare type Types =
   | 'Generator'
   | 'GeneratorFunction'
   | 'GlobalThis'
+  | 'Global'
   | 'Infinity'
   | 'Int8Array'
   | 'Int16Array'
@@ -92,6 +95,8 @@ export declare type Tags =
   | '[object Array Iterator]'
   | '[object ArrayBuffer]'
   | '[object AsyncFunction]'
+  | '[object AsyncGenerator]'
+  | '[object AsyncGeneratorFunction]'
   | '[object Atomics]'
   | '[object BigInt]'
   | '[object BigInt64Array]'
@@ -221,6 +226,8 @@ declare enum TypesEnum {
   Arguments = '[object Arguments]',
   Array = '[object Array]',
   AsyncFunction = '[object AsyncFunction]',
+  AsyncGenerator = '[object AsyncGenerator]',
+  AsyncGeneratorFunction = '[object AsyncGeneratorFunction]',
   Atomics = '[object Atomics]',
   Boolean = '[object Boolean]',
   Console = '[object console]',
@@ -297,4 +304,3 @@ export declare type ITypeTags = {
 }
 
 export declare const TypeTags: ITypeTags
-// export declare const TypeTags: Record<Types, Tags>

@@ -501,6 +501,19 @@ console.log(isGeneratorFunctionTag(gene.toString())) // → false
 console.log(isGeneratorFunctionTag(typetag)) // → true
 ```
 
+##### `isGlobalTag()` ⚡️
+
+- Checks if _value_ is a default `global` typetag
+
+```js
+const { isGlobalTag, getTag } = require('typetags')
+
+let tag = getTag(global)
+
+console.log(isGlobalTag(tag)) // → true
+console.log(isGlobalTag(global.toString())) // → false
+```
+
 ##### `isGlobalThisTag()` ⚡️
 
 - Checks if _value_ is a default `globalThis` typetag
