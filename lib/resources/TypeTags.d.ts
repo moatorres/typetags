@@ -1,6 +1,10 @@
-import { Types, Tags, NestedTypes, NestedPredicates } from '../.internal/types'
-
 import { TTypeInterface } from './TType'
+import {
+  Types,
+  Tags,
+  NestedTypes,
+  NestedPredicates,
+} from '../.internal/constants'
 
 declare type PredicateNames = `is${Types | NestedPredicates}`
 
@@ -20,12 +24,14 @@ declare type ITypeTags = {
 
 declare type TypeTagHelpers = {
   get(name: Types | NestedTypes): Tags | undefined
+  get(value: any): Tags
   of<T>(value: Types | NestedTypes | Array<T>): Array<Tags> | Tags
   enhance<T>(name: Types | NestedTypes): TTypeInterface<T>
   hasToStringMethod(obj: any): boolean
   isDefaulTag(tag: string): boolean
   isIterator(obj: any): boolean
   isTypedArray(obj: any): boolean
+  assign<T>(o: T, tag: string): T
 }
 
 export declare const TypeTags: ITypeTags & IPredicates & TypeTagHelpers

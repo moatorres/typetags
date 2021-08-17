@@ -1,4 +1,9 @@
-import { NestedTypes, PrimitiveTypes, Tags, Types } from '../.internal/types'
+import {
+  NestedTypes,
+  PrimitiveTypes,
+  Tags,
+  Types,
+} from '../.internal/constants'
 
 declare interface ReportOptions {
   descriptors?: boolean

@@ -106,8 +106,6 @@ export declare type Types =
   | 'WeakRef'
   | 'WeakSet'
   | 'WebAssembly'
-  | 'Window'
-  | 'Worker'
 
 export declare type Tags =
   | '[object AbortController]'
@@ -181,18 +179,6 @@ export declare type Tags =
   | '[object WebAssembly.Instance]'
   | '[object WebAssembly.Memory]'
   | '[object WebAssembly.Table]'
-  | '[object Window]'
-  | '[object Worker]'
-
-export declare type SyntaticTags =
-  | '[object AsyncFunction]'
-  | '[object AsyncGenerator]'
-  | '[object AsyncGeneratorFunction]'
-  | '[object Arguments]'
-  | '[object Generator]'
-  | '[object GeneratorFunction]'
-  | '[object Null]'
-  | '[object Undefined]'
 
 export declare type SyntaticTypes =
   | 'AsyncFunction'
