@@ -1,21 +1,16 @@
-import { PrimitiveTypes, Tags, Types } from '../.internal/types'
+import { NestedTypes, PrimitiveTypes, Tags, Types } from '../.internal/types'
 
 declare interface ReportOptions {
   descriptors?: boolean
   prototype?: boolean
 }
 
-declare interface TTypeProps {
-  type: string
-  tag: string
+declare type EnhancedTypeClass<T> = {
+  create(type: Types | NestedTypes): EnhancedType<T>
 }
 
-declare type ITTypeClass<T> = {
-  create(props: TTypeProps): ITType<T>
-}
-
-export declare interface ITType<T> {
-  type: Types
+export declare interface EnhancedType<T> {
+  type: Types | NestedTypes
   tag: Tags
   isAvailable(): boolean
   isSyntatic(): boolean
@@ -30,6 +25,7 @@ export declare interface ITType<T> {
   isStringifiable(): boolean
   hasSpecialArgs(): boolean
   getTag(): Tags
+  instanceTypeOf(): PrimitiveTypes | 'object'
   typeOf(): PrimitiveTypes | 'object'
   toString(): Tags
   inGlobal(): boolean
@@ -72,4 +68,4 @@ declare interface TTypeInfo<T> {
   }
 }
 
-export declare const TType: ITTypeClass<any>
+export declare const TType: EnhancedTypeClass<any>
