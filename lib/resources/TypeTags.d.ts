@@ -22,6 +22,10 @@ declare type TypeTagHelpers = {
   get(name: Types | NestedTypes): Tags | undefined
   of<T>(value: Types | NestedTypes | Array<T>): Array<Tags> | Tags
   enhance<T>(name: Types | NestedTypes): TTypeInterface<T>
+  hasToStringMethod(obj: any): boolean
+  isDefaulTag(tag: string): boolean
+  isIterator(obj: any): boolean
+  isTypedArray(obj: any): boolean
 }
 
 export declare const TypeTags: ITypeTags & IPredicates & TypeTagHelpers
