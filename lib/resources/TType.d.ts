@@ -5,11 +5,11 @@ declare interface ReportOptions {
   prototype?: boolean
 }
 
-declare type EnhancedTypeClass<T> = {
-  create(type: Types | NestedTypes): EnhancedType<T>
+declare type TTypeInterfaceClass<T> = {
+  create(type: Types | NestedTypes): TTypeInterface<T>
 }
 
-export declare interface EnhancedType<T> {
+export declare interface TTypeInterface<T> {
   type: Types | NestedTypes
   tag: Tags
   isAvailable(): boolean
@@ -68,4 +68,4 @@ declare interface TTypeInfo<T> {
   }
 }
 
-export declare const TType: EnhancedTypeClass<any>
+export declare const TType: TTypeInterfaceClass<any>
