@@ -1,0 +1,1 @@
+# `isFloat32Array()`

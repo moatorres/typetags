@@ -1,0 +1,1 @@
+# `isUint8Array()`

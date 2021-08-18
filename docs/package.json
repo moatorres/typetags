@@ -1,0 +1,16 @@
+{
+  "name": "typetags-docs",
+  "version": "1.0.0",
+  "description": "TypeTags documentation website",
+  "main": "index.js",
+  "author": "Moa Torres",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "next": "^11.1.0",
+    "nextra": "^1.1.0",
+    "nextra-theme-docs": "^1.2.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}

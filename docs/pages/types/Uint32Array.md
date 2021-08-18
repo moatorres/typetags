@@ -1,0 +1,1 @@
+# TypeTags.`Uint32Array`

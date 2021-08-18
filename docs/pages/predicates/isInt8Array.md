@@ -1,0 +1,1 @@
+# `isInt8Array()`

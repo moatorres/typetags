@@ -1,0 +1,46 @@
+# Predicates
+
+There are two kinds of predicate functions to help us with assertions: **generics** and **specifics**.
+
+### Generics
+
+Used for overall checks. For example, to check if an object has a default typetag:
+
+```js
+const { isDefaultTag } = require('typetags')
+
+const o = Object.create(null)
+
+isDefaultTag(o) // → false
+```
+
+### Specifics
+
+Allows us to check for specific tags:
+
+```js
+const { isArray, getTag } = require('typetags')
+
+const arr = [1, 2, 3]
+const tag = arr.toString() // → 1,2,3
+
+isArray(tag) // → false
+
+console.log(getTag(arr)) // → '[object Array]'
+```
+
+### Signature
+
+```ts
+declare type PredicateNames = `is${Types | NestedPredicates}`
+
+declare interface Predicate {
+  predicate(value: any): boolean
+}
+
+declare type PredicateMapper<Type> = {
+  [Prop in keyof Type as PredicateNames]: Type[Prop]
+}
+
+declare type IPredicates = PredicateMapper<Predicate>
+```
