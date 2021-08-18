@@ -10,7 +10,7 @@ export default [
     plugins: [
       nodeResolve(),
       babel({
-        babelHelpers: 'bundled',
+        babelHelpers: 'runtime',
         include: ['lib/**/*.d.ts'],
       }),
       terser(),
@@ -24,7 +24,6 @@ export default [
       sourcemap: true,
     },
   },
-
   {
     input,
     plugins: [nodeResolve()],
