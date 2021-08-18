@@ -1,3 +1,5 @@
+import { NestedTypes, Tags, Types } from './constants'
+
 declare type PropertyKey = string | number | symbol
 
 export declare const comparer: <T>(
@@ -19,3 +21,10 @@ export declare const getDescriptors: Pick<
   ObjectConstructor,
   'getOwnPropertyDescriptors'
 >
+
+declare interface TypeTagsMetadata {
+  type: Types | NestedTypes
+  tag: Tags
+}
+
+export const generateTypeTags: () => Array<TypeTagsMetadata>

@@ -3,7 +3,7 @@ import {
   PrimitiveTypes,
   Tags,
   Types,
-} from '../.internal/constants'
+} from '../resources/constants'
 
 declare interface ReportOptions {
   descriptors?: boolean

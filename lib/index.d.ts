@@ -11,7 +11,7 @@ export type {
   NUMBER_TYPES,
   PRIMITIVE_TYPES,
   SYNTATIC_TYPES,
-} from './.internal/constants'
+} from './constants'
 export { TypeTags } from './resources/TypeTags'
 export { TType } from './resources/TType'
 export { assignTag } from './assign-tag'

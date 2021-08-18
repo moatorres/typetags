@@ -4,7 +4,7 @@ import {
   Tags,
   NestedTypes,
   NestedPredicates,
-} from '../.internal/constants'
+} from '../resources/constants'
 
 declare type PredicateNames = `is${Types | NestedPredicates}`
 

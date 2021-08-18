@@ -3,7 +3,7 @@ import {
   Tags,
   NestedTypes,
   PrimitiveTypes,
-} from '../.internal/constants'
+} from '../constants'
 
 declare interface TypeMeta {
   inGlobal: boolean

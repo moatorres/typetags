@@ -1,8 +1,4 @@
-export { Types } from './Types'
 export type { Types } from './Types'
-export { TType } from './TType'
 export type { TType } from './TType'
-export { TypeTags } from './TypeTags'
 export type { TypeTags } from './TypeTags'
-export { TextUtils } from './TextUtils'
 export type { TextUtils } from './TextUtils'

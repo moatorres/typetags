@@ -1,4 +1,4 @@
-import { Tags, Types } from '../../.internal/constants'
+import { Tags, Types } from '../constants'
 
 declare type ArgsMap =
   | 'AggregateError'
@@ -25,10 +25,10 @@ export declare const argsMap: (
 ) =>
   | AsyncGeneratorFunction
   | Uint8Array
-  | WebAssembly.Module<Uint8Array>
+  | WebAssembly.Module
   | SharedArrayBuffer
   | GeneratorFunction
-  | Array
+  | Array<any>
   | string
   | object
   | number
