@@ -1,9 +1,4 @@
-import {
-  NestedTypes,
-  PrimitiveTypes,
-  Tags,
-  Types,
-} from '../resources/constants'
+import { NestedTypes, PrimitiveTypes, Tags, Types } from '../constants'
 
 declare interface ReportOptions {
   descriptors?: boolean

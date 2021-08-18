@@ -1,10 +1,5 @@
 import { TTypeInterface } from './TType'
-import {
-  Types,
-  Tags,
-  NestedTypes,
-  NestedPredicates,
-} from '../resources/constants'
+import { Types, Tags, NestedTypes, NestedPredicates } from '../constants'
 
 declare type PredicateNames = `is${Types | NestedPredicates}`
 
