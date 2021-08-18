@@ -28,7 +28,7 @@ export declare interface TTypeInterface<T> {
   instanceTypeOf(): PrimitiveTypes | 'object'
   typeOf(): PrimitiveTypes | 'object'
   toString(): Tags
-  inGlobal(): boolean
+  isGlobal(): boolean
   info(options?: ReportOptions): TTypeInfo<T> | never
   instance(...args: any): T | string | object
   builtin<T>(): T
@@ -41,7 +41,7 @@ declare interface TTypeInfo<T> {
   type: T
   typeOf: PrimitiveTypes | 'object'
   hasSpecialArgs: boolean
-  inGlobal: boolean
+  isGlobal: boolean
   instanceOf: Types | undefined
   instanceTypeOf: PrimitiveTypes | 'object'
   isAvailable: boolean

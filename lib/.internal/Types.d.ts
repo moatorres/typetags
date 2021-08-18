@@ -6,7 +6,7 @@ import {
 } from '../constants'
 
 declare interface TypeMeta {
-  inGlobal: boolean
+  isGlobal: boolean
   isAvailable: boolean
   isConstructor: boolean
   isFactory: boolean
