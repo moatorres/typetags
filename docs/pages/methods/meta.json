@@ -1,5 +1,5 @@
 {
-  "index": "About",
+  "index": "Overview",
   "assign": ".assign(object, tag)",
   "get": ".get(value | name)",
   "enhance": ".enhance(name)",

@@ -1,4 +1,4 @@
-# TypeTags
+# Methods
 
 ```ts
 import { TTypeInterface } from './TType'

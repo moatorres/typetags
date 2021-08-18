@@ -1,5 +1,5 @@
 {
-  "index": "About",
+  "index": "Overview",
   "isAbortController": ".isAbortController()",
   "isAbortSignal": ".isAbortSignal()",
   "isAggregateError": ".isAggregateError()",
@@ -76,12 +76,12 @@
   "isWeakRef": ".isWeakRef()",
   "isWeakSet": ".isWeakSet()",
   "isWebAssembly": ".isWebAssembly()",
-  "isWebAssemblyModule": "isWebAssemblyModule()",
-  "isWebAssemblyGlobal": "isWebAssemblyGlobal()",
-  "isWebAssemblyInstance": "isWebAssemblyInstance()",
-  "isWebAssemblyMemory": "isWebAssemblyMemory()",
-  "isWebAssemblyTable": "isWebAssemblyTable()",
-  "isWebAssemblyCompileError": "isWebAssemblyCompileError()",
-  "isWebAssemblyLinkError": "isWebAssemblyLinkError()",
-  "isWebAssemblyRuntimeError": "isWebAssemblyRuntimeError()"
+  "isWebAssemblyModule": ".isWebAssemblyModule()",
+  "isWebAssemblyGlobal": ".isWebAssemblyGlobal()",
+  "isWebAssemblyInstance": ".isWebAssemblyInstance()",
+  "isWebAssemblyMemory": ".isWebAssemblyMemory()",
+  "isWebAssemblyTable": ".isWebAssemblyTable()",
+  "isWebAssemblyCompileError": ".isWebAssemblyCompileError()",
+  "isWebAssemblyLinkError": ".isWebAssemblyLinkError()",
+  "isWebAssemblyRuntimeError": ".isWebAssemblyRuntimeError()"
 }
