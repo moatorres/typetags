@@ -1,4 +1,4 @@
-# TypeTags.`isDefaultTag`
+# TypeTags `.isDefaultTag`
 
 ### Overview
 
@@ -6,7 +6,7 @@ The `.isDefaultTag` method allow us to check if an object's `toStringTag` value 
 
 ### Usage
 
-#### `TypeTags.isDefaultTag(value)`
+##### `TypeTags.isDefaultTag(value)`
 
 - Checks if `value` is one of the built-in's type tag values.
 

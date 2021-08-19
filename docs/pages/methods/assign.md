@@ -1,4 +1,4 @@
-# TypeTags.`assign`
+# TypeTags `.assign`
 
 ### Overview
 
@@ -6,7 +6,7 @@ The `.assign` method allows us assign the well-known [`Symbol.toStringTag`](http
 
 ### Usage
 
-#### `TypeTags.assign(object, tag)`
+##### `TypeTags.assign(object, tag)`
 
 - Adds a `toStringTag` property into an object.
 
@@ -18,11 +18,14 @@ const tag = 'CustomTag'
 
 TypeTags.assign(proto, tag)
 
-console.log(TypeTags.get(proto)) // → [object CustomTag]
-console.log(proto[Symbol.toStringTag]) // → 'CustomTag'
+TypeTags.get(proto)
+// → [object CustomTag]
+
+proto[Symbol.toStringTag]
+// → 'CustomTag'
 ```
 
-If the received object doesn't have a `toString` method defined, `assign` will add the native `Object.prototype.toString` to the object and then add the `tag` value on the object.
+If `object` doesn't have a `toString` method defined, `assign` will add `Object.prototype.toString` to the object prior to its `tag` value.
 
 We can use the [`hasToString`]() method to check if `toString` has already been defined.
 
@@ -31,11 +34,18 @@ import { TypeTags } from 'typetags'
 
 const user = Object.create(null) // null prototype
 
+TypeTags.get(user)
+// → undefined
+
 if (!TypeTags.hasToString(user)) {
   TypeTags.assign(user, 'User')
 }
 
-console.log(user[Symbol.toStringTag]) // → 'User'
+TypeTags.get(user)
+// → '[object User]'
+
+user[Symbol.toStringTag]
+// → 'User'
 ```
 
 ### Signature
