@@ -2,20 +2,44 @@
 
 ### Overview
 
-The `.assign` method wraps a built-in type into a `TType` object and provides us methods for introspection.
+The `.assign` method allows us assign the well-known [`Symbol.toStringTag`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag) property to an object. If it receives an object withtout a `toString` method defined, it will assign `Object.prototype.toString` to it then its `tag`.
 
 ### Usage
 
-#### `TypeTags.assign(object, name)`
+#### `TypeTags.assign(object, tag)`
 
-- Assigns a `toStringTag` property into an object.
+- Adds a `toStringTag` property into an object.
 
 ```js
 import { TypeTags } from 'typetags'
+
+const proto = {}
+const tag = 'CustomTag'
+
+TypeTags.assign(proto, tag)
+
+console.log(TypeTags.get(proto)) // → [object CustomTag]
+console.log(proto[Symbol.toStringTag]) // → 'CustomTag'
+```
+
+If the received object doesn't have a `toString` method defined, `assign` will add the native `Object.prototype.toString` to the object and then add the `tag` value on the object.
+
+We can use the [`hasToString`]() method to check if `toString` has already been defined.
+
+```js
+import { TypeTags } from 'typetags'
+
+const user = Object.create(null) // null prototype
+
+if (!TypeTags.hasToString(user)) {
+  TypeTags.assign(user, 'User')
+}
+
+console.log(user[Symbol.toStringTag]) // → 'User'
 ```
 
 ### Signature
 
 ```ts
-assign<T>(name: Types | NestedTypes): TTypeInterface<T>
+assign<T>(object: T, tag: string): T
 ```

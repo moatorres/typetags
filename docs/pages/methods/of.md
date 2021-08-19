@@ -37,7 +37,7 @@ Values must be wrapped on an array, otherwise it will return the type tag of the
 TypeTags.of(12, '', []) // → [object Number]
 ```
 
-You can also use the `.of` method in [point-free]() style.
+You can also use the `.of` method in [point-free](https://en.wikipedia.org/wiki/Tacit_programming) (tacit programming) style.
 
 ```js
 import { TypeTags } from 'typetags'

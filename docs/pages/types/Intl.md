@@ -1,1 +1,51 @@
 # TypeTags.`Intl`
+
+### Overview
+
+The `Intl`...
+
+### Usage
+
+```js
+import { TypeTags } from 'typetags'
+
+console.log(TypeTags.Intl) // → [object Intl]
+```
+
+### Metadata (TType)
+
+| Metadata             | Value                                                                                                                                         |
+| -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| `.type`              | `Intl`                                                                                                                                        |
+| `.tag`               | `[object Intl]`                                                                                                                               |
+| `.builtin()`         | `undefined`                                                                                                                                   |
+| `.getTag()`          | `[object Intl]`                                                                                                                               |
+| `.hasSpecialArgs()`  | `false`                                                                                                                                       |
+| `.instance()`        | `undefined`                                                                                                                                   |
+| `.instanceTypeOf()`  | `object`                                                                                                                                      |
+| `.info()`            | [see more]()                                                                                                                                  |
+| `.isAvailable()`     | `true`                                                                                                                                        |
+| `.isConstructor()`   | `false`                                                                                                                                       |
+| `.isFactory()`       | `false`                                                                                                                                       |
+| `.isFunction()`      | `false`                                                                                                                                       |
+| `.isGlobal()`        | `true`                                                                                                                                        |
+| `.isIterator()`      | `false`                                                                                                                                       |
+| `.isNested()`        | `false`                                                                                                                                       |
+| `.isObject()`        | `true`                                                                                                                                        |
+| `.isPrimitive()`     | `false`                                                                                                                                       |
+| `.isStringifiable()` | `true`                                                                                                                                        |
+| `.isSyntatic()`      | `false`                                                                                                                                       |
+| `.isTypedArray()`    | `false`                                                                                                                                       |
+| `.ownKeys()`         | `[getCanonicalLocales, DateTimeFormat, NumberFormat, Collator, PluralRules, RelativeTimeFormat, ListFormat, Locale, DisplayNames, Segmenter]` |
+| `.toString()`        | `function toString() { [native code] }`                                                                                                       |
+| `.typeOf()`          | `object`                                                                                                                                      |
+
+### Signature
+
+```ts
+declare type ITypeTags = {
+  [key in Types | NestedTypes]: Tags
+}
+```
+
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)

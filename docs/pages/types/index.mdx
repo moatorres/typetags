@@ -1,9 +1,81 @@
 # Types
 
+### Overview
+
+JavaScript is a _loosely typed_ and _dynamic_ language. Variables in JavaScript are not directly associated with any particular value type, and any variable can be assigned (and re-assigned) values of all types.
+
+This library attempts to list the built-in data structures available in JavaScript along with its type tags.
+
 ### Signature
 
 ```ts
 declare type ITypeTags = {
   [key in Types | NestedTypes]: Tags
 }
+```
+
+### Constants
+
+```js
+export const ALL_TYPES = [
+  'AbortController',
+  'AbortSignal',
+  'AggregateError',
+  'Array',
+  'Array.Iterator',
+  'ArrayBuffer',
+  'Atomics',
+  'BigInt',
+  'BigInt64Array',
+  'BigUint64Array',
+  'Boolean',
+  'Console',
+  'DataView',
+  'Date',
+  'Error',
+  'EvalError',
+  'FinalizationRegistry',
+  'Float32Array',
+  'Float64Array',
+  'Function',
+  'GlobalThis',
+  'Global',
+  'Int8Array',
+  'Int16Array',
+  'Int32Array',
+  'Intl',
+  'JSON',
+  'Map',
+  'Map.Iterator',
+  'Math',
+  'Number',
+  'Object',
+  'Process',
+  'Promise',
+  'RangeError',
+  'ReferenceError',
+  'RegExp',
+  'Reflect',
+  'Set',
+  'Set.Iterator',
+  'SharedArrayBuffer',
+  'String',
+  'String.Iterator',
+  'Symbol',
+  'SyntaxError',
+  'TextDecoder',
+  'TextEncoder',
+  'TypeError',
+  'Uint8Array',
+  'Uint8ClampedArray',
+  'Uint16Array',
+  'Uint32Array',
+  'URIError',
+  'URL',
+  'URLSearchParams',
+  'WeakMap',
+  'WeakRef',
+  'WeakSet',
+  'WebAssembly',
+]
 ```

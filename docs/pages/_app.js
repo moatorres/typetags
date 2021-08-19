@@ -1,5 +1,8 @@
 import 'nextra-theme-docs/style.css'
+import { Fragment } from 'react'
 
-export default function Nextra({ Component, pageProps }) {
+const App = ({ Component, pageProps }) => {
   return <Component {...pageProps} />
 }
+
+export default App

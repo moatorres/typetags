@@ -1,44 +1,44 @@
-# TypeTags.`GeneratorFunction`
+# TypeTags.`NaN`
 
 ### Overview
 
-The `GeneratorFunction`...
+The `NaN`...
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.GeneratorFunction) // → [object GeneratorFunction]
+console.log(TypeTags.NaN) // → [object Number]
 ```
 
 ### Metadata (TType)
 
 | Metadata             | Value                                   |
 | -------------------- | --------------------------------------- |
-| `.type`              | `GeneratorFunction`                     |
-| `.tag`               | `[object GeneratorFunction]`            |
+| `.type`              | `NaN`                                   |
+| `.tag`               | `[object Number]`                       |
 | `.builtin()`         | `undefined`                             |
-| `.getTag()`          | `[object GeneratorFunction]`            |
-| `.hasSpecialArgs()`  | `true`                                  |
+| `.getTag()`          | `[object Number]`                       |
+| `.hasSpecialArgs()`  | `false`                                 |
 | `.instance()`        | `undefined`                             |
-| `.instanceTypeOf()`  | `object`                                |
+| `.instanceTypeOf()`  | `number`                                |
 | `.info()`            | [see more]()                            |
 | `.isAvailable()`     | `true`                                  |
 | `.isConstructor()`   | `false`                                 |
-| `.isFactory()`       | `true`                                  |
-| `.isFunction()`      | `true`                                  |
-| `.isGlobal()`        | `false`                                 |
+| `.isFactory()`       | `false`                                 |
+| `.isFunction()`      | `false`                                 |
+| `.isGlobal()`        | `true`                                  |
 | `.isIterator()`      | `false`                                 |
 | `.isNested()`        | `false`                                 |
 | `.isObject()`        | `false`                                 |
 | `.isPrimitive()`     | `false`                                 |
 | `.isStringifiable()` | `true`                                  |
-| `.isSyntatic()`      | `true`                                  |
+| `.isSyntatic()`      | `false`                                 |
 | `.isTypedArray()`    | `false`                                 |
-| `.ownKeys()`         | `[length,name,prototype]`               |
+| `.ownKeys()`         | `[]`                                    |
 | `.toString()`        | `function toString() { [native code] }` |
-| `.typeOf()`          | `function`                              |
+| `.typeOf()`          | `number`                                |
 
 ### Signature
 
