@@ -1,1 +1,0 @@
-# `isUint16Array()`

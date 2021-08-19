@@ -1,1 +1,0 @@
-# `isInfinity()`
