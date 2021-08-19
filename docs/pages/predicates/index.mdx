@@ -1,0 +1,67 @@
+# Predicates
+
+There are two kinds of predicate functions to help us with assertions: **generics** and **specifics**.
+
+### Generics
+
+Used for overall checks. For example, to check if an object has a default typetag:
+
+```js
+const { TypeTags } = require('typetags')
+
+const o = Object.create(null)
+
+TypeTags.isDefaultTag(o) // → false
+```
+
+### Specifics
+
+Allows us to check for specific tags:
+
+```js
+const { TypeTags } = require('typetags')
+
+const arr = [1, 2, 3]
+const tag = arr.toString() // → 1,2,3
+
+TypeTags.isArray(tag) // → false
+
+console.log(TypeTags.get(arr)) // → '[object Array]'
+```
+
+We can take advantage of [object destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#object_destructuring) to extract predicates from the `TypeTags` object.
+
+```js
+import { TypeTags } from 'typetags'
+
+const { isArray, isSet } = TypeTags
+
+console.log(isArray([])) // → true
+console.log(isSet('')) // → false
+```
+
+If you're using `common-js`, you can destructure on import as well.
+
+```js
+const { isMap } = require('typetags').TypeTags
+
+const cool = new Map()
+
+console.log(isMap(cool)) // → true
+```
+
+### Signature
+
+```ts
+declare type PredicateNames = `is${Types | NestedPredicates}`
+
+declare interface Predicate {
+  predicate(value: any): boolean
+}
+
+declare type PredicateMapper<Type> = {
+  [Prop in keyof Type as PredicateNames]: Type[Prop]
+}
+
+declare type Predicates = PredicateMapper<Predicate>
+```

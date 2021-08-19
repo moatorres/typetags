@@ -1,6 +1,6 @@
 {
   "name": "@moatorres/typetags",
-  "version": "1.3.0",
+  "version": "1.4.0-alpha",
   "decription": "String representations of objects in Node.js",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -18,7 +18,7 @@
     "clean": "rimraf dist/ coverage/",
     "build": "yarn clean && rollup -c && yarn build:types",
     "build:dev": "rollup -c -w",
-    "build:types": "copyfiles -u 1 \"lib/*.d.ts\" dist/types",
+    "build:types": "copyfiles -u 1 \"lib/**/*.d.ts\" dist/types",
     "test": "jest",
     "test:dev": "jest --watchAll --no-cache",
     "test:clear": "jest --clearCache",
@@ -33,13 +33,13 @@
   },
   "keywords": [
     "type",
+    "types",
+    "tag",
     "tags",
     "typetags",
-    "node",
-    "object",
-    "tag",
-    "toString",
-    "node"
+    "builtin",
+    "builtins",
+    "built-in"
   ],
   "devDependencies": {
     "@babel/core": "^7.14.8",
