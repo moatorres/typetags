@@ -1,8 +1,8 @@
-# `isBigInt()`
+# TypeTags `.isBigInt`
 
 ### Usage
 
-#### `TypeTags.isBigInt(value)`
+#### `TypeTags .isBigInt(value)`
 
 - Checks if `value` **is** or **has** a default `BigInt` type tag.
 
@@ -10,11 +10,15 @@
 const { TypeTags } = require('typetags')
 
 let bigint = BigInt(45n)
-TypeTags.isBigInt(bigint) // → true
-TypeTags.isBigInt(bigint.toString()) // → false
+TypeTags.isBigInt(bigint)
+// → true
 
-let typetag = TypeTags.get(bigint)
-TypeTags.isBigInt(typetag) // → true
+TypeTags.isBigInt(bigint.toString())
+// → false
+
+let tag = TypeTags.get(bigint)
+TypeTags.isBigInt(tag)
+// → true
 ```
 
 ### Signature

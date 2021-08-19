@@ -1,8 +1,8 @@
-# `isAbortController()`
+# TypeTags `.isAbortController`
 
 ### Usage
 
-#### `TypeTags.isAbortController(value)`
+#### `TypeTags .isAbortController(value)`
 
 - Checks if `value` **is** or **has** a default `AbortController` type tag.
 

@@ -1,4 +1,4 @@
-# TypeTags.`enhance`
+# TypeTags `.enhance`
 
 ### Overview
 
@@ -6,7 +6,7 @@ The `.enhance` method wraps a built-in type into a `TType` object which provides
 
 ### Usage
 
-#### `TypeTags.enhance(name)`
+##### `TypeTags.enhance(name)`
 
 - Returns an enhanced [`TType`](https://localhost:3000/ttype) object with extended methods.
 
@@ -15,8 +15,11 @@ import { TypeTags } from 'typetags'
 
 const ArrayType = TypeTags.enhance('Array')
 
-ArrayType.isConstructor() // → true
-ArrayType.instance(1, 2, 3) // → [1, 2, 3]
+ArrayType.isConstructor()
+// → true
+
+ArrayType.instance(1, 2, 3)
+// → [1, 2, 3]
 ```
 
 We could use it to check if a built-in is available on our runtime.
@@ -30,6 +33,8 @@ if (encoder.isAvailable()) {
   encoder.instance().encode('hey!')
 }
 ```
+
+![Types Intellisense](/images/typetags-06.jpg)
 
 For a list of all available methods, check out the [TType API reference]().
 

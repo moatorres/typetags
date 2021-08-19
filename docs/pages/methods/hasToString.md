@@ -1,4 +1,4 @@
-# TypeTags.`hasToString`
+# TypeTags `.hasToString`
 
 ### Overview
 
@@ -6,7 +6,7 @@ The `.hasToString` method allow us to check if an object or data type has a `toS
 
 ### Usage
 
-#### `TypeTags.hasToString(value)`
+##### `TypeTags.hasToString(value)`
 
 - Checks if `value` has a `toString` method.
 
@@ -18,7 +18,8 @@ const user = {
   name: 'Foo',
 }
 
-TypeTags.hasToString(user) // → true
+TypeTags.hasToString(user)
+// → true
 ```
 
 ### Signature

@@ -1,8 +1,8 @@
-# `isAtomics()`
+# TypeTags `.isAtomics`
 
 ### Usage
 
-#### `TypeTags.isAtomics(value)`
+#### `TypeTags .isAtomics(value)`
 
 - Checks if `value` **is** or **has** a default `Atomics` type tag.
 
@@ -14,8 +14,11 @@ const uint8 = new Uint8Array(buffer)
 
 let atom = Atomics.add(uint8, 0, 2) // → 0
 
-TypeTags.isAtomics(atom.toString()) // → false
-TypeTags.isAtomics(Atomics.toString()) // → true
+TypeTags.isAtomics(atom.toString())
+// → false
+
+TypeTags.isAtomics(Atomics)
+// → true
 ```
 
 ### Signature

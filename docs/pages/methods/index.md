@@ -1,6 +1,8 @@
 # Methods
 
-The `TypeTags` object contains a list of properties, predicates and helper methods that we can use to check an object's type tag.
+### Overview
+
+The `TypeTags` object contains a set of **properties**, **methods** and **predicates** that we can use to check an object's type tag.
 
 ### Usage
 
@@ -14,11 +16,29 @@ if (o.toString() !== TypeTags.Object) {
 }
 ```
 
+![Types Intellisense](/images/typetags-02.jpg)
+
 ### Signature
 
 ```ts
 import { TTypeInterface } from './TType'
-import { NestedTypes, Types, Tags } from '../constants'
+import { Types, Tags, NestedTypes, NestedPredicates } from '../constants'
+
+declare type PredicateNames = `is${Types | NestedPredicates}`
+
+declare interface Predicate {
+  predicate(value: any): boolean
+}
+
+declare type PredicateMapper<Type> = {
+  [Prop in keyof Type as PredicateNames]: Type[Prop]
+}
+
+declare type Predicates = PredicateMapper<Predicate>
+
+declare type TypeTagsInterface = {
+  [key in Types | NestedTypes]: Tags
+}
 
 declare type TypeTagMethods = {
   get(name: Types | NestedTypes): Tags
@@ -31,4 +51,6 @@ declare type TypeTagMethods = {
   isTypedArray(object: any): boolean
   assign<T>(object: T, tag: string): T
 }
+
+export declare const TypeTags: TypeTagsInterface & Predicates & TypeTagMethods
 ```

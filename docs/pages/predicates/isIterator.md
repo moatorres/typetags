@@ -1,4 +1,4 @@
-# TypeTags.`isIterator`
+# TypeTags `.isIterator`
 
 ### Overview
 
@@ -6,7 +6,7 @@ The `.isIterator` predicate allows us to check if an object **is** an iterator t
 
 ### Usage
 
-#### `TypeTags.isIterator(value)`
+##### `TypeTags.isIterator(value)`
 
 - Checks if `value` is an Iterator data type or is an iterator type tag.
 
@@ -16,8 +16,11 @@ import { TypeTags } from 'typetags'
 const array = [1, 2, 3]
 const int8 = new Int8Array(8)
 
-TypeTags.isIterator(array) // → false
-TypeTags.isIterator(int8.values()) // → true
+TypeTags.isIterator(array)
+// → false
+
+TypeTags.isIterator(int8.values())
+// → true
 ```
 
 ### Signature

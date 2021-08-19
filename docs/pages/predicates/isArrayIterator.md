@@ -1,8 +1,8 @@
-# `isArrayIterator()`
+# TypeTags `.isArrayIterator`
 
 ### Usage
 
-#### `TypeTags.isArrayIterator(value)`
+#### `TypeTags .isArrayIterator(value)`
 
 - Checks if `value` **is** or **has** a default `Array Iterator` type tag.
 
@@ -10,10 +10,14 @@
 const { TypeTags } = require('typetags')
 
 let iterator = [][Symbol.iterator]()
-TypeTags.isArrayIterator(iterator) // → true
+
+TypeTags.isArrayIterator(iterator)
+// → true
 
 let tag = TypeTags.get(iterator)
-TypeTags.isArrayIterator(tag) // → true
+
+TypeTags.isArrayIterator(tag)
+// → true
 ```
 
 ### Signature

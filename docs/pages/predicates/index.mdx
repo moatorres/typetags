@@ -1,6 +1,10 @@
+import img from '../../public/images/typetags-01.jpg'
+
 # Predicates
 
 There are two kinds of predicate functions to help us with assertions: **generics** and **specifics**.
+
+![Types Intellisense](/images/typetags-02.jpg)
 
 ### Generics
 
@@ -11,7 +15,8 @@ const { TypeTags } = require('typetags')
 
 const o = Object.create(null)
 
-TypeTags.isDefaultTag(o) // → false
+TypeTags.isDefaultTag(o)
+// → false
 ```
 
 ### Specifics
@@ -22,11 +27,15 @@ Allows us to check for specific tags:
 const { TypeTags } = require('typetags')
 
 const arr = [1, 2, 3]
-const tag = arr.toString() // → 1,2,3
 
-TypeTags.isArray(tag) // → false
+const maybeTag = arr.toString()
+// → 1,2,3
 
-console.log(TypeTags.get(arr)) // → '[object Array]'
+TypeTags.isArray(maybeTag)
+// → false
+
+TypeTags.get(arr)
+// → '[object Array]'
 ```
 
 We can take advantage of [object destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#object_destructuring) to extract predicates from the `TypeTags` object.
@@ -36,8 +45,11 @@ import { TypeTags } from 'typetags'
 
 const { isArray, isSet } = TypeTags
 
-console.log(isArray([])) // → true
-console.log(isSet('')) // → false
+console.log(isArray([]))
+// → true
+
+console.log(isSet(''))
+// → false
 ```
 
 If you're using `common-js`, you can destructure on import as well.
@@ -47,7 +59,8 @@ const { isMap } = require('typetags').TypeTags
 
 const cool = new Map()
 
-console.log(isMap(cool)) // → true
+console.log(isMap(cool))
+// → true
 ```
 
 ### Signature
