@@ -1,8 +1,8 @@
-# `isArray()`
+# TypeTags `.isArray`
 
 ### Usage
 
-#### `TypeTags.isArray(value)`
+#### `TypeTags .isArray(value)`
 
 - Checks if `value` **is** or **has** a default `Array` type tag.
 
@@ -10,10 +10,15 @@
 const { TypeTags } = require('typetags')
 
 let tag = TypeTags.get([])
-TypeTags.isArray(tag) // → true
 
-TypeTags.isArray([1, 2, 3]) // → true
-TypeTags.isArray([1, 2, 3].toString()) // → false
+TypeTags.isArray(tag)
+// → true
+
+TypeTags.isArray([1, 2, 3])
+// → true
+
+TypeTags.isArray([1, 2, 3].toString())
+// → false
 ```
 
 ### Signature

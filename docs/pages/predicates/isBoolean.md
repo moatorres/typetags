@@ -1,8 +1,8 @@
-# `isBoolean()`
+# TypeTags `.isBoolean`
 
 ### Usage
 
-#### `TypeTags.isBoolean(value)`
+#### `TypeTags .isBoolean(value)`
 
 - Checks if `value` **is** or **has** a default `Boolean` type tag.
 
@@ -10,11 +10,15 @@
 const { TypeTags } = require('typetags')
 
 let bool = false
-TypeTags.isBoolean(bool) // → true
-TypeTags.isBoolean(bool.toString()) // → false
 
-let tag = TypeTags.get(bool)
-TypeTags.isBoolean(tag) // → true
+TypeTags.isBoolean(bool)
+// → true
+
+TypeTags.isBoolean(true)
+// → true
+
+TypeTags.Boolean === TypeTags.get(bool)
+// → true
 ```
 
 ### Signature

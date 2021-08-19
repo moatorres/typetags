@@ -1,8 +1,8 @@
-# `isBigUint64Array()`
+# TypeTags `isBigUint64Array`
 
 ### Usage
 
-#### `TypeTags.isBigUint64Array(value)`
+#### `TypeTags .isBigUint64Array(value)`
 
 - Checks if `value` **is** or **has** a default `BigUint64Array` type tag.
 
@@ -10,10 +10,13 @@
 const { TypeTags } = require('typetags')
 
 let biguint = new BigUint64Array(24)
-TypeTags.isBigUint64Array(biguint.toString()) // → false
+TypeTags.isBigUint64Array(biguint.toString())
+// → false
 
 let tag = TypeTags.get(biguint)
-TypeTags.isBigUint64Array(tag) // → true
+
+TypeTags.isBigUint64Array(tag)
+// → true
 ```
 
 ### Signature

@@ -1,19 +1,23 @@
-# `isAsyncGenerator()`
+# TypeTags `.isAsyncGenerator`
 
 ### Usage
 
-#### `TypeTags.isAsyncGenerator(value)`
+#### `TypeTags .isAsyncGenerator(value)`
 
 - Checks if `value` **is** or **has** a default `AsyncGenerator` type tag.
 
 ```js
 const { TypeTags } = require('typetags')
 
-let asyncgenerator = new AsyncGenerator()
-TypeTags.isAsyncGenerator(asyncgenerator.toString()) // → true
+let asyncGen = (async function* () {})()
 
-let tag = TypeTags.get(asyncgenerator)
-TypeTags.isAsyncGenerator(tag) // → true
+TypeTags.isAsyncGenerator(asyncGen)
+// → true
+
+let maybeTag = asyncGen.toString()
+
+TypeTags.isAsyncGenerator(maybeTag)
+// → true
 ```
 
 ### Signature
