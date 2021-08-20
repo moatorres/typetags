@@ -1,15 +1,35 @@
-# TypeTags `.URIError`
+import Callout from 'nextra-theme-docs/callout'
+
+# TypeTags `.SyntaxError`
 
 ### Overview
 
-The `URIError`...
+The `SyntaxError` object represents an error when trying to interpret syntactically invalid code. It is thrown when the JavaScript engine encounters tokens or token order that does not conform to the syntax of the language when parsing code.
+
+<Callout type="error" emoji="️🚫">
+  Since error objects **do not** have unique type tags, a `SyntaxError` type tag
+  is the same as any other `Error` object. If you need to check if an error is
+  an instance of a `SyntaxError`, use `instanceof` instead.
+</Callout>
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.URIError)
+try {
+  throw new SyntaxError('Hello', 'someFile.js', 10)
+} catch (e) {
+  console.error(e instanceof SyntaxError) // true
+  console.error(e.message) // Hello
+  console.error(e.name) // SyntaxError
+  console.error(e.fileName) // someFile.js
+  console.error(e.lineNumber) // 10
+  console.error(e.columnNumber) // 0
+  console.error(e.stack) // @debugger eval code:3:9
+}
+
+console.log(TypeTags.SyntaxError)
 // → [object Error]
 ```
 
@@ -17,7 +37,7 @@ console.log(TypeTags.URIError)
 
 | Metadata             | Value                                   |
 | -------------------- | --------------------------------------- |
-| `.type`              | `URIError`                              |
+| `.type`              | `SyntaxError`                           |
 | `.tag`               | `[object Error]`                        |
 | `.builtin()`         | `undefined`                             |
 | `.getTag()`          | `[object Error]`                        |
@@ -49,4 +69,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError)

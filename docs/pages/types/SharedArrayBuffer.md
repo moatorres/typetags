@@ -2,12 +2,17 @@
 
 ### Overview
 
-The `SharedArrayBuffer`...
+The `SharedArrayBuffer` object is used to represent a generic, fixed-length raw binary data buffer, similar to the `ArrayBuffer` object, but in a way that they can be used to create views on shared memory.
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
+
+let buffer = new SharedArrayBuffer(1024)
+
+TypeTags.get(buffer) === TypeTags.SharedArrayBuffer
+// → true
 
 console.log(TypeTags.SharedArrayBuffer)
 // → [object SharedArrayBuffer]
@@ -49,4 +54,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer)

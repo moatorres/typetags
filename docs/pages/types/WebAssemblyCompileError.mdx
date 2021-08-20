@@ -1,23 +1,39 @@
-# TypeTags `.WebAssemblyRuntimeError`
+import Callout from 'nextra-theme-docs/callout'
+
+# TypeTags `.WebAssemblyCompileError`
 
 ### Overview
 
-The `WebAssembly.RuntimeError`...
+The `WebAssembly.CompileError` object indicates an error during WebAssembly decoding or validation.
+
+<Callout type="error" emoji="️🚫">
+  Since error objects **do not** have unique type tags, a
+  `WebAssembly.CompileError` type tag is the same as any other `Error` object.
+  If you need to check if an error is an instance of a
+  `WebAssembly.CompileError`, use `instanceof` instead.
+</Callout>
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.WebAssemblyRuntimeError)
-// → [object WebAssembly.RuntimeError]
+try {
+  throw new WebAssembly.CompileError('Hello', 'someFile', 10)
+} catch (e) {
+  console.log(e instanceof CompileError) // true
+  console.log(TypeTags.get(e) === TypeTags.TypeError) // → true (oops!)
+}
+
+console.log(TypeTags.WebAssemblyCompileError)
+// → [object Error]
 ```
 
 ### Metadata (TType)
 
 | Metadata             | Value                                   |
 | -------------------- | --------------------------------------- |
-| `.type`              | `WebAssembly.RuntimeError`              |
+| `.type`              | `WebAssembly.CompileError`              |
 | `.tag`               | `[object Error]`                        |
 | `.builtin()`         | `undefined`                             |
 | `.getTag()`          | `[object Error]`                        |
@@ -49,4 +65,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/CompileError)

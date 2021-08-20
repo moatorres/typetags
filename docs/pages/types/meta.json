@@ -76,12 +76,12 @@
   "WeakRef": "WeakRef",
   "WeakSet": "WeakSet",
   "WebAssembly": "WebAssembly",
-  "WebAssemblyModule": "WasmModule",
+  "WebAssemblyCompileError": "WasmCompileError",
   "WebAssemblyGlobal": "WasmGlobal",
   "WebAssemblyInstance": "WasmInstance",
-  "WebAssemblyMemory": "WasmMemory",
-  "WebAssemblyTable": "WasmTable",
-  "WebAssemblyCompileError": "WasmCompileError",
   "WebAssemblyLinkError": "WasmLinkError",
-  "WebAssemblyRuntimeError": "WasmRuntimeError"
+  "WebAssemblyMemory": "WasmMemory",
+  "WebAssemblyModule": "WasmModule",
+  "WebAssemblyRuntimeError": "WasmRuntimeError",
+  "WebAssemblyTable": "WasmTable"
 }

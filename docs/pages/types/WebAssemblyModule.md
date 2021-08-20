@@ -2,12 +2,21 @@
 
 ### Overview
 
-The `WebAssembly.Module`...
+A `WebAssembly.Module` object contains stateless WebAssembly code that has already been compiled by the browser — this can be efficiently shared with Workers, and instantiated multiple times.
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
+
+function createWasmModule(bytes) {
+  return new WebAssembly.Module(bytes)
+}
+
+const res = createWasmModule(new ArrayBuffer(8))
+
+TypeTags.get(res) === TypeTags.WebAssemblyModule
+// → true
 
 console.log(TypeTags.WebAssemblyModule)
 // → [object WebAssembly.Module]
@@ -49,4 +58,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Module)

@@ -1,31 +1,31 @@
-# TypeTags `.RangeError`
+import Callout from 'nextra-theme-docs/callout'
+
+# TypeTags `.TextEncoder`
 
 ### Overview
 
-The `RangeError` object indicates an error when a value is not in the set or range of allowed values.
+<Callout type="warning" emoji="⚠️">
+  <b>
+    Experimental: This is an [experimental
+    technology](https://developer.mozilla.org/en-US/docs/MDN/Guidelines/Conventions_definitions#experimental)
+  </b>
+</Callout>
 
-Note that, since error objects do **not** have unique type tags, a `RangeError` tag would be the same as any other `Error` object. If you need to check if an object is a `RangeError` object, use `instanceof` instead.
+`TextEncoder` takes a stream of code points as input and emits a stream of UTF-8 bytes.
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
 
-function check(n) {
-  if (!(n >= -500 && n <= 500)) {
-    return new TypeError() // not a RangeError
-  }
-}
+const encoder = new TextEncoder()
 
-const res = check(2000)
+TypeTags.get(encoder)
+// → [object TextEncoder]
 
-TypeTags.get(res) === TypeTags.RangeError
-// → true
+const view = encoder.encode('€')
 
-TypeTags.TypeError === TypeTags.RangeError
-// → true
-
-res instanceof RangeError
+TypeTags.get(view) === TypeTags.TextEncoder
 // → false
 ```
 
@@ -33,17 +33,17 @@ res instanceof RangeError
 
 | Metadata             | Value                                   |
 | -------------------- | --------------------------------------- |
-| `.type`              | `RangeError`                            |
-| `.tag`               | `[object Error]`                        |
+| `.type`              | `TextEncoder`                           |
+| `.tag`               | `[object TextEncoder]`                  |
 | `.builtin()`         | `undefined`                             |
-| `.getTag()`          | `[object Error]`                        |
+| `.getTag()`          | `[object TextEncoder]`                  |
 | `.hasSpecialArgs()`  | `false`                                 |
 | `.instance()`        | `undefined`                             |
 | `.instanceTypeOf()`  | `object`                                |
 | `.info()`            | [see more]()                            |
 | `.isAvailable()`     | `true`                                  |
 | `.isConstructor()`   | `true`                                  |
-| `.isFactory()`       | `true`                                  |
+| `.isFactory()`       | `false`                                 |
 | `.isFunction()`      | `true`                                  |
 | `.isGlobal()`        | `true`                                  |
 | `.isIterator()`      | `false`                                 |
@@ -53,7 +53,7 @@ res instanceof RangeError
 | `.isStringifiable()` | `true`                                  |
 | `.isSyntatic()`      | `false`                                 |
 | `.isTypedArray()`    | `false`                                 |
-| `.ownKeys()`         | `[length, name, prototype]`             |
+| `.ownKeys()`         | `[length, prototype, name]`             |
 | `.toString()`        | `function toString() { [native code] }` |
 | `.typeOf()`          | `function`                              |
 
@@ -65,4 +65,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/TextEncoder)

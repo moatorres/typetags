@@ -2,12 +2,17 @@
 
 ### Overview
 
-The `WebAssembly.Global`...
+A `WebAssembly.Global` object represents a global variable instance, accessible from both JavaScript and importable/exportable across one or more `WebAssembly.Module` instances. This allows dynamic linking of multiple modules.
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
+
+const global = new WebAssembly.Global({ value: 'i32', mutable: true }, 0)
+
+TypeTags.get(global) === TypeTags.WebAssemblyGlobal
+// → true
 
 console.log(TypeTags.WebAssemblyGlobal)
 // → [object WebAssembly.Global]
@@ -49,4 +54,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Global)

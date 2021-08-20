@@ -1,15 +1,32 @@
-# TypeTags `.TypeError`
+import Callout from 'nextra-theme-docs/callout'
+
+# TypeTags `.URIError`
 
 ### Overview
 
-The `TypeError`...
+The `URIError` object represents an error when a global URI handling function was used in a wrong way.
+
+<Callout type="error" emoji="️🚫">
+  Since error objects **do not** have unique type tags, a `URIError` type tag is
+  the same as any other `Error` object. If you need to check if an error is an
+  instance of a `URIError`, use `instanceof` instead.
+</Callout>
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.TypeError)
+try {
+  decodeURIComponent('%')
+} catch (e) {
+  console.log(e instanceof URIError) // true
+}
+
+TypeTags.get(new URIError())
+// → [object Error]
+
+console.log(TypeTags.URIError)
 // → [object Error]
 ```
 
@@ -17,7 +34,7 @@ console.log(TypeTags.TypeError)
 
 | Metadata             | Value                                   |
 | -------------------- | --------------------------------------- |
-| `.type`              | `TypeError`                             |
+| `.type`              | `URIError`                              |
 | `.tag`               | `[object Error]`                        |
 | `.builtin()`         | `undefined`                             |
 | `.getTag()`          | `[object Error]`                        |
@@ -49,4 +66,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/URIError/URIError)

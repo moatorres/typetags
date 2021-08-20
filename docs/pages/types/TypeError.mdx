@@ -1,15 +1,30 @@
-# TypeTags `.SyntaxError`
+import Callout from 'nextra-theme-docs/callout'
+
+# TypeTags `.TypeError`
 
 ### Overview
 
-The `SyntaxError`...
+The `TypeError` object represents an error when an operation could not be performed, typically (but not exclusively) when a value is not of the expected type.
+
+<Callout type="error" emoji="️🚫">
+  Since error objects **do not** have unique type tags, a `TypeError` type tag
+  is the same as any other `Error` object. If you need to check if an error is
+  an instance of a `TypeError`, use `instanceof` instead.
+</Callout>
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.SyntaxError)
+try {
+  throw new TypeError('Hello', 'someFile.js', 10)
+} catch (e) {
+  console.log(e instanceof TypeError) // true
+  TypeTags.get(e) === TypeTags.RangeError // → true
+}
+
+console.log(TypeTags.TypeError)
 // → [object Error]
 ```
 
@@ -17,7 +32,7 @@ console.log(TypeTags.SyntaxError)
 
 | Metadata             | Value                                   |
 | -------------------- | --------------------------------------- |
-| `.type`              | `SyntaxError`                           |
+| `.type`              | `TypeError`                             |
 | `.tag`               | `[object Error]`                        |
 | `.builtin()`         | `undefined`                             |
 | `.getTag()`          | `[object Error]`                        |
@@ -49,4 +64,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError)

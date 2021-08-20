@@ -1,44 +1,42 @@
-# TypeTags `.ReferenceError`
+import Callout from 'nextra-theme-docs/callout'
+
+# TypeTags `.AggregateError`
 
 ### Overview
 
-The `ReferenceError` object represents an error when a non-existent variable is referenced.
+The `AggregateError` object represents an error when several errors need to be wrapped in a single error. It is thrown when multiple errors need to be reported by an operation, for example by `Promise.any()`, when all promises passed to it reject.
 
-Note that, since error objects do **not** have unique type tags, a `ReferenceError` type tag is the same as any other `Error` object. If you need to check if an object is an instance of a `ReferenceError` object, use `instanceof` instead.
+<Callout type="error" emoji="️🚫">
+  Since error objects **do not** have unique type tags, a `AggregateError` type
+  tag is the same as any other `Error` object. If you need to check if an error
+  is an instance of a `AggregateError`, use `instanceof` instead.
+</Callout>
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
 
-const catchRefError = () => {
-  let res
-  try {
-    let a = undefinedVariable
-  } catch (error) {
-    return (res = error instanceof ReferenceError)
-  }
-}
+Promise.any([Promise.reject(new Error('some error'))]).catch((e) => {
+  console.log(e instanceof AggregateError) // true
+})
 
-TypeTags.get(catchRefError) === TypeTags.ReferenceError
-// → false
+console.log(TypeTags.AggregateError)
+// → [object Error]
 
-TypeTags.Error === TypeTags.ReferenceError
-// → true
-
-console.log(res)
-// → true
+TypeTags.get(new AggregateError([]))
+// → [object Error]
 ```
 
 ### Metadata (TType)
 
 | Metadata             | Value                                   |
 | -------------------- | --------------------------------------- |
-| `.type`              | `ReferenceError`                        |
+| `.type`              | `AggregateError`                        |
 | `.tag`               | `[object Error]`                        |
 | `.builtin()`         | `undefined`                             |
 | `.getTag()`          | `[object Error]`                        |
-| `.hasSpecialArgs()`  | `false`                                 |
+| `.hasSpecialArgs()`  | `true`                                  |
 | `.instance()`        | `undefined`                             |
 | `.instanceTypeOf()`  | `object`                                |
 | `.info()`            | [see more]()                            |
@@ -66,4 +64,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/AggregateError)

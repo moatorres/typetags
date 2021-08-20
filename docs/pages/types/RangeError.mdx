@@ -1,23 +1,45 @@
-# TypeTags `.WebAssemblyLinkError`
+import Callout from 'nextra-theme-docs/callout'
+
+# TypeTags `.RangeError`
 
 ### Overview
 
-The `WebAssembly.LinkError`...
+The `RangeError` object indicates an error when a value is not in the set or range of allowed values.
+
+<Callout type="error" emoji="️🚫">
+  Since error objects **do not** have unique type tags, a `RangeError` type tag
+  is the same as any other `Error` object. If you need to check if an error is
+  an instance of a `RangeError`, use `instanceof` instead.
+</Callout>
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.WebAssemblyLinkError)
-// → [object WebAssembly.LinkError]
+function check(n) {
+  if (!(n >= -500 && n <= 500)) {
+    return new TypeError() // not a RangeError
+  }
+}
+
+const res = check(2000)
+
+TypeTags.get(res) === TypeTags.RangeError
+// → true
+
+TypeTags.TypeError === TypeTags.RangeError
+// → true
+
+res instanceof RangeError
+// → false
 ```
 
 ### Metadata (TType)
 
 | Metadata             | Value                                   |
 | -------------------- | --------------------------------------- |
-| `.type`              | `WebAssembly.LinkError`                 |
+| `.type`              | `RangeError`                            |
 | `.tag`               | `[object Error]`                        |
 | `.builtin()`         | `undefined`                             |
 | `.getTag()`          | `[object Error]`                        |
@@ -29,9 +51,9 @@ console.log(TypeTags.WebAssemblyLinkError)
 | `.isConstructor()`   | `true`                                  |
 | `.isFactory()`       | `true`                                  |
 | `.isFunction()`      | `true`                                  |
-| `.isGlobal()`        | `false`                                 |
+| `.isGlobal()`        | `true`                                  |
 | `.isIterator()`      | `false`                                 |
-| `.isNested()`        | `true`                                  |
+| `.isNested()`        | `false`                                 |
 | `.isObject()`        | `false`                                 |
 | `.isPrimitive()`     | `false`                                 |
 | `.isStringifiable()` | `true`                                  |
@@ -49,4 +71,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError)

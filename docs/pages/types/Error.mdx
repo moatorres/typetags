@@ -1,8 +1,15 @@
+import Callout from 'nextra-theme-docs/callout'
+
 # TypeTags `.Error`
 
 ### Overview
 
 `Error` objects are thrown when runtime errors occur. The `Error` object can also be used as a base object for user-defined exceptions. See below for standard built-in error types.
+
+<Callout type="warning" emoji="️⚠️">
+  Error objects **do not** have unique type tags. If you need to check the
+  instance of an error, use `instanceof` instead.
+</Callout>
 
 - [`AggregateError`](https://typetags.org/types/AggregateError)
   Creates an instance representing several errors wrapped in a single error when multiple errors need to be reported by an operation, for example by `Promise.any()`.
@@ -30,7 +37,13 @@
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.Error)
+try {
+  throw new Error('Whoops!')
+} catch (e) {
+  console.error(e.name + ': ' + e.message)
+}
+
+TypeTags.get(new Error('Bam!'))
 // → [object Error]
 ```
 

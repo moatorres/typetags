@@ -2,12 +2,32 @@
 
 ### Overview
 
-The `WebAssembly.Instance`...
+A `WebAssembly.Instance` object is a stateful, executable instance of a `WebAssembly.Module`. Instance objects contain all the Exported WebAssembly functions that allow calling into WebAssembly code from JavaScript.
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
+
+const importObject = {
+  imports: {
+    imported: function (arg) {
+      console.log(arg)
+    },
+  },
+}
+
+fetch('simple.wasm')
+  .then((response) => response.arrayBuffer())
+  .then((bytes) => {
+    let mod = new WebAssembly.Module(bytes)
+    let instance = new WebAssembly.Instance(mod, importObject)
+    instance.exports.exported()
+    return [mod, instance]
+  })
+
+TypeTags.get(instance) === TypeTags.WebAssemblyInstance
+// → true
 
 console.log(TypeTags.WebAssemblyInstance)
 // → [object WebAssembly.Instance]
@@ -49,4 +69,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Instance)

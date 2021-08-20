@@ -2,12 +2,20 @@
 
 ### Overview
 
-The `URL`...
+The `URL` interface is used to parse, construct, normalize, and encode URLs. It works by providing properties which allow you to easily read and modify the components of a URL.
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
+
+let original = 'https://typetags.org'
+
+let update = new URL('/types/URL', original)
+// → 'https://typetags.org/types/URL'
+
+TypeTags.get(original) === TypeTags.URL
+// → true
 
 console.log(TypeTags.URL)
 // → [object URL]
@@ -49,4 +57,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/URL)

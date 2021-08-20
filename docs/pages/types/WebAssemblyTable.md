@@ -2,12 +2,21 @@
 
 ### Overview
 
-The `WebAssembly.Table`...
+The `WebAssembly.Table` object is a JavaScript wrapper object — an array-like structure representing a WebAssembly Table, which stores function references.
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
+
+let wasmTable = new WebAssembly.Table({ initial: 2, element: 'anyfunc' })
+
+const myObj = {
+  table: wasmTable,
+}
+
+TypeTags.get(myObj.table) === TypeTags.WebAssemblyTable
+// → true
 
 console.log(TypeTags.WebAssemblyTable)
 // → [object WebAssembly.Table]
@@ -49,4 +58,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Table)

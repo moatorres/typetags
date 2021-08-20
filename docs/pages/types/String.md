@@ -2,15 +2,27 @@
 
 ### Overview
 
-The `String`...
+The `String` object is used to represent and manipulate a sequence of characters.
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.String)
+const stringPri = 'A string primitive'
+const stringObj = new String('A String object')
+
+TypeTags.get(stringObj) === TypeTags.Object
+// → true
+
+TypeTags.get(stringPri) === TypeTags.String
+// → true
+
+console.log(TypeTags.get(stringPri))
 // → [object String]
+
+console.log(TypeTags.get(stringObj))
+// → [object Object]
 ```
 
 ### Metadata (TType)
@@ -49,4 +61,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)

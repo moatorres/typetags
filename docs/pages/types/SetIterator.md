@@ -2,15 +2,24 @@
 
 ### Overview
 
-The `Set.Iterator`...
+The initial value of the `@@iterator` property is the same function object as the initial value of the `values` property.
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.SetIterator)
+const mySet = new Set()
+
+mySet.add(42)
+
+const iterator = mySet[Symbol.iterator]()
+
+TypeTags.get(iterator)
 // → [object Set Iterator]
+
+TypeTags.SetIterator === TypeTags.get(mySet)
+// → false
 ```
 
 ### Metadata (TType)
@@ -49,4 +58,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/@@iterator)

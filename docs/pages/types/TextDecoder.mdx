@@ -1,26 +1,42 @@
-# TypeTags `.TextEncoder`
+import Callout from 'nextra-theme-docs/callout'
+
+# TypeTags `.TextDecoder`
 
 ### Overview
 
-The `TextEncoder`...
+<Callout type="warning" emoji="⚠️">
+  <b>
+    Experimental: This is an [experimental
+    technology](https://developer.mozilla.org/en-US/docs/MDN/Guidelines/Conventions_definitions#experimental)
+  </b>
+</Callout>
+
+The `TextDecoder` interface represents a decoder for a specific text encoding, such as `UTF-8`, `ISO-8859-2`, `KOI8-R`, `GBK`, etc. A decoder takes a stream of bytes as input and emits a stream of code points.
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.TextEncoder)
-// → [object TextEncoder]
+let decoder = new TextDecoder() // defaults to 'utf-8' or 'utf8'
+
+let u8arr = new Uint8Array([240, 160, 174, 183])
+
+console.log(decoder.decode(u8arr))
+// expected output: 𠮷
+
+console.log(TypeTags.TextDecoder)
+// → [object TextDecoder]
 ```
 
 ### Metadata (TType)
 
 | Metadata             | Value                                   |
 | -------------------- | --------------------------------------- |
-| `.type`              | `TextEncoder`                           |
-| `.tag`               | `[object TextEncoder]`                  |
+| `.type`              | `TextDecoder`                           |
+| `.tag`               | `[object TextDecoder]`                  |
 | `.builtin()`         | `undefined`                             |
-| `.getTag()`          | `[object TextEncoder]`                  |
+| `.getTag()`          | `[object TextDecoder]`                  |
 | `.hasSpecialArgs()`  | `false`                                 |
 | `.instance()`        | `undefined`                             |
 | `.instanceTypeOf()`  | `object`                                |
@@ -49,4 +65,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/TextDecoder)

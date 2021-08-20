@@ -2,12 +2,21 @@
 
 ### Overview
 
-The `URLSearchParams`...
+The `URLSearchParams` interface defines utility methods to work with the query string of a URL.
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
+
+let url = new URL('https://example.com?foo=1&bar=2')
+let params = new URLSearchParams(url.search)
+
+TypeTags.get(url) === TypeTags.URLSearchParams
+// → false
+
+TypeTags.get(params) === TypeTags.URLSearchParams
+// → true
 
 console.log(TypeTags.URLSearchParams)
 // → [object URLSearchParams]
@@ -49,4 +58,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams)

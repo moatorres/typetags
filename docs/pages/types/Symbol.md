@@ -2,12 +2,22 @@
 
 ### Overview
 
-The `Symbol`...
+`Symbol` is a built-in object whose constructor returns a symbol primitive — also called a `Symbol` value or just a `Symbol` — that’s guaranteed to be unique.
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
+
+let sym = Symbol('foo')
+
+TypeTags.get(sym) === TypeTags.Symbol
+// → true
+
+let symObj = Object(sym)
+
+TypeTags.get(symObj) === TypeTags.Symbol
+// → false
 
 console.log(TypeTags.Symbol)
 // → [object Symbol]
@@ -49,4 +59,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol)

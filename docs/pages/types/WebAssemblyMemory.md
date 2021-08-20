@@ -2,12 +2,17 @@
 
 ### Overview
 
-The `WebAssembly.Memory`...
+The `WebAssembly.Memory` object is a resizable `ArrayBuffer` or `SharedArrayBuffer` that holds the raw bytes of memory accessed by a `WebAssembly.Instance`.
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
+
+let memory = new WebAssembly.Memory({ initial: 10, maximum: 100 })
+
+TypeTags.get(memory) === TypeTags.WebAssemblyMemory
+// → true
 
 console.log(TypeTags.WebAssemblyMemory)
 // → [object WebAssembly.Memory]
@@ -49,4 +54,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Memory)

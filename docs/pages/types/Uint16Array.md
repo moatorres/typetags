@@ -2,15 +2,24 @@
 
 ### Overview
 
-The `Uint16Array`...
+The `Uint16Array` typed array represents an array of 16-bit unsigned integers in the platform byte order.
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.Uint16Array)
+let buffer = new ArrayBuffer(8)
+let uint16 = new Uint16Array(buffer, 0, 4)
+
+TypeTags.get(buffer)
+// → [object ArrayBuffer]
+
+TypeTags.get(uint16)
 // → [object Uint16Array]
+
+TypeTags.get(uint16) === TypeTags.Uint16Array
+// → true
 ```
 
 ### Metadata (TType)
@@ -49,4 +58,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint16Array)

@@ -1,18 +1,34 @@
-# TypeTags `.AggregateError`
+import Callout from 'nextra-theme-docs/callout'
+
+# TypeTags `.WebAssemblyRuntimeError`
 
 ### Overview
 
-The `AggregateError` object represents an error when several errors need to be wrapped in a single error. It is thrown when multiple errors need to be reported by an operation, for example by `Promise.any()`, when all promises passed to it reject.
+The `WebAssembly.RuntimeError` object is the error type that is thrown whenever WebAssembly specifies a [trap](https://webassembly.github.io/spec/core/exec/index.html#traps).
+
+<Callout type="error" emoji="️🚫">
+  Since error objects **do not** have unique type tags, a
+  `WebAssembly.RuntimeError` type tag is the same as any other `Error` object.
+  If you need to check if an error is an instance of a
+  `WebAssembly.RuntimeError`, use `instanceof` instead.
+</Callout>
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.AggregateError)
-// → [object Error]
+try {
+  throw new WebAssembly.RuntimeError('Hello', 'someFile', 10)
+} catch (e) {
+  console.log(TypeTags.get(e) === TypeTags.WebAssemblyLinkError)
+  // → true (oops!)
 
-TypeTags.get(new AggregateError([]))
+  console.log(e instanceof WebAssembly.LinkError)
+  // → false
+}
+
+console.log(TypeTags.WebAssemblyRuntimeError)
 // → [object Error]
 ```
 
@@ -20,11 +36,11 @@ TypeTags.get(new AggregateError([]))
 
 | Metadata             | Value                                   |
 | -------------------- | --------------------------------------- |
-| `.type`              | `AggregateError`                        |
+| `.type`              | `WebAssembly.RuntimeError`              |
 | `.tag`               | `[object Error]`                        |
 | `.builtin()`         | `undefined`                             |
 | `.getTag()`          | `[object Error]`                        |
-| `.hasSpecialArgs()`  | `true`                                  |
+| `.hasSpecialArgs()`  | `false`                                 |
 | `.instance()`        | `undefined`                             |
 | `.instanceTypeOf()`  | `object`                                |
 | `.info()`            | [see more]()                            |
@@ -32,9 +48,9 @@ TypeTags.get(new AggregateError([]))
 | `.isConstructor()`   | `true`                                  |
 | `.isFactory()`       | `true`                                  |
 | `.isFunction()`      | `true`                                  |
-| `.isGlobal()`        | `true`                                  |
+| `.isGlobal()`        | `false`                                 |
 | `.isIterator()`      | `false`                                 |
-| `.isNested()`        | `false`                                 |
+| `.isNested()`        | `true`                                  |
 | `.isObject()`        | `false`                                 |
 | `.isPrimitive()`     | `false`                                 |
 | `.isStringifiable()` | `true`                                  |
@@ -52,4 +68,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/AggregateError)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/RuntimeError)
