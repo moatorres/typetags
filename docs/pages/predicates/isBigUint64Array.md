@@ -10,6 +10,7 @@
 const { TypeTags } = require('typetags')
 
 let biguint = new BigUint64Array(24)
+
 TypeTags.isBigUint64Array(biguint.toString())
 // → false
 

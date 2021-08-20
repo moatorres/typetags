@@ -1,22 +1,24 @@
-# TypeTags `.isAsyncGeneratorFunction`
+# TypeTags `.isAsyncGenFn`
 
 ### Usage
 
-##### `TypeTags.isAsyncGeneratorFunction(value)`
+##### `TypeTags.isAsyncGenFn(value)`
 
 - Checks if `value` **is** or **has** a default `AsyncGeneratorFunction` type tag.
 
 ```js
 const { TypeTags } = require('typetags')
 
-let asyncGenFn = async function* () {}
+let myFunction = async function* () {
+  yield [1, 2, 3]
+}
 
-TypeTags.isAsyncGeneratorFunction(asyncGenFn)
+TypeTags.isAsyncGenFn(myFunction)
 // → true
 ```
 
 ### Signature
 
 ```ts
-isAsyncGeneratorFunction(value: any): boolean
+isAsyncGenFn(value: any): boolean
 ```

@@ -15,8 +15,11 @@ let tag
   return
 })()
 
-console.log(isArguments(tag)) // → true
-console.log(isArguments(arguments)) // → true
+TypeTags.isArguments(tag)
+// → true
+
+TypeTags.isArguments(arguments)
+// → true
 ```
 
 ### Signature

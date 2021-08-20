@@ -10,6 +10,7 @@
 const { TypeTags } = require('typetags')
 
 let buff = new SharedArrayBuffer(1024)
+
 let view = new DataView(buff)
 
 TypeTags.isDataView(view.toString())
