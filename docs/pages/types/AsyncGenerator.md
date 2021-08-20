@@ -1,4 +1,4 @@
-# TypeTags.`AsyncGenerator`
+# TypeTags `.AsyncGenerator`
 
 ### Overview
 
@@ -19,7 +19,8 @@ async function* infinite() {
 
 const asyncGenerator = infinite()
 
-console.log(TypeTags.AsyncGenerator) // → [object AsyncGenerator]
+console.log(TypeTags.AsyncGenerator)
+// → [object AsyncGenerator]
 ```
 
 ### Metadata (TType)

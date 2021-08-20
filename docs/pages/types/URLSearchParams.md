@@ -1,4 +1,4 @@
-# TypeTags.`URLSearchParams`
+# TypeTags `.URLSearchParams`
 
 ### Overview
 
@@ -9,7 +9,8 @@ The `URLSearchParams`...
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.URLSearchParams) // → [object URLSearchParams]
+console.log(TypeTags.URLSearchParams)
+// → [object URLSearchParams]
 ```
 
 ### Metadata (TType)
@@ -36,7 +37,7 @@ console.log(TypeTags.URLSearchParams) // → [object URLSearchParams]
 | `.isStringifiable()` | `true`                                  |
 | `.isSyntatic()`      | `false`                                 |
 | `.isTypedArray()`    | `false`                                 |
-| `.ownKeys()`         | `[length,prototype,name]`               |
+| `.ownKeys()`         | `[length, prototype, name]`             |
 | `.toString()`        | `function toString() { [native code] }` |
 | `.typeOf()`          | `function`                              |
 

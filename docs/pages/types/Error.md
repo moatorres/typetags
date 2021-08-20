@@ -1,44 +1,66 @@
-# TypeTags.`Error`
+# TypeTags `.Error`
 
 ### Overview
 
-The `Error`...
+`Error` objects are thrown when runtime errors occur. The `Error` object can also be used as a base object for user-defined exceptions. See below for standard built-in error types.
+
+- [`AggregateError`](https://typetags.org/types/AggregateError)
+  Creates an instance representing several errors wrapped in a single error when multiple errors need to be reported by an operation, for example by `Promise.any()`.
+
+- [`EvalError`](https://typetags.org/types/EvalError)
+  Creates an instance representing an error that occurs regarding the global function `eval()`.
+
+- [`RangeError`](https://typetags.org/types/RangeError)
+  Creates an instance representing an error that occurs when a numeric variable or parameter is outside of its valid range.
+
+- [`ReferenceError`](https://typetags.org/types/ReferenceError)
+  Creates an instance representing an error that occurs when de-referencing an invalid reference.
+
+- [`SyntaxError`](https://typetags.org/types/SyntaxError)
+  Creates an instance representing a syntax error.
+
+- [`TypeError`](https://typetags.org/types/TypeError)
+  Creates an instance representing an error that occurs when a variable or parameter is not of a valid type.
+
+- [`URIError`](https://typetags.org/types/URIError)
+  Creates an instance representing an error that occurs when `encodeURI()` or `decodeURI()` are passed invalid parameters.
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.Error) // → [object Error]
+console.log(TypeTags.Error)
+// → [object Error]
 ```
 
 ### Metadata (TType)
 
-| Metadata             | Value                                                                         |
-| -------------------- | ----------------------------------------------------------------------------- |
-| `.type`              | `Error`                                                                       |
-| `.tag`               | `[object Error]`                                                              |
-| `.builtin()`         | `undefined`                                                                   |
-| `.getTag()`          | `[object Error]`                                                              |
-| `.hasSpecialArgs()`  | `false`                                                                       |
-| `.instance()`        | `undefined`                                                                   |
-| `.instanceTypeOf()`  | `object`                                                                      |
-| `.info()`            | [see more]()                                                                  |
-| `.isAvailable()`     | `true`                                                                        |
-| `.isConstructor()`   | `true`                                                                        |
-| `.isFactory()`       | `true`                                                                        |
-| `.isFunction()`      | `true`                                                                        |
-| `.isGlobal()`        | `true`                                                                        |
-| `.isIterator()`      | `false`                                                                       |
-| `.isNested()`        | `false`                                                                       |
-| `.isObject()`        | `false`                                                                       |
-| `.isPrimitive()`     | `false`                                                                       |
-| `.isStringifiable()` | `true`                                                                        |
-| `.isSyntatic()`      | `false`                                                                       |
-| `.isTypedArray()`    | `false`                                                                       |
-| `.ownKeys()`         | `[length,name,prototype,captureStackTrace,stackTraceLimit,prepareStackTrace]` |
-| `.toString()`        | `function toString() { [native code] }`                                       |
-| `.typeOf()`          | `function`                                                                    |
+| Metadata             | Value                                                                              |
+| -------------------- | ---------------------------------------------------------------------------------- |
+| `.type`              | `Error`                                                                            |
+| `.tag`               | `[object Error]`                                                                   |
+| `.builtin()`         | `undefined`                                                                        |
+| `.getTag()`          | `[object Error]`                                                                   |
+| `.hasSpecialArgs()`  | `false`                                                                            |
+| `.instance()`        | `undefined`                                                                        |
+| `.instanceTypeOf()`  | `object`                                                                           |
+| `.info()`            | [see more]()                                                                       |
+| `.isAvailable()`     | `true`                                                                             |
+| `.isConstructor()`   | `true`                                                                             |
+| `.isFactory()`       | `true`                                                                             |
+| `.isFunction()`      | `true`                                                                             |
+| `.isGlobal()`        | `true`                                                                             |
+| `.isIterator()`      | `false`                                                                            |
+| `.isNested()`        | `false`                                                                            |
+| `.isObject()`        | `false`                                                                            |
+| `.isPrimitive()`     | `false`                                                                            |
+| `.isStringifiable()` | `true`                                                                             |
+| `.isSyntatic()`      | `false`                                                                            |
+| `.isTypedArray()`    | `false`                                                                            |
+| `.ownKeys()`         | `[length, name, prototype, captureStackTrace, stackTraceLimit, prepareStackTrace]` |
+| `.toString()`        | `function toString() { [native code] }`                                            |
+| `.typeOf()`          | `function`                                                                         |
 
 ### Signature
 
@@ -48,4 +70,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error)

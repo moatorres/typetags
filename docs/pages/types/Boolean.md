@@ -1,15 +1,16 @@
-# TypeTags.`Boolean`
+# TypeTags `.Boolean`
 
 ### Overview
 
-The `Boolean`...
+The `Boolean` object is an object wrapper for a boolean value.
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.Boolean) // → [object Boolean]
+console.log(TypeTags.Boolean)
+// → [object Boolean]
 ```
 
 ### Metadata (TType)
@@ -36,7 +37,7 @@ console.log(TypeTags.Boolean) // → [object Boolean]
 | `.isStringifiable()` | `true`                                  |
 | `.isSyntatic()`      | `false`                                 |
 | `.isTypedArray()`    | `false`                                 |
-| `.ownKeys()`         | `[length,name,prototype]`               |
+| `.ownKeys()`         | `[length, name, prototype]`             |
 | `.toString()`        | `function toString() { [native code] }` |
 | `.typeOf()`          | `function`                              |
 
@@ -48,4 +49,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)

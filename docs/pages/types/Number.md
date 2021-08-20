@@ -1,15 +1,22 @@
-# TypeTags.`Number`
+# TypeTags `.Number`
 
 ### Overview
 
-The `Number`...
+`Number` is a primitive wrapper object used to represent and manipulate numbers like `37` or `-9.25`.
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.Number) // → [object Number]
+Number('123') === 123
+// → true
+
+TypeTags.Number === TypeTags.get(123)
+// → true
+
+TypeTags.get(Number('123'))
+// → [object Number]
 ```
 
 ### Metadata (TType)
@@ -48,4 +55,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)

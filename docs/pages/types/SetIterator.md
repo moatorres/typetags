@@ -1,25 +1,26 @@
-# TypeTags.`Map.Iterator`
+# TypeTags `.SetIterator`
 
 ### Overview
 
-The `Map.Iterator`...
+The `Set.Iterator`...
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags['Map.Iterator']) // → [object Map Iterator]
+console.log(TypeTags.SetIterator)
+// → [object Set Iterator]
 ```
 
 ### Metadata (TType)
 
 | Metadata             | Value                                   |
 | -------------------- | --------------------------------------- |
-| `.type`              | `Map.Iterator`                          |
-| `.tag`               | `[object Map Iterator]`                 |
+| `.type`              | `Set.Iterator`                          |
+| `.tag`               | `[object Set Iterator]`                 |
 | `.builtin()`         | `undefined`                             |
-| `.getTag()`          | `[object Map Iterator]`                 |
+| `.getTag()`          | `[object Set Iterator]`                 |
 | `.hasSpecialArgs()`  | `false`                                 |
 | `.instance()`        | `undefined`                             |
 | `.instanceTypeOf()`  | `object`                                |

@@ -1,15 +1,26 @@
-# TypeTags.`Intl.Locale`
+# TypeTags `.IntlLocale`
 
 ### Overview
 
-The `Intl.Locale`...
+The `Intl.Locale` object is a standard built-in property of the Intl object that represents a Unicode locale identifier.
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags['Intl.Locale']) // → [object Intl.Locale]
+const korean = new Intl.Locale('ko', {
+  script: 'Kore',
+  region: 'KR',
+  hourCycle: 'h24',
+  calendar: 'gregory',
+})
+
+TypeTags.get(korean)
+// → [object Intl.Locale]
+
+console.log(korean.hourCycle)
+// expected output: 'h24'
 ```
 
 ### Metadata (TType)
@@ -36,7 +47,7 @@ console.log(TypeTags['Intl.Locale']) // → [object Intl.Locale]
 | `.isStringifiable()` | `true`                                  |
 | `.isSyntatic()`      | `false`                                 |
 | `.isTypedArray()`    | `false`                                 |
-| `.ownKeys()`         | `[length,name,prototype]`               |
+| `.ownKeys()`         | `[length, name, prototype]`             |
 | `.toString()`        | `function toString() { [native code] }` |
 | `.typeOf()`          | `function`                              |
 
@@ -48,4 +59,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale)

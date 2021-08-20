@@ -1,4 +1,4 @@
-# TypeTags.`SyntaxError`
+# TypeTags `.SyntaxError`
 
 ### Overview
 
@@ -9,7 +9,8 @@ The `SyntaxError`...
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.SyntaxError) // → [object Error]
+console.log(TypeTags.SyntaxError)
+// → [object Error]
 ```
 
 ### Metadata (TType)

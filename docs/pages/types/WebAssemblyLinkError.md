@@ -1,4 +1,4 @@
-# TypeTags.`WebAssembly.LinkError`
+# TypeTags `.WebAssemblyLinkError`
 
 ### Overview
 
@@ -9,7 +9,8 @@ The `WebAssembly.LinkError`...
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags['WebAssembly.LinkError']) // → [object WebAssembly.LinkError]
+console.log(TypeTags.WebAssemblyLinkError)
+// → [object WebAssembly.LinkError]
 ```
 
 ### Metadata (TType)
@@ -36,7 +37,7 @@ console.log(TypeTags['WebAssembly.LinkError']) // → [object WebAssembly.LinkEr
 | `.isStringifiable()` | `true`                                  |
 | `.isSyntatic()`      | `false`                                 |
 | `.isTypedArray()`    | `false`                                 |
-| `.ownKeys()`         | `[length,name,prototype]`               |
+| `.ownKeys()`         | `[length, name, prototype]`             |
 | `.toString()`        | `function toString() { [native code] }` |
 | `.typeOf()`          | `function`                              |
 

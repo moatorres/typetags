@@ -1,4 +1,4 @@
-# TypeTags.`WeakRef`
+# TypeTags `.WeakRef`
 
 ### Overview
 
@@ -9,7 +9,8 @@ The `WeakRef`...
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.WeakRef) // → [object WeakRef]
+console.log(TypeTags.WeakRef)
+// → [object WeakRef]
 ```
 
 ### Metadata (TType)
@@ -36,7 +37,7 @@ console.log(TypeTags.WeakRef) // → [object WeakRef]
 | `.isStringifiable()` | `true`                                  |
 | `.isSyntatic()`      | `false`                                 |
 | `.isTypedArray()`    | `false`                                 |
-| `.ownKeys()`         | `[length,name,prototype]`               |
+| `.ownKeys()`         | `[length, name, prototype]`             |
 | `.toString()`        | `function toString() { [native code] }` |
 | `.typeOf()`          | `function`                              |
 

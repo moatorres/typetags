@@ -1,4 +1,4 @@
-# TypeTags.`TypeError`
+# TypeTags `.TypeError`
 
 ### Overview
 
@@ -9,7 +9,8 @@ The `TypeError`...
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.TypeError) // → [object Error]
+console.log(TypeTags.TypeError)
+// → [object Error]
 ```
 
 ### Metadata (TType)

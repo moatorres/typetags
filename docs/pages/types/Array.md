@@ -1,4 +1,4 @@
-# TypeTags.`Array`
+# TypeTags `.Array`
 
 ### Overview
 
@@ -9,7 +9,8 @@ The JavaScript `Array` class is a global object that is used in the construction
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.Array) // → [object Array]
+console.log(TypeTags.Array)
+// → [object Array]
 ```
 
 ### Metadata (TType)

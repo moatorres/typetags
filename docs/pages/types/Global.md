@@ -1,15 +1,16 @@
-# TypeTags.`Global`
+# TypeTags `.Global`
 
 ### Overview
 
-The `Global`...
+Scripts running under Node.js have an object called `global` as their global object. In browsers, the top-level scope is the global scope. This means that within the browser `var something` will define a new global variable. In Node.js, the top-level scope is not the global scope; `var something` inside a Node.js module will be local to that module.
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.Global) // → [object global]
+console.log(TypeTags.Global)
+// → [object global]
 ```
 
 ### Metadata (TType)
@@ -48,4 +49,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Glossary/Global_object)

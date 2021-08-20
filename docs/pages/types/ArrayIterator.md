@@ -1,25 +1,28 @@
-# TypeTags.`String.Iterator`
+# TypeTags `.ArrayIterator`
 
 ### Overview
 
-The `String.Iterator`...
+The `@@iterator` method is part of [The Iterable Protocol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol), that defines how to synchronously iterate over a sequence of values.
+
+The initial value of the `@@iterator` property is the same function object as the initial value of the `values()` property.
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags['String.Iterator']) // → [object String Iterator]
+console.log(TypeTags.ArrayIterator)
+// → [object Array Iterator]
 ```
 
 ### Metadata (TType)
 
 | Metadata             | Value                                   |
 | -------------------- | --------------------------------------- |
-| `.type`              | `String.Iterator`                       |
-| `.tag`               | `[object String Iterator]`              |
+| `.type`              | `Array.Iterator`                        |
+| `.tag`               | `[object Array Iterator]`               |
 | `.builtin()`         | `undefined`                             |
-| `.getTag()`          | `[object String Iterator]`              |
+| `.getTag()`          | `[object Array Iterator]`               |
 | `.hasSpecialArgs()`  | `false`                                 |
 | `.instance()`        | `undefined`                             |
 | `.instanceTypeOf()`  | `object`                                |
@@ -48,4 +51,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/@@iterator)

@@ -1,4 +1,4 @@
-# TypeTags.`TextEncoder`
+# TypeTags `.TextEncoder`
 
 ### Overview
 
@@ -9,7 +9,8 @@ The `TextEncoder`...
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.TextEncoder) // → [object TextEncoder]
+console.log(TypeTags.TextEncoder)
+// → [object TextEncoder]
 ```
 
 ### Metadata (TType)

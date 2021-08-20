@@ -1,27 +1,27 @@
-# TypeTags `.Int8Array`
+# TypeTags `.WebAssemblyInstance`
 
 ### Overview
 
-The `Int8Array` typed array represents an array of twos-complement 8-bit signed integers. The contents are initialized to `0`.
+The `WebAssembly.Instance`...
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.Int8Array)
-// → [object Int8Array]
+console.log(TypeTags.WebAssemblyInstance)
+// → [object WebAssembly.Instance]
 ```
 
 ### Metadata (TType)
 
 | Metadata             | Value                                          |
 | -------------------- | ---------------------------------------------- |
-| `.type`              | `Int8Array`                                    |
-| `.tag`               | `[object Int8Array]`                           |
+| `.type`              | `WebAssembly.Instance`                         |
+| `.tag`               | `[object WebAssembly.Instance]`                |
 | `.builtin()`         | `undefined`                                    |
-| `.getTag()`          | `[object Int8Array]`                           |
-| `.hasSpecialArgs()`  | `false`                                        |
+| `.getTag()`          | `[object WebAssembly.Instance]`                |
+| `.hasSpecialArgs()`  | `true`                                         |
 | `.instance()`        | `undefined`                                    |
 | `.instanceTypeOf()`  | `object`                                       |
 | `.info()`            | [see more]()                                   |
@@ -29,15 +29,15 @@ console.log(TypeTags.Int8Array)
 | `.isConstructor()`   | `true`                                         |
 | `.isFactory()`       | `false`                                        |
 | `.isFunction()`      | `true`                                         |
-| `.isGlobal()`        | `true`                                         |
+| `.isGlobal()`        | `false`                                        |
 | `.isIterator()`      | `false`                                        |
-| `.isNested()`        | `false`                                        |
+| `.isNested()`        | `true`                                         |
 | `.isObject()`        | `false`                                        |
 | `.isPrimitive()`     | `false`                                        |
 | `.isStringifiable()` | `true`                                         |
 | `.isSyntatic()`      | `false`                                        |
-| `.isTypedArray()`    | `true`                                         |
-| `.ownKeys()`         | `[length, name, prototype, BYTES_PER_ELEMENT]` |
+| `.isTypedArray()`    | `false`                                        |
+| `.ownKeys()`         | `[length, name, arguments, caller, prototype]` |
 | `.toString()`        | `function toString() { [native code] }`        |
 | `.typeOf()`          | `function`                                     |
 
@@ -49,4 +49,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int8Array)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)

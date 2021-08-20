@@ -1,4 +1,4 @@
-# TypeTags.`Uint8ClampedArray`
+# TypeTags `.Uint8ClampedArray`
 
 ### Overview
 
@@ -9,7 +9,8 @@ The `Uint8ClampedArray`...
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.Uint8ClampedArray) // → [object Uint8ClampedArray]
+console.log(TypeTags.Uint8ClampedArray)
+// → [object Uint8ClampedArray]
 ```
 
 ### Metadata (TType)

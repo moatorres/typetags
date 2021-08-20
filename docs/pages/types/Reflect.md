@@ -1,4 +1,4 @@
-# TypeTags.`Reflect`
+# TypeTags `.Reflect`
 
 ### Overview
 
@@ -9,7 +9,8 @@ The `Reflect`...
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.Reflect) // → [object Reflect]
+console.log(TypeTags.Reflect)
+// → [object Reflect]
 ```
 
 ### Metadata (TType)

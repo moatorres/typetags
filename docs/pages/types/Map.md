@@ -1,15 +1,23 @@
-# TypeTags.`Map`
+# TypeTags `.Map`
 
 ### Overview
 
-The `Map`...
+The `Map` object holds key-value pairs and remembers the original insertion order of the keys. Any value (both objects and primitive values) may be used as either a key or a value.
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.Map) // → [object Map]
+const map = new Map()
+
+let maybeMapTag = TypeTags.get(map)
+
+maybeMapTag === TypeTags.Map
+// → true
+
+console.log(maybeMapTag)
+// → [object Map]
 ```
 
 ### Metadata (TType)
@@ -36,7 +44,7 @@ console.log(TypeTags.Map) // → [object Map]
 | `.isStringifiable()` | `true`                                  |
 | `.isSyntatic()`      | `false`                                 |
 | `.isTypedArray()`    | `false`                                 |
-| `.ownKeys()`         | `[length,name,prototype]`               |
+| `.ownKeys()`         | `[length, name, prototype]`             |
 | `.toString()`        | `function toString() { [native code] }` |
 | `.typeOf()`          | `function`                              |
 
@@ -48,4 +56,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)

@@ -1,4 +1,4 @@
-# TypeTags.`Arguments`
+# TypeTags `.Arguments`
 
 ### Overview
 
@@ -9,7 +9,8 @@
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.Arguments) // → [object Arguments]
+console.log(TypeTags.Arguments)
+// → [object Arguments]
 ```
 
 ### Metadata (TType)
@@ -36,7 +37,7 @@ console.log(TypeTags.Arguments) // → [object Arguments]
 | `.isStringifiable()` | `false`                                 |
 | `.isSyntatic()`      | `true`                                  |
 | `.isTypedArray()`    | `false`                                 |
-| `.ownKeys()`         | `[0,1,2,3,4,5,length,callee]`           |
+| `.ownKeys()`         | `[0, 1, 2, 3, 4, 5, length, callee]`    |
 | `.toString()`        | `function toString() { [native code] }` |
 | `.typeOf()`          | `object`                                |
 

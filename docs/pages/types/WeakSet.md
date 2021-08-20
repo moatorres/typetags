@@ -1,4 +1,4 @@
-# TypeTags.`WeakSet`
+# TypeTags `.WeakSet`
 
 ### Overview
 
@@ -9,7 +9,8 @@ The `WeakSet`...
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.WeakSet) // → [object WeakSet]
+console.log(TypeTags.WeakSet)
+// → [object WeakSet]
 ```
 
 ### Metadata (TType)
@@ -36,7 +37,7 @@ console.log(TypeTags.WeakSet) // → [object WeakSet]
 | `.isStringifiable()` | `true`                                  |
 | `.isSyntatic()`      | `false`                                 |
 | `.isTypedArray()`    | `false`                                 |
-| `.ownKeys()`         | `[length,name,prototype]`               |
+| `.ownKeys()`         | `[length, name, prototype]`             |
 | `.toString()`        | `function toString() { [native code] }` |
 | `.typeOf()`          | `function`                              |
 

@@ -1,4 +1,4 @@
-# TypeTags.`URL`
+# TypeTags `.URL`
 
 ### Overview
 
@@ -9,7 +9,8 @@ The `URL`...
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.URL) // → [object URL]
+console.log(TypeTags.URL)
+// → [object URL]
 ```
 
 ### Metadata (TType)
@@ -36,7 +37,7 @@ console.log(TypeTags.URL) // → [object URL]
 | `.isStringifiable()` | `true`                                  |
 | `.isSyntatic()`      | `false`                                 |
 | `.isTypedArray()`    | `false`                                 |
-| `.ownKeys()`         | `[length,prototype,name]`               |
+| `.ownKeys()`         | `[length, prototype, name]`             |
 | `.toString()`        | `function toString() { [native code] }` |
 | `.typeOf()`          | `function`                              |
 

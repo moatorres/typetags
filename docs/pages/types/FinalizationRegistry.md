@@ -1,15 +1,16 @@
-# TypeTags.`FinalizationRegistry`
+# TypeTags `.FinalizationRegistry`
 
 ### Overview
 
-The `FinalizationRegistry`...
+A `FinalizationRegistry` object lets you request a callback when an object is garbage-collected.
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.FinalizationRegistry) // → [object FinalizationRegistry]
+console.log(TypeTags.FinalizationRegistry)
+// → [object FinalizationRegistry]
 ```
 
 ### Metadata (TType)
@@ -36,7 +37,7 @@ console.log(TypeTags.FinalizationRegistry) // → [object FinalizationRegistry]
 | `.isStringifiable()` | `true`                                  |
 | `.isSyntatic()`      | `false`                                 |
 | `.isTypedArray()`    | `false`                                 |
-| `.ownKeys()`         | `[length,name,prototype]`               |
+| `.ownKeys()`         | `[length, name, prototype]`             |
 | `.toString()`        | `function toString() { [native code] }` |
 | `.typeOf()`          | `function`                              |
 
@@ -48,4 +49,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/FinalizationRegistry)

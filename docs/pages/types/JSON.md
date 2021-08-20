@@ -1,15 +1,21 @@
-# TypeTags.`JSON`
+# TypeTags `.JSON`
 
 ### Overview
 
-The `JSON`...
+The `JSON` object contains methods for parsing [JavaScript Object Notation](https://www.json.org/json-en.html) (JSON) and converting values to JSON. It can't be called or constructed, and aside from its two method properties, it has no interesting functionality of its own.
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.JSON) // → [object JSON]
+let tag = TypeTags.get(JSON)
+
+TypeTags.JSON === tag
+// → true
+
+console.log(tag)
+// → [object JSON]
 ```
 
 ### Metadata (TType)
@@ -36,7 +42,7 @@ console.log(TypeTags.JSON) // → [object JSON]
 | `.isStringifiable()` | `true`                                  |
 | `.isSyntatic()`      | `false`                                 |
 | `.isTypedArray()`    | `false`                                 |
-| `.ownKeys()`         | `[parse,stringify]`                     |
+| `.ownKeys()`         | `[parse, stringify]`                    |
 | `.toString()`        | `function toString() { [native code] }` |
 | `.typeOf()`          | `object`                                |
 
@@ -48,4 +54,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON)

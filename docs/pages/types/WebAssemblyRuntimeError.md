@@ -1,22 +1,23 @@
-# TypeTags.`WebAssembly.CompileError`
+# TypeTags `.WebAssemblyRuntimeError`
 
 ### Overview
 
-The `WebAssembly.CompileError`...
+The `WebAssembly.RuntimeError`...
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags['WebAssembly.CompileError']) // → [object WebAssembly.CompileError]
+console.log(TypeTags.WebAssemblyRuntimeError)
+// → [object WebAssembly.RuntimeError]
 ```
 
 ### Metadata (TType)
 
 | Metadata             | Value                                   |
 | -------------------- | --------------------------------------- |
-| `.type`              | `WebAssembly.CompileError`              |
+| `.type`              | `WebAssembly.RuntimeError`              |
 | `.tag`               | `[object Error]`                        |
 | `.builtin()`         | `undefined`                             |
 | `.getTag()`          | `[object Error]`                        |
@@ -36,7 +37,7 @@ console.log(TypeTags['WebAssembly.CompileError']) // → [object WebAssembly.Com
 | `.isStringifiable()` | `true`                                  |
 | `.isSyntatic()`      | `false`                                 |
 | `.isTypedArray()`    | `false`                                 |
-| `.ownKeys()`         | `[length,name,prototype]`               |
+| `.ownKeys()`         | `[length, name, prototype]`             |
 | `.toString()`        | `function toString() { [native code] }` |
 | `.typeOf()`          | `function`                              |
 

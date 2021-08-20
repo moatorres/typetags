@@ -1,4 +1,4 @@
-# TypeTags.`URIError`
+# TypeTags `.URIError`
 
 ### Overview
 
@@ -9,7 +9,8 @@ The `URIError`...
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.URIError) // → [object Error]
+console.log(TypeTags.URIError)
+// → [object Error]
 ```
 
 ### Metadata (TType)

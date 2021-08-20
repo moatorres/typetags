@@ -1,44 +1,45 @@
-# TypeTags.`Set.Iterator`
+# TypeTags `.WebAssemblyCompileError`
 
 ### Overview
 
-The `Set.Iterator`...
+The `WebAssembly.CompileError`...
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags['Set.Iterator']) // → [object Set Iterator]
+console.log(TypeTags.WebAssemblyCompileError)
+// → [object WebAssembly.CompileError]
 ```
 
 ### Metadata (TType)
 
 | Metadata             | Value                                   |
 | -------------------- | --------------------------------------- |
-| `.type`              | `Set.Iterator`                          |
-| `.tag`               | `[object Set Iterator]`                 |
+| `.type`              | `WebAssembly.CompileError`              |
+| `.tag`               | `[object Error]`                        |
 | `.builtin()`         | `undefined`                             |
-| `.getTag()`          | `[object Set Iterator]`                 |
+| `.getTag()`          | `[object Error]`                        |
 | `.hasSpecialArgs()`  | `false`                                 |
 | `.instance()`        | `undefined`                             |
 | `.instanceTypeOf()`  | `object`                                |
 | `.info()`            | [see more]()                            |
 | `.isAvailable()`     | `true`                                  |
-| `.isConstructor()`   | `false`                                 |
-| `.isFactory()`       | `false`                                 |
-| `.isFunction()`      | `false`                                 |
+| `.isConstructor()`   | `true`                                  |
+| `.isFactory()`       | `true`                                  |
+| `.isFunction()`      | `true`                                  |
 | `.isGlobal()`        | `false`                                 |
-| `.isIterator()`      | `true`                                  |
-| `.isNested()`        | `false`                                 |
-| `.isObject()`        | `true`                                  |
+| `.isIterator()`      | `false`                                 |
+| `.isNested()`        | `true`                                  |
+| `.isObject()`        | `false`                                 |
 | `.isPrimitive()`     | `false`                                 |
 | `.isStringifiable()` | `true`                                  |
 | `.isSyntatic()`      | `false`                                 |
 | `.isTypedArray()`    | `false`                                 |
-| `.ownKeys()`         | `[]`                                    |
+| `.ownKeys()`         | `[length, name, prototype]`             |
 | `.toString()`        | `function toString() { [native code] }` |
-| `.typeOf()`          | `object`                                |
+| `.typeOf()`          | `function`                              |
 
 ### Signature
 

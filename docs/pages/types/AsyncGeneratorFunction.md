@@ -1,4 +1,4 @@
-# TypeTags.`AsyncGeneratorFunction`
+# TypeTags `.AsyncGeneratorFunction`
 
 ### Overview
 
@@ -17,7 +17,8 @@ async function* infinite() {
   }
 }
 
-console.log(TypeTags.AsyncGeneratorFunction) // → [object AsyncGeneratorFunction]
+console.log(TypeTags.AsyncGeneratorFunction)
+// → [object AsyncGeneratorFunction]
 ```
 
 ### Metadata (TType)
@@ -44,7 +45,7 @@ console.log(TypeTags.AsyncGeneratorFunction) // → [object AsyncGeneratorFuncti
 | `.isStringifiable()` | `true`                                  |
 | `.isSyntatic()`      | `true`                                  |
 | `.isTypedArray()`    | `false`                                 |
-| `.ownKeys()`         | `[length,name,prototype]`               |
+| `.ownKeys()`         | `[length, name, prototype]`             |
 | `.toString()`        | `function toString() { [native code] }` |
 | `.typeOf()`          | `function`                              |
 

@@ -1,4 +1,4 @@
-# TypeTags.`Atomics`
+# TypeTags `.Atomics`
 
 ### Overview
 
@@ -9,7 +9,8 @@ The `Atomics` object provides atomic operations as static methods. They are used
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.Atomics) // → [object Atomics]
+console.log(TypeTags.Atomics)
+// → [object Atomics]
 ```
 
 ### Metadata (TType)

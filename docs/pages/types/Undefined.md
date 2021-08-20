@@ -1,4 +1,4 @@
-# TypeTags.`undefined`
+# TypeTags `.Undefined`
 
 ### Overview
 
@@ -9,7 +9,8 @@ The `undefined`...
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.undefined) // → [object Undefined]
+console.log(TypeTags.Undefined)
+// → [object Undefined]
 ```
 
 ### Metadata (TType)

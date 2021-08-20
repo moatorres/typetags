@@ -1,15 +1,33 @@
-# TypeTags.`ReferenceError`
+# TypeTags `.ReferenceError`
 
 ### Overview
 
-The `ReferenceError`...
+The `ReferenceError` object represents an error when a non-existent variable is referenced.
+
+Note that, since error objects do **not** have unique type tags, a `ReferenceError` type tag is the same as any other `Error` object. If you need to check if an object is an instance of a `ReferenceError` object, use `instanceof` instead.
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.ReferenceError) // → [object Error]
+const catchRefError = () => {
+  let res
+  try {
+    let a = undefinedVariable
+  } catch (error) {
+    return (res = error instanceof ReferenceError)
+  }
+}
+
+TypeTags.get(catchRefError) === TypeTags.ReferenceError
+// → false
+
+TypeTags.Error === TypeTags.ReferenceError
+// → true
+
+console.log(res)
+// → true
 ```
 
 ### Metadata (TType)
@@ -36,7 +54,7 @@ console.log(TypeTags.ReferenceError) // → [object Error]
 | `.isStringifiable()` | `true`                                  |
 | `.isSyntatic()`      | `false`                                 |
 | `.isTypedArray()`    | `false`                                 |
-| `.ownKeys()`         | `[length,name,prototype]`               |
+| `.ownKeys()`         | `[length, name, prototype]`             |
 | `.toString()`        | `function toString() { [native code] }` |
 | `.typeOf()`          | `function`                              |
 
@@ -48,4 +66,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError)

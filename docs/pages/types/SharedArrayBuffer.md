@@ -1,4 +1,4 @@
-# TypeTags.`SharedArrayBuffer`
+# TypeTags `.SharedArrayBuffer`
 
 ### Overview
 
@@ -9,7 +9,8 @@ The `SharedArrayBuffer`...
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.SharedArrayBuffer) // → [object SharedArrayBuffer]
+console.log(TypeTags.SharedArrayBuffer)
+// → [object SharedArrayBuffer]
 ```
 
 ### Metadata (TType)
@@ -36,7 +37,7 @@ console.log(TypeTags.SharedArrayBuffer) // → [object SharedArrayBuffer]
 | `.isStringifiable()` | `true`                                  |
 | `.isSyntatic()`      | `false`                                 |
 | `.isTypedArray()`    | `false`                                 |
-| `.ownKeys()`         | `[length,name,prototype]`               |
+| `.ownKeys()`         | `[length, name, prototype]`             |
 | `.toString()`        | `function toString() { [native code] }` |
 | `.typeOf()`          | `function`                              |
 

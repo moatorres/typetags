@@ -1,4 +1,4 @@
-# TypeTags.`WeakMap`
+# TypeTags `.WeakMap`
 
 ### Overview
 
@@ -9,7 +9,8 @@ The `WeakMap`...
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.WeakMap) // → [object WeakMap]
+console.log(TypeTags.WeakMap)
+// → [object WeakMap]
 ```
 
 ### Metadata (TType)
@@ -36,7 +37,7 @@ console.log(TypeTags.WeakMap) // → [object WeakMap]
 | `.isStringifiable()` | `true`                                  |
 | `.isSyntatic()`      | `false`                                 |
 | `.isTypedArray()`    | `false`                                 |
-| `.ownKeys()`         | `[length,name,prototype]`               |
+| `.ownKeys()`         | `[length, name, prototype]`             |
 | `.toString()`        | `function toString() { [native code] }` |
 | `.typeOf()`          | `function`                              |
 

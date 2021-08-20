@@ -1,4 +1,4 @@
-# TypeTags.`AggregateError`
+# TypeTags `.AggregateError`
 
 ### Overview
 
@@ -9,9 +9,11 @@ The `AggregateError` object represents an error when several errors need to be w
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.AggregateError) // → [object Error]
+console.log(TypeTags.AggregateError)
+// → [object Error]
 
-TypeTags.get(new AggregateError([])) // → [object Error]
+TypeTags.get(new AggregateError([]))
+// → [object Error]
 ```
 
 ### Metadata (TType)

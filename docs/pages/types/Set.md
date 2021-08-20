@@ -1,4 +1,4 @@
-# TypeTags.`Set`
+# TypeTags `.Set`
 
 ### Overview
 
@@ -9,7 +9,8 @@ The `Set`...
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.Set) // → [object Set]
+console.log(TypeTags.Set)
+// → [object Set]
 ```
 
 ### Metadata (TType)

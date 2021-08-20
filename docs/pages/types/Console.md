@@ -1,15 +1,16 @@
-# TypeTags.`Console`
+# TypeTags `.Console`
 
 ### Overview
 
-The `Console`...
+The `console` object provides access to the browser's debugging console (e.g. the Web console in Firefox). The specifics of how it works varies from browser to browser, but there is a _de facto_ set of features that are typically provided.
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.Console) // → [object console]
+console.log(TypeTags.Console)
+// → [object console]
 ```
 
 ### Metadata (TType)
@@ -48,4 +49,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/console)

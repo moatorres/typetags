@@ -1,4 +1,4 @@
-# TypeTags.`TextDecoder`
+# TypeTags `.TextDecoder`
 
 ### Overview
 
@@ -9,7 +9,8 @@ The `TextDecoder`...
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.TextDecoder) // → [object TextDecoder]
+console.log(TypeTags.TextDecoder)
+// → [object TextDecoder]
 ```
 
 ### Metadata (TType)

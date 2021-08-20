@@ -1,4 +1,4 @@
-# TypeTags.`Symbol`
+# TypeTags `.Symbol`
 
 ### Overview
 
@@ -9,7 +9,8 @@ The `Symbol`...
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.Symbol) // → [object Symbol]
+console.log(TypeTags.Symbol)
+// → [object Symbol]
 ```
 
 ### Metadata (TType)

@@ -1,4 +1,4 @@
-# TypeTags.`Uint32Array`
+# TypeTags `.Uint32Array`
 
 ### Overview
 
@@ -9,7 +9,8 @@ The `Uint32Array`...
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.Uint32Array) // → [object Uint32Array]
+console.log(TypeTags.Uint32Array)
+// → [object Uint32Array]
 ```
 
 ### Metadata (TType)

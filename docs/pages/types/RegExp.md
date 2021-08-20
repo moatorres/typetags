@@ -1,4 +1,4 @@
-# TypeTags.`RegExp`
+# TypeTags `.RegExp`
 
 ### Overview
 
@@ -9,7 +9,8 @@ The `RegExp`...
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.RegExp) // → [object RegExp]
+console.log(TypeTags.RegExp)
+// → [object RegExp]
 ```
 
 ### Metadata (TType)

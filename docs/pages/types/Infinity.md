@@ -1,15 +1,16 @@
-# TypeTags.`Infinity`
+# TypeTags `.Infinity`
 
 ### Overview
 
-The `Infinity`...
+The global property `Infinity` is a numeric value representing infinity. The initial value of `Infinity` is `Number.POSITIVE_INFINITY`. The value `Infinity` (positive infinity) is greater than any other number.
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.Infinity) // → [object Number]
+TypeTags.get(1 / 0) === TypeTags.Infinity
+// → true
 ```
 
 ### Metadata (TType)
@@ -48,4 +49,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity)
