@@ -2,7 +2,7 @@
 
 ### Usage
 
-#### `TypeTags .isDataView(value)`
+##### `TypeTags.isDataView(value)`
 
 - Checks if `value` **is** or **has** a default `DataView` type tag.
 

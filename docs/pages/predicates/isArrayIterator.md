@@ -2,7 +2,7 @@
 
 ### Usage
 
-#### `TypeTags .isArrayIterator(value)`
+##### `TypeTags.isArrayIterator(value)`
 
 - Checks if `value` **is** or **has** a default `Array Iterator` type tag.
 

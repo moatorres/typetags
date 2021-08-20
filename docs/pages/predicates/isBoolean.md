@@ -2,7 +2,7 @@
 
 ### Usage
 
-#### `TypeTags .isBoolean(value)`
+##### `TypeTags.isBoolean(value)`
 
 - Checks if `value` **is** or **has** a default `Boolean` type tag.
 

@@ -2,7 +2,7 @@
 
 ### Usage
 
-#### `TypeTags .isArrayBuffer(value)`
+##### `TypeTags.isArrayBuffer(value)`
 
 - Checks if `value` **is** or **has** a default `ArrayBuffer` type tag.
 

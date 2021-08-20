@@ -1,25 +1,35 @@
 import Callout from 'nextra-theme-docs/callout'
 
-# Node.js Object [TypeTags](https://github.com/moatorres/typetags)
+# TypeTags
 
 ### String Representations of Node.js Built-in Objects
 
 <Callout emoji="🚀">**TypeTags v1.4.0-alpha** is now available.</Callout>
 
-This package contains a list of default string representations of [built-in objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference), types and functions of Node.js — [see the full list here](https://github.com/moatorres/typetags/blob/master/lib/type-tags.js).
+This package contains a list of default string representations of [built-in objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference) and types of Node.js — [see the full list here](https://github.com/moatorres/typetags/blob/master/lib/type-tags.js).
 
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.Array) // → [object Array]
-console.log(TypeTags.Function) // → [object Function]
-console.log(TypeTags.Float64Array) // → [object Float64Array]
+const log = (value) => console.log(value)
+
+log(TypeTags.Array) // → [object Array]
+
+log(TypeTags.Function) // → [object Function]
+
+log(TypeTags.Float64Array) // → [object Float64Array]
 ```
 
-`TypeTags` can be used with every object allowing you to get its class.
+`TypeTags` can be used with any data type to get its class by retrieving its type tag.
 
 ```js
 TypeTags.get('Hey') // → [object String]
+```
+
+It also has predicates to help us identify an object's type.
+
+```js
+TypeTags.isArray('yo') // → false
 ```
 
 View on [GitHub](https://github.com/moatorres/typetags)
@@ -40,35 +50,39 @@ yarn add typetags
 
 ## [API Reference]()
 
-The `TypeTags` object contains a list of strings, each representing an object type. You can use it to check if an object's typetag matches the default tag of its data type.
+The `TypeTags` object contains a set of **properties**, **methods** and **predicates**, each representing an object type. We can use it to check if an object's type tag matches the default tag of a data type.
 
 ```js
 import { TypeTags } from 'typetags'
 
 const o = { foo: 'bar' }
 
-if (o.toString() !== TypeTags.Object) {
+if (o.toString() !== TypeTags.String) {
   doSomething()
 }
 ```
 
-## [Methods]()
+## [Methods](https://typetags.org/methods)
 
-The `getTag` function can be used to retrieve an object's typetag. Behind the curtains, all it does is to call `Object.prototype.toString` over any value and return the result.
+`TypeTags`'s methods can help us interact with Node.js built-in types. For example, the `.enhance` method, which returns a built-in wrapped into a `TType` object loaded with several introspective methods.
+
+There are also functions that can be used separately to retrieve or assign an object's type tag.
 
 ```js
-const { getTag } = require('typetags')
+const { TypeTags } = require('typetags')
 
-const o = { foo: 'bar' }
+let o = { foo: 'bar' }
 
-const tag = getTag(o)
+const before = TypeTags.of(o) // → '[object Object]'
 
-console.log(tag) // → '[object Object]'
+TypeTags.assign(o, 'Bazzinga')
+
+const after = TypeTags.get(o) // → '[object Bazzinga]'
 ```
 
-## [Predicates]()
+## [Predicates](https://typetags.org/predicates)
 
-Check [this page](https://github.com/moatorres/typetags/wiki/predicates) for a reference list of all predicates
+Check [this page](https://typetags.org/predicates) for a reference list of all predicates
 
 ---
 
@@ -86,10 +100,10 @@ o.toString() // → [object Object]
 Although using `toString()` in this way is unreliable, as **objects can change the behavior of `Object.prototype.toString()`** this library might be helpful when you need to compare objects' tags inside a procedure call or if you just need a quick reference.
 
 ```js
-const { TypeTags, getTag } = require('typetags')
+const { TypeTags } = require('typetags')
 
 function isArray(value) {
-  return typeof value === 'object' && getTag(value) === TypeTags.Array
+  return typeof value === 'object' && TypeTags.get(value) === TypeTags.Array
 }
 ```
 
@@ -101,7 +115,7 @@ Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_O
 `esm`
 
 ```js
-import { isDefaultTag } from 'typetags'
+import { TypeTags } from 'typetags'
 ```
 
 `cjs`
@@ -140,7 +154,11 @@ Ran all test suites.
 
 ## TypeScript
 
-Using TypeScript? We've got you [covered](https://github.com/moatorres/typetags/blob/master/lib/type-tags.d.ts). The package comes with `d.ts` declaration files.
+Using TypeScript? We've got you [covered](https://github.com/moatorres/typetags/blob/master/lib/resources/TypeTags.d.ts). Check out our `d.ts` declaration files.
+
+If you'd like to help us improve our type definitions, please consider [submitting us a new issue](https://github.com/moatorres/typetags/issues/new). We'll be happy to hearing from you. 😀
+
+---
 
 <sub>
   ⚡️ Powered by [**Moka Tecnologia**](https://github.com/mokatecnologia) — `< >` with lots of

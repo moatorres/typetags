@@ -1,8 +1,8 @@
-# TypeTags `.isAsyncGeneratorFunction()`
+# TypeTags `.isAsyncGeneratorFunction`
 
 ### Usage
 
-#### `TypeTags .isAsyncGeneratorFunction(value)`
+##### `TypeTags.isAsyncGeneratorFunction(value)`
 
 - Checks if `value` **is** or **has** a default `AsyncGeneratorFunction` type tag.
 

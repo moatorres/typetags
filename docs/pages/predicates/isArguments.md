@@ -2,7 +2,7 @@
 
 ### Usage
 
-#### `TypeTags .isArguments(value)`
+##### `TypeTags.isArguments(value)`
 
 - Checks if `value` **is** or **has** a default `arguments` type tag.
 

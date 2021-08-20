@@ -2,7 +2,7 @@
 
 ### Usage
 
-#### `TypeTags .isAbortSignal(value)`
+##### `TypeTags.isAbortSignal(value)`
 
 - Checks if `value` **is** or **has** a default `AbortSignal` type tag.
 

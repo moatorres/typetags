@@ -2,7 +2,7 @@
 
 ### Usage
 
-#### `TypeTags .isBigInt(value)`
+##### `TypeTags.isBigInt(value)`
 
 - Checks if `value` **is** or **has** a default `BigInt` type tag.
 
