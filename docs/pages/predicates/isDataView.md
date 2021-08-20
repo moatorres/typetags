@@ -2,7 +2,7 @@
 
 ### Usage
 
-#### `TypeTags .isDataView(value)`
+##### `TypeTags.isDataView(value)`
 
 - Checks if `value` **is** or **has** a default `DataView` type tag.
 
@@ -10,6 +10,7 @@
 const { TypeTags } = require('typetags')
 
 let buff = new SharedArrayBuffer(1024)
+
 let view = new DataView(buff)
 
 TypeTags.isDataView(view.toString())

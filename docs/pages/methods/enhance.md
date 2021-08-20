@@ -34,8 +34,6 @@ if (encoder.isAvailable()) {
 }
 ```
 
-![Types Intellisense](/images/typetags-06.jpg)
-
 For a list of all available methods, check out the [TType API reference]().
 
 ### Signature

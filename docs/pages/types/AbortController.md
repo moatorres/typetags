@@ -1,4 +1,4 @@
-# TypeTags.`AbortController`
+# TypeTags `.AbortController`
 
 ### Overview
 
@@ -9,7 +9,8 @@ The `AbortController` interface represents a controller object that allows you t
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.AbortController) // → [object AbortController]
+console.log(TypeTags.AbortController)
+// → [object AbortController]
 ```
 
 ### Metadata (TType)
@@ -36,7 +37,7 @@ console.log(TypeTags.AbortController) // → [object AbortController]
 | `.isStringifiable()` | `true`                        |
 | `.isSyntatic()`      | `false`                       |
 | `.isTypedArray()`    | `false`                       |
-| `.ownKeys()`         | `['length', 'isArray']`       |
+| `.ownKeys()`         | `[length, prototype, name]`   |
 | `.toString()`        | `''`                          |
 | `.typeOf()`          | `function`                    |
 

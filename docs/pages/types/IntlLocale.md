@@ -1,36 +1,47 @@
-# TypeTags.`URIError`
+# TypeTags `.IntlLocale`
 
 ### Overview
 
-The `URIError`...
+The `Intl.Locale` object is a standard built-in property of the Intl object that represents a Unicode locale identifier.
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.URIError) // → [object Error]
+const korean = new Intl.Locale('ko', {
+  script: 'Kore',
+  region: 'KR',
+  hourCycle: 'h24',
+  calendar: 'gregory',
+})
+
+TypeTags.get(korean)
+// → [object Intl.Locale]
+
+console.log(korean.hourCycle)
+// expected output: 'h24'
 ```
 
 ### Metadata (TType)
 
 | Metadata             | Value                                   |
 | -------------------- | --------------------------------------- |
-| `.type`              | `URIError`                              |
-| `.tag`               | `[object Error]`                        |
+| `.type`              | `Intl.Locale`                           |
+| `.tag`               | `[object Intl.Locale]`                  |
 | `.builtin()`         | `undefined`                             |
-| `.getTag()`          | `[object Error]`                        |
-| `.hasSpecialArgs()`  | `false`                                 |
+| `.getTag()`          | `[object Intl.Locale]`                  |
+| `.hasSpecialArgs()`  | `true`                                  |
 | `.instance()`        | `undefined`                             |
 | `.instanceTypeOf()`  | `object`                                |
 | `.info()`            | [see more]()                            |
 | `.isAvailable()`     | `true`                                  |
 | `.isConstructor()`   | `true`                                  |
-| `.isFactory()`       | `true`                                  |
+| `.isFactory()`       | `false`                                 |
 | `.isFunction()`      | `true`                                  |
-| `.isGlobal()`        | `true`                                  |
+| `.isGlobal()`        | `false`                                 |
 | `.isIterator()`      | `false`                                 |
-| `.isNested()`        | `false`                                 |
+| `.isNested()`        | `true`                                  |
 | `.isObject()`        | `false`                                 |
 | `.isPrimitive()`     | `false`                                 |
 | `.isStringifiable()` | `true`                                  |
@@ -48,4 +59,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale)

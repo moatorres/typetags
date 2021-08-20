@@ -1,15 +1,25 @@
-# TypeTags.`NaN`
+# TypeTags `.NaN`
 
 ### Overview
 
-The `NaN`...
+The global `NaN` property is a value representing Not-A-Number.
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.NaN) // → [object Number]
+function sanitise(x) {
+  if (isNaN(x)) {
+    return NaN
+  }
+  return x
+}
+
+const res = sanitise('hey')
+
+console.log(TypeTags.NaN === TypeTags.get(res))
+// → true
 ```
 
 ### Metadata (TType)
@@ -48,4 +58,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN)

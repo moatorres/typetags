@@ -2,7 +2,7 @@
 
 ### Usage
 
-#### `TypeTags .isAtomics(value)`
+##### `TypeTags.isAtomics(value)`
 
 - Checks if `value` **is** or **has** a default `Atomics` type tag.
 

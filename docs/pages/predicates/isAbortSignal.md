@@ -2,7 +2,7 @@
 
 ### Usage
 
-#### `TypeTags .isAbortSignal(value)`
+##### `TypeTags.isAbortSignal(value)`
 
 - Checks if `value` **is** or **has** a default `AbortSignal` type tag.
 
@@ -10,10 +10,14 @@
 const { TypeTags } = require('typetags')
 
 let abort = new AbortController()
-TypeTags.isAbortSignal(abort.signal.toString()) // → true
+
+TypeTags.isAbortSignal(abort.signal)
+// → true
 
 let tag = TypeTags.get(abort.signal)
-TypeTags.isAbortSignal(tag) // → true
+
+console.log(tag)
+// → [object AbortSignal]
 ```
 
 ### Signature

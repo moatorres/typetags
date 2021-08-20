@@ -1,4 +1,4 @@
-# TypeTags.`AbortSignal`
+# TypeTags `.AbortSignal`
 
 ### Overview
 
@@ -9,9 +9,11 @@ The `signal` read-only property of the `AbortController` interface returns an `A
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.AbortSignal) // → [object AbortSignal]
+console.log(TypeTags.AbortSignal)
+// → [object AbortSignal]
 
-TypeTags.get(new AbortController().signal) // → [object AbortSignal]
+TypeTags.get(new AbortController().signal)
+// → [object AbortSignal]
 ```
 
 ### Metadata (TType)

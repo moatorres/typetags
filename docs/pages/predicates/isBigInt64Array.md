@@ -2,7 +2,7 @@
 
 ### Usage
 
-#### `TypeTags .isBigInt64Array(value)`
+##### `TypeTags.isBigInt64Array(value)`
 
 - Checks if `value` **is** or **has** a default `BigInt64Array` type tag.
 

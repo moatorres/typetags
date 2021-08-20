@@ -2,7 +2,7 @@
 
 ### Usage
 
-#### `TypeTags .isConsole(value)`
+##### `TypeTags.isConsole(value)`
 
 - Checks if `value` **is** or **has** a default `Console` type tag.
 

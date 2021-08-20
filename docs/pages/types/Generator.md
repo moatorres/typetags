@@ -1,15 +1,16 @@
-# TypeTags.`Generator`
+# TypeTags `.Generator`
 
 ### Overview
 
-The `Generator`...
+The `Generator` object is returned by a [generator function](https://typetags.org/types/GeneratorFunction) and it conforms to both the [iterable protocol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*) and the [iterator protocol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol).
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.Generator) // → [object Generator]
+console.log(TypeTags.Generator)
+// → [object Generator]
 ```
 
 ### Metadata (TType)
@@ -48,4 +49,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator)

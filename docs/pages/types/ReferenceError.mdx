@@ -1,22 +1,46 @@
-# TypeTags.`WebAssembly.CompileError`
+import Callout from 'nextra-theme-docs/callout'
+
+# TypeTags `.ReferenceError`
 
 ### Overview
 
-The `WebAssembly.CompileError`...
+The `ReferenceError` object represents an error when a non-existent variable is referenced.
+
+<Callout type="error" emoji="️🚫">
+  Since error objects **do not** have unique type tags, a `ReferenceError` type
+  tag is the same as any other `Error` object. If you need to check if an error
+  is an instance of a `ReferenceError`, use `instanceof` instead.
+</Callout>
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags['WebAssembly.CompileError']) // → [object WebAssembly.CompileError]
+const catchRefError = () => {
+  let res
+  try {
+    let a = undefinedVariable
+  } catch (error) {
+    return (res = error instanceof ReferenceError)
+  }
+}
+
+TypeTags.get(catchRefError) === TypeTags.ReferenceError
+// → false
+
+TypeTags.Error === TypeTags.ReferenceError
+// → true
+
+console.log(res)
+// → true
 ```
 
 ### Metadata (TType)
 
 | Metadata             | Value                                   |
 | -------------------- | --------------------------------------- |
-| `.type`              | `WebAssembly.CompileError`              |
+| `.type`              | `ReferenceError`                        |
 | `.tag`               | `[object Error]`                        |
 | `.builtin()`         | `undefined`                             |
 | `.getTag()`          | `[object Error]`                        |
@@ -28,15 +52,15 @@ console.log(TypeTags['WebAssembly.CompileError']) // → [object WebAssembly.Com
 | `.isConstructor()`   | `true`                                  |
 | `.isFactory()`       | `true`                                  |
 | `.isFunction()`      | `true`                                  |
-| `.isGlobal()`        | `false`                                 |
+| `.isGlobal()`        | `true`                                  |
 | `.isIterator()`      | `false`                                 |
-| `.isNested()`        | `true`                                  |
+| `.isNested()`        | `false`                                 |
 | `.isObject()`        | `false`                                 |
 | `.isPrimitive()`     | `false`                                 |
 | `.isStringifiable()` | `true`                                  |
 | `.isSyntatic()`      | `false`                                 |
 | `.isTypedArray()`    | `false`                                 |
-| `.ownKeys()`         | `[length,name,prototype]`               |
+| `.ownKeys()`         | `[length, name, prototype]`             |
 | `.toString()`        | `function toString() { [native code] }` |
 | `.typeOf()`          | `function`                              |
 
@@ -48,4 +72,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError)

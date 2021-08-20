@@ -1,25 +1,38 @@
 import Callout from 'nextra-theme-docs/callout'
 
-# Node.js Object [TypeTags](https://github.com/moatorres/typetags)
+# TypeTags
 
 ### String Representations of Node.js Built-in Objects
 
 <Callout emoji="🚀">**TypeTags v1.4.0-alpha** is now available.</Callout>
 
-This package contains a list of default string representations of [built-in objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference), types and functions of Node.js — [see the full list here](https://github.com/moatorres/typetags/blob/master/lib/type-tags.js).
+This package contains a list of default string representations of [built-in objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference) and types of Node.js — [see the full list here](https://github.com/moatorres/typetags/blob/master/lib/type-tags.js).
 
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.Array) // → [object Array]
-console.log(TypeTags.Function) // → [object Function]
-console.log(TypeTags.Float64Array) // → [object Float64Array]
+TypeTags.Array
+// → [object Array]
+
+TypeTags.Function
+// → [object Function]
+
+TypeTags.Float64Array
+// → [object Float64Array]
 ```
 
-`TypeTags` can be used with every object allowing you to get its class.
+`TypeTags` can be used with any object to get its class or retrieve its type tag.
 
 ```js
-TypeTags.get('Hey') // → [object String]
+TypeTags.get('Hey')
+// → [object String]
+```
+
+It also has predicates to help us identify an object's type.
+
+```js
+TypeTags.isArray('yo')
+// → false
 ```
 
 View on [GitHub](https://github.com/moatorres/typetags)
@@ -40,35 +53,51 @@ yarn add typetags
 
 ## [API Reference]()
 
-The `TypeTags` object contains a list of strings, each representing an object type. You can use it to check if an object's typetag matches the default tag of its data type.
+The `TypeTags` object contains a set of **properties**, **methods** and **predicates**, each representing an object type. We can use it to check if an object's type tag matches the default tag of a data type.
 
 ```js
 import { TypeTags } from 'typetags'
 
 const o = { foo: 'bar' }
 
-if (o.toString() !== TypeTags.Object) {
+if (o.toString() !== TypeTags.String) {
   doSomething()
 }
 ```
 
-## [Methods]()
+## [Methods](https://typetags.org/methods)
 
-The `getTag` function can be used to retrieve an object's typetag. Behind the curtains, all it does is to call `Object.prototype.toString` over any value and return the result.
+`TypeTags`'s methods can help us interact with Node.js built-in types. E.g. the `.enhance` method returns a built-in object wrapped into a `TType` class which has useful introspective methods.
 
 ```js
-const { getTag } = require('typetags')
+const introMap = TypeTags.enhance('Map')
 
-const o = { foo: 'bar' }
+introMap.isConstructor()
+// → true
 
-const tag = getTag(o)
-
-console.log(tag) // → '[object Object]'
+introMap.hasSpecialArgs()
+// → false
 ```
 
-## [Predicates]()
+It exposes functions that can be used separately to retrieve or assign an object's type tag.
 
-Check [this page](https://github.com/moatorres/typetags/wiki/predicates) for a reference list of all predicates
+```js
+const { TypeTags } = require('typetags')
+
+let o = { foo: 'bar' }
+
+const before = TypeTags.of(o)
+// → '[object Object]'
+
+TypeTags.assign(o, 'Bazzinga')
+
+const after = TypeTags.get(o)
+// → '[object Bazzinga]'
+```
+
+## [Predicates](https://typetags.org/predicates)
+
+Check [this page](https://typetags.org/predicates) for a reference list of all predicates
 
 ---
 
@@ -86,10 +115,10 @@ o.toString() // → [object Object]
 Although using `toString()` in this way is unreliable, as **objects can change the behavior of `Object.prototype.toString()`** this library might be helpful when you need to compare objects' tags inside a procedure call or if you just need a quick reference.
 
 ```js
-const { TypeTags, getTag } = require('typetags')
+const { TypeTags } = require('typetags')
 
 function isArray(value) {
-  return typeof value === 'object' && getTag(value) === TypeTags.Array
+  return typeof value === 'object' && TypeTags.get(value) === TypeTags.Array
 }
 ```
 
@@ -101,7 +130,7 @@ Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_O
 `esm`
 
 ```js
-import { isDefaultTag } from 'typetags'
+import { TypeTags } from 'typetags'
 ```
 
 `cjs`
@@ -121,26 +150,36 @@ const { isDefaultTag } = require('typetags')
 `jest --coverage`
 
 ```sh
----------------|---------|----------|---------|---------|-------------------
-File           | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
----------------|---------|----------|---------|---------|-------------------
-All files      |     100 |      100 |     100 |     100 |
- get-tag.js    |     100 |      100 |     100 |     100 |
- predicates.js |     100 |      100 |     100 |     100 |
- type-tags.js  |     100 |      100 |     100 |     100 |
----------------|---------|----------|---------|---------|-------------------
+------------------|---------|----------|---------|---------|-------------------
+File              | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
+------------------|---------|----------|---------|---------|-------------------
+All files         |   96.02 |       65 |    83.7 |     100 |
+ lib              |   98.21 |    53.85 |   57.69 |     100 |
+  assign-tag.js   |     100 |      100 |     100 |     100 |
+  constants.js    |     100 |      100 |     100 |     100 |
+  get-tag.js      |     100 |      100 |     100 |     100 |
+  initializers.js |     100 |       50 |       0 |     100 | 3-142
+  utils.js        |    97.3 |      100 |   91.67 |     100 |
+ lib/resources    |   95.17 |    85.71 |   93.94 |     100 |
+  TType.js        |   90.79 |    81.82 |     100 |     100 | 73,98-105,129-146
+  TTypeUtils.js   |     100 |    66.67 |      60 |     100 | 52,59,78-80
+  TextUtils.js    |     100 |      100 |     100 |     100 |
+  TypeTags.js     |     100 |      100 |     100 |     100 |
+------------------|---------|----------|---------|---------|-------------------
 
-Test Suites: 3 passed, 3 total
-Tests:       2 skipped, 323 passed, 325 total
+Test Suites: 66 passed, 66 total
+Tests:       2 skipped, 417 passed, 419 total
 Snapshots:   0 total
-Time:        1.571 s, estimated 2 s
+Time:        5.342 s
 Ran all test suites.
-✨  Done in 2.40s.
+✨  Done in 6.72s.
 ```
 
 ## TypeScript
 
-Using TypeScript? We've got you [covered](https://github.com/moatorres/typetags/blob/master/lib/type-tags.d.ts). The package comes with `d.ts` declaration files.
+Using TypeScript? We've got you [covered](https://github.com/moatorres/typetags/blob/master/lib/resources/TypeTags.d.ts). Check out our `d.ts` declaration files. If you'd like to help us improve our type definitions, [submit a new issue](https://github.com/moatorres/typetags/issues/new). Contributions are always welcome. ❤️
+
+---
 
 <sub>
   ⚡️ Powered by [**Moka Tecnologia**](https://github.com/mokatecnologia) — `< >` with lots of

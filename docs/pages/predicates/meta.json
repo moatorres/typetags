@@ -9,7 +9,7 @@
   "isArrayIterator": ".isArrayIterator()",
   "isAsyncFunction": ".isAsyncFunction()",
   "isAsyncGenerator": ".isAsyncGenerator()",
-  "isAsyncGeneratorFunction": ".isAsyncGeneratorFunction()",
+  "isAsyncGeneratorFunction": ".isAsyncGenFn()",
   "isAtomics": ".isAtomics()",
   "isBigInt": ".isBigInt()",
   "isBigInt64Array": ".isBigInt64Array()",

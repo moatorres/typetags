@@ -2,7 +2,7 @@
 
 ### Usage
 
-#### `TypeTags .isArguments(value)`
+##### `TypeTags.isArguments(value)`
 
 - Checks if `value` **is** or **has** a default `arguments` type tag.
 
@@ -15,8 +15,11 @@ let tag
   return
 })()
 
-console.log(isArguments(tag)) // → true
-console.log(isArguments(arguments)) // → true
+TypeTags.isArguments(tag)
+// → true
+
+TypeTags.isArguments(arguments)
+// → true
 ```
 
 ### Signature

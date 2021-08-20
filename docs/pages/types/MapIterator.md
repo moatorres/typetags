@@ -1,25 +1,33 @@
-# TypeTags.`String.Iterator`
+# TypeTags `.MapIterator`
 
 ### Overview
 
-The `String.Iterator`...
+The initial value of the `@@iterator` property is the same function object as the initial value of the `entries` method.
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags['String.Iterator']) // → [object String Iterator]
+const iterator = map[Symbol.iterator]()
+
+const tag = TypeTags.get(iterator)
+
+console.log(tag)
+// → [object Map Iterator]
+
+console.log(TypeTags.MapIterator)
+// → [object Map Iterator]
 ```
 
 ### Metadata (TType)
 
 | Metadata             | Value                                   |
 | -------------------- | --------------------------------------- |
-| `.type`              | `String.Iterator`                       |
-| `.tag`               | `[object String Iterator]`              |
+| `.type`              | `Map.Iterator`                          |
+| `.tag`               | `[object Map Iterator]`                 |
 | `.builtin()`         | `undefined`                             |
-| `.getTag()`          | `[object String Iterator]`              |
+| `.getTag()`          | `[object Map Iterator]`                 |
 | `.hasSpecialArgs()`  | `false`                                 |
 | `.instance()`        | `undefined`                             |
 | `.instanceTypeOf()`  | `object`                                |
@@ -48,4 +56,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/@@iterator)

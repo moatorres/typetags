@@ -2,7 +2,7 @@
 
 ### Usage
 
-#### `TypeTags .isArrayBuffer(value)`
+##### `TypeTags.isArrayBuffer(value)`
 
 - Checks if `value` **is** or **has** a default `ArrayBuffer` type tag.
 
@@ -10,10 +10,14 @@
 const { TypeTags } = require('typetags')
 
 let buf = new ArrayBuffer(8)
-TypeTags.isArrayBuffer(buf.toString()) // → true
+
+TypeTags.isArrayBuffer(buf.toString())
+// → true
 
 let tag = TypeTags.get(buf)
-TypeTags.isArrayBuffer(tag) // → true
+
+TypeTags.isArrayBuffer(tag)
+// → true
 ```
 
 ### Signature

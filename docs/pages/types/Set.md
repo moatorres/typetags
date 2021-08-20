@@ -1,15 +1,24 @@
-# TypeTags.`Set`
+# TypeTags `.Set`
 
 ### Overview
 
-The `Set`...
+The `Set` object lets you store unique values of any type, whether primitive values or object references.
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.Set) // → [object Set]
+const mySet = new Set([1, 2, 3, 4, 5])
+
+console.log(mySet.has(1))
+// expected output: true
+
+TypeTags.get(mySet) === TypeTags.Set
+// → true
+
+console.log(TypeTags.get(mySet))
+// → [object Set]
 ```
 
 ### Metadata (TType)
@@ -48,4 +57,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set)

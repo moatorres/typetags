@@ -1,15 +1,30 @@
-# TypeTags.`WeakRef`
+# TypeTags `.WeakRef`
 
 ### Overview
 
-The `WeakRef`...
+A `WeakRef` object lets you hold a weak reference to another object, without preventing that object from getting garbage-collected.
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.WeakRef) // → [object WeakRef]
+class Counter {
+  constructor(element = 0) {
+    this.ref = new WeakRef(element)
+    this.start()
+  }
+
+  static getRefType() {
+    return TypeTags.get(this.ref)
+  }
+}
+
+TypeTags.WeakRef === Counter.getRefType()
+// → true
+
+console.log(TypeTags.WeakRef)
+// → [object WeakRef]
 ```
 
 ### Metadata (TType)
@@ -36,7 +51,7 @@ console.log(TypeTags.WeakRef) // → [object WeakRef]
 | `.isStringifiable()` | `true`                                  |
 | `.isSyntatic()`      | `false`                                 |
 | `.isTypedArray()`    | `false`                                 |
-| `.ownKeys()`         | `[length,name,prototype]`               |
+| `.ownKeys()`         | `[length, name, prototype]`             |
 | `.toString()`        | `function toString() { [native code] }` |
 | `.typeOf()`          | `function`                              |
 
@@ -48,4 +63,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakRef)

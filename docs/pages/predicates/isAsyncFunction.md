@@ -2,7 +2,7 @@
 
 ### Usage
 
-#### `TypeTags .isAsyncFunction(value)`
+##### `TypeTags.isAsyncFunction(value)`
 
 - Checks if `value` **is** or **has** a default `AsyncFunction` type tag.
 

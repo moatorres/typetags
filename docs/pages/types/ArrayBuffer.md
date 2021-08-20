@@ -1,4 +1,4 @@
-# TypeTags.`ArrayBuffer`
+# TypeTags `.ArrayBuffer`
 
 ### Overview
 
@@ -9,7 +9,8 @@ The `ArrayBuffer` object is used to represent a generic, fixed-length raw binary
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.ArrayBuffer) // → [object ArrayBuffer]
+console.log(TypeTags.ArrayBuffer)
+// → [object ArrayBuffer]
 ```
 
 ### Metadata (TType)
@@ -36,7 +37,7 @@ console.log(TypeTags.ArrayBuffer) // → [object ArrayBuffer]
 | `.isStringifiable()` | `true`                                  |
 | `.isSyntatic()`      | `false`                                 |
 | `.isTypedArray()`    | `false`                                 |
-| `.ownKeys()`         | `[length,name,prototype,isView]`        |
+| `.ownKeys()`         | `[length, name, prototype, isView]`     |
 | `.toString()`        | `function toString() { [native code] }` |
 | `.typeOf()`          | `function`                              |
 

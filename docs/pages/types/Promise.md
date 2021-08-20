@@ -1,15 +1,25 @@
-# TypeTags.`Promise`
+# TypeTags `.Promise`
 
 ### Overview
 
-The `Promise`...
+The `Promise` object represents the eventual completion (or failure) of an asynchronous operation and its resulting value.
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.Promise) // → [object Promise]
+const myPromise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve('foo')
+  }, 300)
+})
+
+console.log(TypeTags.Promise)
+// → [object Promise]
+
+console.log(TypeTags.get(myPromise))
+// → [object Promise]
 ```
 
 ### Metadata (TType)
@@ -48,4 +58,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)

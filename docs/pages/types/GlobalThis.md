@@ -1,15 +1,16 @@
-# TypeTags.`GlobalThis`
+# TypeTags `.GlobalThis`
 
 ### Overview
 
-The `GlobalThis`...
+The global `globalThis` property contains the global `this` value, which is akin to the [global object](https://typetags.org/types/Global).
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.GlobalThis) // → [object globalThis]
+console.log(TypeTags.GlobalThis)
+// → [object globalThis]
 ```
 
 ### Metadata (TType)
@@ -48,4 +49,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/globalThis)

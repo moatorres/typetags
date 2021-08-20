@@ -1,15 +1,24 @@
-# TypeTags.`RegExp`
+# TypeTags `.RegExp`
 
 ### Overview
 
-The `RegExp`...
+The `RegExp` object is used for matching text with a pattern.
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.RegExp) // → [object RegExp]
+let regex = new RegExp('bar', 'g')
+
+console.log(regex.toString())
+// expected output: '/bar/g'
+
+TypeTags.get(regex) === TypeTags.RegExp
+// → true
+
+console.log(TypeTags.RegExp)
+// → [object RegExp]
 ```
 
 ### Metadata (TType)
@@ -48,4 +57,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp)

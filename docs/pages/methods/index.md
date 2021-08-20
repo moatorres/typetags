@@ -16,8 +16,6 @@ if (o.toString() !== TypeTags.Object) {
 }
 ```
 
-![Types Intellisense](/images/typetags-02.jpg)
-
 ### Signature
 
 ```ts

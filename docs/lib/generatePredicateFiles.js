@@ -102,7 +102,7 @@ const predFile = (meta) => {
     return meta
   }
 
-  return `# \`is${meta}()\`
+  return `# TypeTags \`.is${meta}\`
 
 ### Usage
 

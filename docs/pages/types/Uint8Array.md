@@ -1,15 +1,21 @@
-# TypeTags.`Uint8Array`
+# TypeTags `.Uint8Array`
 
 ### Overview
 
-The `Uint8Array`...
+The `Uint8Array` typed array represents an array of 8-bit unsigned integers. The contents are initialized to `0`.
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.Uint8Array) // → [object Uint8Array]
+let arr = new Uint8Array([21, 31])
+
+TypeTags.get(arr)
+// → [object Uint8Array]
+
+TypeTags.get(arr) === TypeTags.Uint8Array
+// → true
 ```
 
 ### Metadata (TType)
@@ -48,4 +54,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array)

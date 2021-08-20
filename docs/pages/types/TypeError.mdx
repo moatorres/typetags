@@ -1,32 +1,48 @@
-# TypeTags.`TextEncoder`
+import Callout from 'nextra-theme-docs/callout'
+
+# TypeTags `.TypeError`
 
 ### Overview
 
-The `TextEncoder`...
+The `TypeError` object represents an error when an operation could not be performed, typically (but not exclusively) when a value is not of the expected type.
+
+<Callout type="error" emoji="️🚫">
+  Since error objects **do not** have unique type tags, a `TypeError` type tag
+  is the same as any other `Error` object. If you need to check if an error is
+  an instance of a `TypeError`, use `instanceof` instead.
+</Callout>
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.TextEncoder) // → [object TextEncoder]
+try {
+  throw new TypeError('Hello', 'someFile.js', 10)
+} catch (e) {
+  console.log(e instanceof TypeError) // true
+  TypeTags.get(e) === TypeTags.RangeError // → true
+}
+
+console.log(TypeTags.TypeError)
+// → [object Error]
 ```
 
 ### Metadata (TType)
 
 | Metadata             | Value                                   |
 | -------------------- | --------------------------------------- |
-| `.type`              | `TextEncoder`                           |
-| `.tag`               | `[object TextEncoder]`                  |
+| `.type`              | `TypeError`                             |
+| `.tag`               | `[object Error]`                        |
 | `.builtin()`         | `undefined`                             |
-| `.getTag()`          | `[object TextEncoder]`                  |
+| `.getTag()`          | `[object Error]`                        |
 | `.hasSpecialArgs()`  | `false`                                 |
 | `.instance()`        | `undefined`                             |
 | `.instanceTypeOf()`  | `object`                                |
 | `.info()`            | [see more]()                            |
 | `.isAvailable()`     | `true`                                  |
 | `.isConstructor()`   | `true`                                  |
-| `.isFactory()`       | `false`                                 |
+| `.isFactory()`       | `true`                                  |
 | `.isFunction()`      | `true`                                  |
 | `.isGlobal()`        | `true`                                  |
 | `.isIterator()`      | `false`                                 |
@@ -36,7 +52,7 @@ console.log(TypeTags.TextEncoder) // → [object TextEncoder]
 | `.isStringifiable()` | `true`                                  |
 | `.isSyntatic()`      | `false`                                 |
 | `.isTypedArray()`    | `false`                                 |
-| `.ownKeys()`         | `[length, prototype, name]`             |
+| `.ownKeys()`         | `[length, name, prototype]`             |
 | `.toString()`        | `function toString() { [native code] }` |
 | `.typeOf()`          | `function`                              |
 
@@ -48,4 +64,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError)

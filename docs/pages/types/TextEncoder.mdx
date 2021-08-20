@@ -1,26 +1,43 @@
-# TypeTags.`Intl.Locale`
+import Callout from 'nextra-theme-docs/callout'
+
+# TypeTags `.TextEncoder`
 
 ### Overview
 
-The `Intl.Locale`...
+<Callout type="warning" emoji="⚠️">
+  <b>
+    Experimental: This is an [experimental
+    technology](https://developer.mozilla.org/en-US/docs/MDN/Guidelines/Conventions_definitions#experimental)
+  </b>
+</Callout>
+
+`TextEncoder` takes a stream of code points as input and emits a stream of UTF-8 bytes.
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags['Intl.Locale']) // → [object Intl.Locale]
+const encoder = new TextEncoder()
+
+TypeTags.get(encoder)
+// → [object TextEncoder]
+
+const view = encoder.encode('€')
+
+TypeTags.get(view) === TypeTags.TextEncoder
+// → false
 ```
 
 ### Metadata (TType)
 
 | Metadata             | Value                                   |
 | -------------------- | --------------------------------------- |
-| `.type`              | `Intl.Locale`                           |
-| `.tag`               | `[object Intl.Locale]`                  |
+| `.type`              | `TextEncoder`                           |
+| `.tag`               | `[object TextEncoder]`                  |
 | `.builtin()`         | `undefined`                             |
-| `.getTag()`          | `[object Intl.Locale]`                  |
-| `.hasSpecialArgs()`  | `true`                                  |
+| `.getTag()`          | `[object TextEncoder]`                  |
+| `.hasSpecialArgs()`  | `false`                                 |
 | `.instance()`        | `undefined`                             |
 | `.instanceTypeOf()`  | `object`                                |
 | `.info()`            | [see more]()                            |
@@ -28,15 +45,15 @@ console.log(TypeTags['Intl.Locale']) // → [object Intl.Locale]
 | `.isConstructor()`   | `true`                                  |
 | `.isFactory()`       | `false`                                 |
 | `.isFunction()`      | `true`                                  |
-| `.isGlobal()`        | `false`                                 |
+| `.isGlobal()`        | `true`                                  |
 | `.isIterator()`      | `false`                                 |
-| `.isNested()`        | `true`                                  |
+| `.isNested()`        | `false`                                 |
 | `.isObject()`        | `false`                                 |
 | `.isPrimitive()`     | `false`                                 |
 | `.isStringifiable()` | `true`                                  |
 | `.isSyntatic()`      | `false`                                 |
 | `.isTypedArray()`    | `false`                                 |
-| `.ownKeys()`         | `[length,name,prototype]`               |
+| `.ownKeys()`         | `[length, prototype, name]`             |
 | `.toString()`        | `function toString() { [native code] }` |
 | `.typeOf()`          | `function`                              |
 
@@ -48,4 +65,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/TextEncoder)

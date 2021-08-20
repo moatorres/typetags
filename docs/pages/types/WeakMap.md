@@ -1,15 +1,33 @@
-# TypeTags.`WeakMap`
+# TypeTags `.WeakMap`
 
 ### Overview
 
-The `WeakMap`...
+The `WeakMap` object is a collection of key/value pairs in which the keys are weakly referenced. The keys must be objects and the values can be arbitrary values.
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.WeakMap) // → [object WeakMap]
+const privates = new WeakMap()
+
+function Public() {
+  const hidden = {
+    // private data goes here
+  }
+  privates.set(this, hidden)
+}
+
+Public.prototype.method = function () {
+  const secrets = privates.get(this)
+  // do stuff with private data
+}
+
+TypeTags.get(privates) === TypeTags.WeakMap
+// → true
+
+console.log(TypeTags.WeakMap)
+// → [object WeakMap]
 ```
 
 ### Metadata (TType)
@@ -36,7 +54,7 @@ console.log(TypeTags.WeakMap) // → [object WeakMap]
 | `.isStringifiable()` | `true`                                  |
 | `.isSyntatic()`      | `false`                                 |
 | `.isTypedArray()`    | `false`                                 |
-| `.ownKeys()`         | `[length,name,prototype]`               |
+| `.ownKeys()`         | `[length, name, prototype]`             |
 | `.toString()`        | `function toString() { [native code] }` |
 | `.typeOf()`          | `function`                              |
 
@@ -48,4 +66,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap)

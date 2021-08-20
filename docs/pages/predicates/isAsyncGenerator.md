@@ -2,7 +2,7 @@
 
 ### Usage
 
-#### `TypeTags .isAsyncGenerator(value)`
+##### `TypeTags.isAsyncGenerator(value)`
 
 - Checks if `value` **is** or **has** a default `AsyncGenerator` type tag.
 

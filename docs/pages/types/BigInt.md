@@ -1,15 +1,16 @@
-# TypeTags.`BigInt`
+# TypeTags `.BigInt`
 
 ### Overview
 
-`BigInt` is a built-in object whose constructor returns a `bigint` primitive to represent whole numbers larger than `2^53 - 1` or `Number.MAX_SAFE_INTEGER`, which is the largest number JavaScript can represent with a `number` primitive (or `Number` value). `BigInt` values can be used for arbitrarily large integers.
+`BigInt` is a built-in object whose constructor returns a `bigint` primitive to represent whole numbers larger than `2^53 - 1` or `Number.MAX_SAFE_INTEGER`, which is the largest number JavaScript can represent with a `number` primitive (or `Number` value).
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.BigInt) // → [object BigInt]
+console.log(TypeTags.BigInt)
+// → [object BigInt]
 ```
 
 ### Metadata (TType)

@@ -21,7 +21,14 @@ console.log(tags)
 // → [ '[object Number]', '[object String]', '[object Map]' ]
 ```
 
-If it receives a single value or an empty array, it will return the type tag of the value itself.
+Values must be wrapped on an array, otherwise it will return the type tag of the its first argument.
+
+```js
+TypeTags.of(12, '', [])
+// → [object Number]
+```
+
+If it receives a single value or an empty array, it will return the type tag of the `value` itself.
 
 ```js
 import { TypeTags } from 'typetags'
@@ -33,13 +40,6 @@ TypeTags.of(emptyArray)
 
 TypeTags.of('')
 // → [object String]
-```
-
-Values must be wrapped on an array, otherwise it will return the type tag of the its first argument.
-
-```js
-TypeTags.of(12, '', [])
-// → [object Number]
 ```
 
 You can also use the `.of` method in [point-free](https://en.wikipedia.org/wiki/Tacit_programming) (tacit programming) style.

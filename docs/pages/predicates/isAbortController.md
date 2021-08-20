@@ -2,7 +2,7 @@
 
 ### Usage
 
-#### `TypeTags .isAbortController(value)`
+##### `TypeTags.isAbortController(value)`
 
 - Checks if `value` **is** or **has** a default `AbortController` type tag.
 
@@ -10,10 +10,14 @@
 const { TypeTags } = require('typetags')
 
 let abort = new AbortController()
-TypeTags.isAbortController(abort.toString()) // → true
+
+TypeTags.isAbortController(abort)
+// → true
 
 let tag = TypeTags.get(abort)
-TypeTags.isAbortController(tag) // → true
+
+TypeTags.isAbortController(tag)
+// → true
 ```
 
 ### Signature

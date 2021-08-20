@@ -1,32 +1,55 @@
-# TypeTags.`TextDecoder`
+import Callout from 'nextra-theme-docs/callout'
+
+# TypeTags `.RangeError`
 
 ### Overview
 
-The `TextDecoder`...
+The `RangeError` object indicates an error when a value is not in the set or range of allowed values.
+
+<Callout type="error" emoji="️🚫">
+  Since error objects **do not** have unique type tags, a `RangeError` type tag
+  is the same as any other `Error` object. If you need to check if an error is
+  an instance of a `RangeError`, use `instanceof` instead.
+</Callout>
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.TextDecoder) // → [object TextDecoder]
+function check(n) {
+  if (!(n >= -500 && n <= 500)) {
+    return new TypeError() // not a RangeError
+  }
+}
+
+const res = check(2000)
+
+TypeTags.get(res) === TypeTags.RangeError
+// → true
+
+TypeTags.TypeError === TypeTags.RangeError
+// → true
+
+res instanceof RangeError
+// → false
 ```
 
 ### Metadata (TType)
 
 | Metadata             | Value                                   |
 | -------------------- | --------------------------------------- |
-| `.type`              | `TextDecoder`                           |
-| `.tag`               | `[object TextDecoder]`                  |
+| `.type`              | `RangeError`                            |
+| `.tag`               | `[object Error]`                        |
 | `.builtin()`         | `undefined`                             |
-| `.getTag()`          | `[object TextDecoder]`                  |
+| `.getTag()`          | `[object Error]`                        |
 | `.hasSpecialArgs()`  | `false`                                 |
 | `.instance()`        | `undefined`                             |
 | `.instanceTypeOf()`  | `object`                                |
 | `.info()`            | [see more]()                            |
 | `.isAvailable()`     | `true`                                  |
 | `.isConstructor()`   | `true`                                  |
-| `.isFactory()`       | `false`                                 |
+| `.isFactory()`       | `true`                                  |
 | `.isFunction()`      | `true`                                  |
 | `.isGlobal()`        | `true`                                  |
 | `.isIterator()`      | `false`                                 |
@@ -36,7 +59,7 @@ console.log(TypeTags.TextDecoder) // → [object TextDecoder]
 | `.isStringifiable()` | `true`                                  |
 | `.isSyntatic()`      | `false`                                 |
 | `.isTypedArray()`    | `false`                                 |
-| `.ownKeys()`         | `[length, prototype, name]`             |
+| `.ownKeys()`         | `[length, name, prototype]`             |
 | `.toString()`        | `function toString() { [native code] }` |
 | `.typeOf()`          | `function`                              |
 
@@ -48,4 +71,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError)

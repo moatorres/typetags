@@ -2,13 +2,13 @@
 
 ### Overview
 
-The `.assign` method allows us assign the well-known [`Symbol.toStringTag`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag) property to an object. If it receives an object withtout a `toString` method defined, it will assign `Object.prototype.toString` to it then its `tag`.
+The `.assign` method allows us assign the well-known [`Symbol.toStringTag`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag) property to an object. If it receives an object withtout a `toString` method defined, it will assign `Object.prototype.toString` to it prior to the received `tag` string-value.
 
 ### Usage
 
 ##### `TypeTags.assign(object, tag)`
 
-- Adds a `toStringTag` property into an object.
+- Assign or alter the `Symbol.toStringTag` property of an object.
 
 ```js
 import { TypeTags } from 'typetags'

@@ -1,22 +1,38 @@
-# TypeTags.`RangeError`
+import Callout from 'nextra-theme-docs/callout'
+
+# TypeTags `.EvalError`
 
 ### Overview
 
-The `RangeError`...
+The `EvalError` object indicates an error regarding the global `eval()` function. This exception is not thrown by JavaScript anymore, however the `EvalError` object remains for compatibility.
+
+<Callout type="error" emoji="️🚫">
+  Since error objects **do not** have unique type tags, a `EvalError` type tag
+  is the same as any other `Error` object. If you need to check if an error is
+  an instance of a `EvalError`, use `instanceof` instead.
+</Callout>
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.RangeError) // → [object Error]
+try {
+  throw new EvalError('Hello', 'someFile.js', 10)
+} catch (e) {
+  console.log(TypeTags.get(e))
+  // → [object Error]
+}
+
+console.log(TypeTags.EvalError)
+// → [object Error]
 ```
 
 ### Metadata (TType)
 
 | Metadata             | Value                                   |
 | -------------------- | --------------------------------------- |
-| `.type`              | `RangeError`                            |
+| `.type`              | `EvalError`                             |
 | `.tag`               | `[object Error]`                        |
 | `.builtin()`         | `undefined`                             |
 | `.getTag()`          | `[object Error]`                        |
@@ -48,4 +64,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/EvalError)

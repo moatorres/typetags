@@ -14,14 +14,20 @@ The `.isTypedArray` predicate allows us to check if an object **is** a [TypedArr
 import { TypeTags } from 'typetags'
 
 const float = new Float32Array(12)
-const bigint = 12n
 
-TypeTags.isTypedArray(float) // → true
-TypeTags.isTypedArray(bigint) // → false
+TypeTags.isTypedArray(float)
+// → true
 
 const tag = TypeTags.get(float)
+// → [object Float32Array]
 
-TypeTags.isTypedArray(tag) // → true
+TypeTags.isTypedArray(tag)
+// → true
+
+const bigint = 12n
+
+TypeTags.isTypedArray(bigint)
+// → false
 ```
 
 ### Signature

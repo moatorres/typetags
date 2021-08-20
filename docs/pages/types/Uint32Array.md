@@ -1,15 +1,28 @@
-# TypeTags.`Uint32Array`
+# TypeTags `.Uint32Array`
 
 ### Overview
 
-The `Uint32Array`...
+The `Uint32Array` typed array represents an array of 32-bit unsigned integers in the platform byte order.
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.Uint32Array) // → [object Uint32Array]
+var x = new Uint32Array([21, 31])
+var y = new Uint32Array(x)
+
+TypeTags.get(x)
+// → [object Uint32Array]
+
+TypeTags.get(y)
+// → [object Uint32Array]
+
+TypeTags.get(x) === TypeTags.Uint32Array
+// → true
+
+TypeTags.get(y) === TypeTags.Uint32Array
+// → true
 ```
 
 ### Metadata (TType)
@@ -48,4 +61,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array)

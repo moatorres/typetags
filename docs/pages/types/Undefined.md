@@ -1,15 +1,25 @@
-# TypeTags.`undefined`
+# TypeTags `.Undefined`
 
 ### Overview
 
-The `undefined`...
+The global `undefined` property represents the primitive value `undefined`. It is one of JavaScript's primitive types.
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.undefined) // → [object Undefined]
+function test(t) {
+  if (t === undefined) {
+    return TypeTags.Undefined
+  }
+  return t
+}
+
+let something
+
+console.log(test(something))
+// → [object Undefined]
 ```
 
 ### Metadata (TType)
@@ -48,4 +58,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined)

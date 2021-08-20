@@ -1,15 +1,19 @@
-# TypeTags.`Process`
+# TypeTags `.Process`
 
 ### Overview
 
-The `Process`...
+The `process` object provides information about, and control over, the current Node.js process. While it is available as a global, it is recommended to explicitly access it via require or import.
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.Process) // → [object process]
+console.log(TypeTags.Process)
+// → [object process]
+
+TypeTags.Process === TypeTags.get(process)
+// → true
 ```
 
 ### Metadata (TType)
@@ -48,4 +52,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+#### [See NodeJS.org](https://nodejs.org/api/process.html#process_process)

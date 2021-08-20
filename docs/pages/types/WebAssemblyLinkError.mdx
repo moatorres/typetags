@@ -1,22 +1,39 @@
-# TypeTags.`ReferenceError`
+import Callout from 'nextra-theme-docs/callout'
+
+# TypeTags `.WebAssemblyLinkError`
 
 ### Overview
 
-The `ReferenceError`...
+The `WebAssembly.LinkError` object indicates an error during module instantiation (besides traps from the start function).
+
+<Callout type="error" emoji="️🚫">
+  Since error objects **do not** have unique type tags, a
+  `WebAssembly.LinkError` type tag is the same as any other `Error` object. If
+  you need to check if an error is an instance of a `WebAssembly.LinkError`, use
+  `instanceof` instead.
+</Callout>
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.ReferenceError) // → [object Error]
+try {
+  throw new WebAssembly.LinkError('Hello', 'someFile', 10)
+} catch (e) {
+  console.log(e instanceof LinkError) // true
+  console.log(TypeTags.get(e)) // → [object Error]
+}
+
+console.log(TypeTags.WebAssemblyLinkError)
+// → [object Error]
 ```
 
 ### Metadata (TType)
 
 | Metadata             | Value                                   |
 | -------------------- | --------------------------------------- |
-| `.type`              | `ReferenceError`                        |
+| `.type`              | `WebAssembly.LinkError`                 |
 | `.tag`               | `[object Error]`                        |
 | `.builtin()`         | `undefined`                             |
 | `.getTag()`          | `[object Error]`                        |
@@ -28,15 +45,15 @@ console.log(TypeTags.ReferenceError) // → [object Error]
 | `.isConstructor()`   | `true`                                  |
 | `.isFactory()`       | `true`                                  |
 | `.isFunction()`      | `true`                                  |
-| `.isGlobal()`        | `true`                                  |
+| `.isGlobal()`        | `false`                                 |
 | `.isIterator()`      | `false`                                 |
-| `.isNested()`        | `false`                                 |
+| `.isNested()`        | `true`                                  |
 | `.isObject()`        | `false`                                 |
 | `.isPrimitive()`     | `false`                                 |
 | `.isStringifiable()` | `true`                                  |
 | `.isSyntatic()`      | `false`                                 |
 | `.isTypedArray()`    | `false`                                 |
-| `.ownKeys()`         | `[length,name,prototype]`               |
+| `.ownKeys()`         | `[length, name, prototype]`             |
 | `.toString()`        | `function toString() { [native code] }` |
 | `.typeOf()`          | `function`                              |
 
@@ -48,4 +65,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/LinkError)

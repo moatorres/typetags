@@ -1,15 +1,16 @@
-# TypeTags.`GeneratorFunction`
+# TypeTags `.GeneratorFunction`
 
 ### Overview
 
-The `GeneratorFunction`...
+The `GeneratorFunction` constructor creates a new generator function object. In JavaScript, every generator function is actually a `GeneratorFunction` object.
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.GeneratorFunction) // → [object GeneratorFunction]
+console.log(TypeTags.GeneratorFunction)
+// → [object GeneratorFunction]
 ```
 
 ### Metadata (TType)
@@ -36,7 +37,7 @@ console.log(TypeTags.GeneratorFunction) // → [object GeneratorFunction]
 | `.isStringifiable()` | `true`                                  |
 | `.isSyntatic()`      | `true`                                  |
 | `.isTypedArray()`    | `false`                                 |
-| `.ownKeys()`         | `[length,name,prototype]`               |
+| `.ownKeys()`         | `[length, name, prototype]`             |
 | `.toString()`        | `function toString() { [native code] }` |
 | `.typeOf()`          | `function`                              |
 
@@ -48,4 +49,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/GeneratorFunction)

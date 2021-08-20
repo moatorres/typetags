@@ -1,15 +1,29 @@
-# TypeTags.`WeakSet`
+# TypeTags `.WeakSet`
 
 ### Overview
 
-The `WeakSet`...
+The `WeakSet` object lets you store weakly held _objects_ in a collection.
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.WeakSet) // → [object WeakSet]
+let mySet = new WeakSet()
+let foo = {}
+let bar = {}
+
+mySet.add(foo)
+mySet.add(bar)
+
+TypeTags.get(mySet) === TypeTags.WeakSet
+// → true
+
+TypeTags.get(foo) === TypeTags.WeakSet
+// → false
+
+console.log(TypeTags.WeakSet)
+// → [object WeakSet]
 ```
 
 ### Metadata (TType)
@@ -36,7 +50,7 @@ console.log(TypeTags.WeakSet) // → [object WeakSet]
 | `.isStringifiable()` | `true`                                  |
 | `.isSyntatic()`      | `false`                                 |
 | `.isTypedArray()`    | `false`                                 |
-| `.ownKeys()`         | `[length,name,prototype]`               |
+| `.ownKeys()`         | `[length, name, prototype]`             |
 | `.toString()`        | `function toString() { [native code] }` |
 | `.typeOf()`          | `function`                              |
 
@@ -48,4 +62,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet)

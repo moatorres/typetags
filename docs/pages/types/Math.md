@@ -1,15 +1,24 @@
-# TypeTags.`Math`
+# TypeTags `.Math`
 
 ### Overview
 
-The `Math`...
+`Math` is a built-in object that has properties and methods for mathematical constants and functions. It’s not a function object.
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.Math) // → [object Math]
+const instance = Math
+
+console.log(instance.E)
+// expected output: 2.718281828459045
+
+TypeTags.Math === TypeTags.get(instance)
+// → true
+
+console.log(TypeTags.get(instance))
+// → [object Math]
 ```
 
 ### Metadata (TType)
@@ -48,4 +57,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math)

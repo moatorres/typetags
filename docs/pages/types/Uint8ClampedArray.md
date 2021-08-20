@@ -1,15 +1,28 @@
-# TypeTags.`Uint8ClampedArray`
+# TypeTags `.Uint8ClampedArray`
 
 ### Overview
 
-The `Uint8ClampedArray`...
+The `Uint8ClampedArray` typed array represents an array of 8-bit unsigned integers clamped to `0-255`; if you specified a value that is out of the range of `[0, 255]`, `0` or `255` will be set instead; if you specify a non-integer, the nearest integer will be set.
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.Uint8ClampedArray) // → [object Uint8ClampedArray]
+let iterable = (function* () {
+  yield* [1, 2, 3]
+})()
+
+TypeTags.get(iterable)
+// → [object Generator]
+
+let clamped = new Uint8ClampedArray(iterable)
+
+TypeTags.get(clamped)
+// → [object Uint8ClampedArray]
+
+TypeTags.get(clamped) === TypeTags.Uint8ClampedArray
+// → true
 ```
 
 ### Metadata (TType)
@@ -48,4 +61,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray)

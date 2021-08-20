@@ -1,12 +1,13 @@
 const fs = require('fs')
 
-const h1 = (name) => `# TypeTags.\`${name}\`\n### Overview\n`
+const h1 = (name) => `# TypeTags \`.${name}\`\n### Overview\n`
 const description = (name) => `The \`${name}\`...\n### Usage\n`
 const usage = (meta) =>
   `\`\`\`js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.${meta.name}) // → ${meta.tag}
+console.log(TypeTags.${meta.name})
+// → ${meta.tag}
 \`\`\` `
 const metadata = (meta) => `
 ### Metadata (TType)

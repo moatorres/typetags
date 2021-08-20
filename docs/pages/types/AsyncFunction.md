@@ -1,4 +1,4 @@
-# TypeTags.`AsyncFunction`
+# TypeTags `.AsyncFunction`
 
 ### Overview
 
@@ -9,7 +9,8 @@ An `AsyncFunction` is a function declared with the `async` keyword, and the `awa
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags.AsyncFunction) // → [object AsyncFunction]
+console.log(TypeTags.AsyncFunction)
+// → [object AsyncFunction]
 ```
 
 ### Metadata (TType)
@@ -36,7 +37,7 @@ console.log(TypeTags.AsyncFunction) // → [object AsyncFunction]
 | `.isStringifiable()` | `true`                                  |
 | `.isSyntatic()`      | `true`                                  |
 | `.isTypedArray()`    | `false`                                 |
-| `.ownKeys()`         | `[length,name]`                         |
+| `.ownKeys()`         | `[length, name]`                        |
 | `.toString()`        | `function toString() { [native code] }` |
 | `.typeOf()`          | `function`                              |
 

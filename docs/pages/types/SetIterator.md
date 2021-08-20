@@ -1,27 +1,35 @@
-# TypeTags.`Array.Iterator`
+# TypeTags `.SetIterator`
 
 ### Overview
 
-The `@@iterator` method is part of [The Iterable Protocol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol), that defines how to synchronously iterate over a sequence of values.
-
-The initial value of the `@@iterator` property is the same function object as the initial value of the `values()` property.
+The initial value of the `@@iterator` property is the same function object as the initial value of the `values` property.
 
 ### Usage
 
 ```js
 import { TypeTags } from 'typetags'
 
-console.log(TypeTags['Array.Iterator']) // → [object Array Iterator]
+const mySet = new Set()
+
+mySet.add(42)
+
+const iterator = mySet[Symbol.iterator]()
+
+TypeTags.get(iterator)
+// → [object Set Iterator]
+
+TypeTags.SetIterator === TypeTags.get(mySet)
+// → false
 ```
 
 ### Metadata (TType)
 
 | Metadata             | Value                                   |
 | -------------------- | --------------------------------------- |
-| `.type`              | `Array.Iterator`                        |
-| `.tag`               | `[object Array Iterator]`               |
+| `.type`              | `Set.Iterator`                          |
+| `.tag`               | `[object Set Iterator]`                 |
 | `.builtin()`         | `undefined`                             |
-| `.getTag()`          | `[object Array Iterator]`               |
+| `.getTag()`          | `[object Set Iterator]`                 |
 | `.hasSpecialArgs()`  | `false`                                 |
 | `.instance()`        | `undefined`                             |
 | `.instanceTypeOf()`  | `object`                                |
@@ -50,4 +58,4 @@ declare type ITypeTags = {
 }
 ```
 
-#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/@@iterator)
+#### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/@@iterator)
