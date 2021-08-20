@@ -11,25 +11,28 @@ This package contains a list of default string representations of [built-in obje
 ```js
 import { TypeTags } from 'typetags'
 
-const log = (value) => console.log(value)
+TypeTags.Array
+// → [object Array]
 
-log(TypeTags.Array) // → [object Array]
+TypeTags.Function
+// → [object Function]
 
-log(TypeTags.Function) // → [object Function]
-
-log(TypeTags.Float64Array) // → [object Float64Array]
+TypeTags.Float64Array
+// → [object Float64Array]
 ```
 
-`TypeTags` can be used with any data type to get its class by retrieving its type tag.
+`TypeTags` can be used with any object to get its class or retrieve its type tag.
 
 ```js
-TypeTags.get('Hey') // → [object String]
+TypeTags.get('Hey')
+// → [object String]
 ```
 
 It also has predicates to help us identify an object's type.
 
 ```js
-TypeTags.isArray('yo') // → false
+TypeTags.isArray('yo')
+// → false
 ```
 
 View on [GitHub](https://github.com/moatorres/typetags)
@@ -64,20 +67,32 @@ if (o.toString() !== TypeTags.String) {
 
 ## [Methods](https://typetags.org/methods)
 
-`TypeTags`'s methods can help us interact with Node.js built-in types. For example, the `.enhance` method, which returns a built-in wrapped into a `TType` object loaded with several introspective methods.
+`TypeTags`'s methods can help us interact with Node.js built-in types. E.g. the `.enhance` method returns a built-in object wrapped into a `TType` class which has useful introspective methods.
 
-There are also functions that can be used separately to retrieve or assign an object's type tag.
+```js
+const introMap = TypeTags.enhance('Map')
+
+introMap.isConstructor()
+// → true
+
+introMap.hasSpecialArgs()
+// → false
+```
+
+It exposes functions that can be used separately to retrieve or assign an object's type tag.
 
 ```js
 const { TypeTags } = require('typetags')
 
 let o = { foo: 'bar' }
 
-const before = TypeTags.of(o) // → '[object Object]'
+const before = TypeTags.of(o)
+// → '[object Object]'
 
 TypeTags.assign(o, 'Bazzinga')
 
-const after = TypeTags.get(o) // → '[object Bazzinga]'
+const after = TypeTags.get(o)
+// → '[object Bazzinga]'
 ```
 
 ## [Predicates](https://typetags.org/predicates)
