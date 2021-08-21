@@ -3,9 +3,7 @@
   "assign": ".assign(...)",
   "get": ".get(...)",
   "enhance": ".enhance(...)",
-  "hasToString": ".hasToString(...)",
+  "has": ".has(...)",
   "isDefaultTag": ".isDefaultTag(...)",
-  "isIterator": ".isIterator(...)",
-  "isTypedArray": ".isTypedArray(...)",
   "of": ".of(...)"
 }

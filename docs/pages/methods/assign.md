@@ -27,7 +27,7 @@ proto[Symbol.toStringTag]
 
 If `object` doesn't have a `toString` method defined, `assign` will add `Object.prototype.toString` to the object prior to its `tag` value.
 
-We can use the [`hasToString`]() method to check if `toString` has already been defined.
+We can use the [`has`](https://typetags.org/methods/has) method to check if `toString` has already been defined.
 
 ```js
 import { TypeTags } from 'typetags'
@@ -37,7 +37,7 @@ const user = Object.create(null) // null prototype
 TypeTags.get(user)
 // → undefined
 
-if (!TypeTags.hasToString(user)) {
+if (!TypeTags.has(user)) {
   TypeTags.assign(user, 'User')
 }
 

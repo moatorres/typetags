@@ -43,7 +43,7 @@ declare type TypeTagMethods = {
   get(value: any): Tags
   of<T>(value: Types | NestedTypes | Array<T>): Array<Tags> | Tags
   enhance<T>(name: Types | NestedTypes): TTypeInterface<T>
-  hasToStringMethod(object: any): boolean
+  has(object: any, tag?: string): boolean
   isDefaulTag(tag: string): boolean
   isIterator(object: any): boolean
   isTypedArray(object: any): boolean
