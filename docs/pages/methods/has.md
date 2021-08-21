@@ -8,7 +8,7 @@ The `.has` method allows us to check if an object has a valid `toString` method 
 
 ##### `TypeTags.has(value, tag?)`
 
-- Checks if `value` has a `toString` method. Accepts an optional second argument `tag` of type string.
+- Checks if `value` has a `toString` method. Accepts an optional `tag` argument of type string.
 
 ```js
 import { TypeTags } from 'typetags'
