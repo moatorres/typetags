@@ -1,24 +1,62 @@
-# Node.js Object [TypeTags](https://github.com/moatorres/typetags)
+# [`typetags`](https://typetags.org)
 
-##### A [list](https://github.com/moatorres/typetags/blob/master/lib/.internal/constants.js) of type tags and string representations of [built-in types](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference) for Node.js.
+### String Representations of Node.js Built-in Objects
 
-## [`TypeTags`](https://github.com/moatorres/typetags/wiki/typetags)
+This package contains a list of default string representations of [built-in objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference) and types of Node.js — [see the full list here](https://github.com/moatorres/typetags/blob/master/lib/constants.d.ts).
 
-The `TypeTags` object contains a list of properties, each representing an object type. You can use it to check if an object's typetag matches the default tag of its data type.
+## Usage
+
+```js
+import { TypeTags } from 'typetags'
+
+TypeTags.Array
+// → [object Array]
+
+TypeTags.Function
+// → [object Function]
+
+TypeTags.Float64Array
+// → [object Float64Array]
+```
+
+## API Reference [→ typetags.org](https://typetags.org)
+
+The `TypeTags` object contains a set of **properties**, **methods** and **predicates**, each representing an object type.
+
+We can use it to check if an object's type tag matches the default tag of a data type.
 
 ```js
 import { TypeTags } from 'typetags'
 
 const o = { foo: 'bar' }
 
-if (o.toString() !== TypeTags.Object) {
+if (o.toString() !== TypeTags.String) {
   doSomething()
 }
 ```
 
-Check the reference [here](https://github.com/moatorres/typetags#reference)
+## Using `TypeTags` to detect Object Class
 
-#### Installation
+Every object has a `toString()` method that is automatically called when the object is to be represented as a text value or when an object is referred to in a manner in which a string is expected.
+
+By default, the `toString()` method is inherited by every object descended from `Object`. If this method is not overridden in a custom object, `toString()` returns "`[object type]`", where `type` is the object type. The following code illustrates this:
+
+```js
+const o = new Object()
+o.toString() // → [object Object]
+```
+
+Although using `toString()` in this way is unreliable, as **objects can change the behavior of `Object.prototype.toString()`** this library might be helpful when you need to compare objects' tags inside a procedure call or if you just need a quick reference.
+
+```js
+const { TypeTags } = require('typetags')
+
+function isArray(value) {
+  return typeof value === 'object' && TypeTags.get(value) === TypeTags.Array
+}
+```
+
+## Install
 
 NPM
 
@@ -32,110 +70,62 @@ Yarn
 yarn add typetags
 ```
 
-## Usage
-
-#### `.get(name | value)`
-
-- Returns the tag of any type based on its name, if it can't find the name it will return the _value_'s type tag.
-
-```js
-TypeTags.get('Array') // → [object Array]
-TypeTags.get([]) // → [object Array]
-```
-
-#### `.of(value | [values])`
-
-- Returns the type tag of a single value or an array of type tags.
-
-```js
-TypeTags.of([]) // → [object Array]
-
-TypeTags.of([1, 'Hey', []])
-// → [ '[object Number]', '[object String]', '[object Array]' ]
-```
-
-#### `.enhance(typename)`
-
-- Returns an enhanced [`TType`]() object introspective methods.
-
-```js
-const ArrayType = TypeTags.enhance('Array')
-
-ArrayType.isAvailable() // → true
-ArrayType.isConstructor() // → true
-```
-
-#### `.assign(object, tag)`
-
-- Assigns a `toStringTag` to an object.
-  If the object doesn't have a `toString` method, the method will be defined along with the `tag` string value.
-
-```js
-let emptyObject = Object.create(null)
-
-TypeTags.assign('Hey')
-
-Object.prototype.toString.call(emptyObject) // → [object Hey]
-```
-
-### [`Predicates`](https://github.com/moatorres/typetags/wiki/predicates)
-
-Check [this page](https://github.com/moatorres/typetags/wiki/predicates) for a reference list of all available predicates
-
-### Bundles
+## Bundles
 
 `esm`
 
 ```js
-import { isDefaultTag } from 'typetags'
+import { TypeTags } from 'typetags'
 ```
 
 `cjs`
 
 ```js
-const { isDefaultTag } = require('typetags')
+const { TypeTags } = require('typetags')
 ```
 
-## Using `typetags` to detect object class
+`umd`
 
-Every object has a `toString()` method that is automatically called when the object is to be represented as a text value or when an object is referred to in a manner in which a string is expected.
-
-By default, the `toString()` method is inherited by every object descended from `Object`. If this method is not overridden in a custom object, `toString()` returns "`[object type]`", where `type` is the object type. The following code illustrates this:
-
-```js
-const o = new Object()
-o.toString() // → [object Object]
+```html
+<script src="dist/umd/typetags.min.js"></script>
 ```
-
-<sup>See [Mozilla MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/toString#description)</sup>
-
-Although using `toString()` in this way is unreliable, as **objects can change the behavior of `Object.prototype.toString()`** this library might be helpful when you need to compare objects' tags inside a procedure call or if you just need a quick reference.
-
-```js
-const { TypeTags, getTag } = require('typetags')
-
-function isArray(value) {
-  return typeof value === 'object' && getTag(value) === TypeTags.Array
-}
-```
-
-See [`typetags` wiki](https://github.com/moatorres/typetags/wiki/helpers) for more info
 
 ## Tests
 
 `jest --coverage`
 
 ```sh
-Test Suites: 65 passed, 65 total
-Tests:       353 passed, 353 total
+------------------|---------|----------|---------|---------|-------------------
+File              | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
+------------------|---------|----------|---------|---------|-------------------
+All files         |   96.02 |       65 |    83.7 |     100 |
+ lib              |   98.21 |    53.85 |   57.69 |     100 |
+  assign-tag.js   |     100 |      100 |     100 |     100 |
+  constants.js    |     100 |      100 |     100 |     100 |
+  get-tag.js      |     100 |      100 |     100 |     100 |
+  initializers.js |     100 |       50 |       0 |     100 | 3-142
+  utils.js        |    97.3 |      100 |   91.67 |     100 |
+ lib/resources    |   95.17 |    85.71 |   93.94 |     100 |
+  TType.js        |   90.79 |    81.82 |     100 |     100 | 73,98-105,129-146
+  TTypeUtils.js   |     100 |    66.67 |      60 |     100 | 52,59,78-80
+  TextUtils.js    |     100 |      100 |     100 |     100 |
+  TypeTags.js     |     100 |      100 |     100 |     100 |
+------------------|---------|----------|---------|---------|-------------------
+
+Test Suites: 66 passed, 66 total
+Tests:       2 skipped, 417 passed, 419 total
 Snapshots:   0 total
-Time:        5.579 s
+Time:        5.342 s
 Ran all test suites.
-✨  Done in 6.71s.
+✨  Done in 6.72s.
 ```
 
 ## TypeScript
 
-Using TypeScript? We've got you [covered](https://github.com/moatorres/typetags/blob/master/lib/type-tags.d.ts). The package comes with `d.ts` declaration files.
+Using TypeScript? We've got you [covered](https://github.com/moatorres/typetags/blob/master/lib/resources/TypeTags.d.ts). Check out our `d.ts` declaration files.
 
-<sub>⚡️ Powered by [**Moka Tecnologia**](https://github.com/mokatecnologia) — `< >` with lots of ☕️ by [**Moa Torres**](https://github.com/moatorres)</sub>
+---
+
+<sub>
+  ⚡️ Powered by [**Moka Tecnologia**](https://github.com/mokatecnologia) — `< >` with lots of ☕️ by [**Moa Torres**](https://github.com/moatorres)
+</sub>
