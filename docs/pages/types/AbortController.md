@@ -13,6 +13,26 @@ console.log(TypeTags.AbortController)
 // → [object AbortController]
 ```
 
+### Predicate
+
+#### `.isAbortController(value)`
+
+- Checks if `value` **is** or **has** a default `AbortController` type tag.
+
+```js
+const { TypeTags } = require('typetags')
+
+let abort = new AbortController()
+
+TypeTags.isAbortController(abort)
+// → true
+
+let tag = TypeTags.get(abort)
+
+TypeTags.isAbortController(tag)
+// → true
+```
+
 ### Metadata (TType)
 
 | Metadata             | Value                         |
@@ -46,6 +66,10 @@ console.log(TypeTags.AbortController)
 ```ts
 declare type ITypeTags = {
   [key in Types | NestedTypes]: Tags
+}
+
+declare interface Predicate {
+  predicate(value: any): boolean
 }
 ```
 

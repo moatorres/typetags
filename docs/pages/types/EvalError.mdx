@@ -6,12 +6,6 @@ import Callout from 'nextra-theme-docs/callout'
 
 The `EvalError` object indicates an error regarding the global `eval()` function. This exception is not thrown by JavaScript anymore, however the `EvalError` object remains for compatibility.
 
-<Callout type="error" emoji="️🚫">
-  Since error objects **do not** have unique type tags, a `EvalError` type tag
-  is the same as any other `Error` object. If you need to check if an error is
-  an instance of a `EvalError`, use `instanceof` instead.
-</Callout>
-
 ### Usage
 
 ```js
@@ -26,6 +20,33 @@ try {
 
 console.log(TypeTags.EvalError)
 // → [object Error]
+```
+
+### Predicate
+
+#### `TypeTags.isEvalError(value)`
+
+<Callout type="error" emoji="️🚫">
+  Since error objects **do not** have unique type tags, a `EvalError` type tag
+  is the same as any other `Error` object. If you need to check if an error is
+  an instance of a `EvalError`, use `instanceof` instead.
+</Callout>
+
+- Checks if `value` **is** or **has** a default `EvalError` type tag.
+
+```js
+const { TypeTags } = require('typetags')
+
+let err = new EvalError()
+
+TypeTags.isEvalError(err)
+// → true
+
+TypeTags.isEvalError(new TypeError())
+// → true
+
+TypeTags.isEvalError(err.toString())
+// → false
 ```
 
 ### Metadata (TType)
@@ -61,6 +82,10 @@ console.log(TypeTags.EvalError)
 ```ts
 declare type ITypeTags = {
   [key in Types | NestedTypes]: Tags
+}
+
+declare interface Predicate {
+  predicate(value: any): boolean
 }
 ```
 

@@ -67,19 +67,21 @@ if (o.toString() !== TypeTags.String) {
 
 ## [Methods](https://typetags.org/methods)
 
-`TypeTags`'s methods can help us interact with Node.js built-in types. E.g. the `.enhance` method returns a built-in object wrapped into a `TType` class which has useful introspective methods.
+`TypeTags` can help us interact with Node.js built-in types. For example, its `.has` method allows us to check if an object has a valid `toString` method.
 
 ```js
-const introMap = TypeTags.enhance('Map')
+import { TypeTags } from 'typetags'
 
-introMap.isConstructor()
+const proto = {}
+
+TypeTags.has(proto)
 // → true
 
-introMap.hasSpecialArgs()
-// → false
+proto.toString()
+// → [object Object]
 ```
 
-It exposes functions that can be used separately to retrieve or assign an object's type tag.
+We can also use both `.get` and `.of` to retrieve an object's type tag.
 
 ```js
 const { TypeTags } = require('typetags')

@@ -13,6 +13,27 @@ console.log(TypeTags.BigInt)
 // → [object BigInt]
 ```
 
+### Predicate
+
+#### `.isBigInt(value)`
+
+- Checks if `value` **is** or **has** a default `BigInt` type tag.
+
+```js
+const { TypeTags } = require('typetags')
+
+let bigint = BigInt(45n)
+TypeTags.isBigInt(bigint)
+// → true
+
+TypeTags.isBigInt(bigint.toString())
+// → false
+
+let tag = TypeTags.get(bigint)
+TypeTags.isBigInt(tag)
+// → true
+```
+
 ### Metadata (TType)
 
 | Metadata             | Value                                        |
@@ -46,6 +67,10 @@ console.log(TypeTags.BigInt)
 ```ts
 declare type ITypeTags = {
   [key in Types | NestedTypes]: Tags
+}
+
+declare interface Predicate {
+  predicate(value: any): boolean
 }
 ```
 

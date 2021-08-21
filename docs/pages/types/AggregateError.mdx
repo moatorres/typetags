@@ -28,6 +28,24 @@ TypeTags.get(new AggregateError([]))
 // → [object Error]
 ```
 
+### Predicate
+
+#### `.isAggregateError(value)`
+
+- Checks if `value` **is** or **has** a default `AggregateError` type tag.
+
+```js
+const { TypeTags } = require('typetags')
+
+let error = new AggregateError([])
+
+TypeTags.isAggregateError(error)
+// → true
+
+TypeTags.get(error)
+// → [object AggregateError]
+```
+
 ### Metadata (TType)
 
 | Metadata             | Value                                   |
@@ -61,6 +79,10 @@ TypeTags.get(new AggregateError([]))
 ```ts
 declare type ITypeTags = {
   [key in Types | NestedTypes]: Tags
+}
+
+declare interface Predicate {
+  predicate(value: any): boolean
 }
 ```
 

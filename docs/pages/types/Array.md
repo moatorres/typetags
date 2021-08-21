@@ -13,6 +13,27 @@ console.log(TypeTags.Array)
 // → [object Array]
 ```
 
+### Predicate
+
+#### `.isArray(value)`
+
+- Checks if `value` **is** or **has** a default `Array` type tag.
+
+```js
+const { TypeTags } = require('typetags')
+
+let tag = TypeTags.get([])
+
+TypeTags.isArray(tag)
+// → true
+
+TypeTags.isArray([1, 2, 3])
+// → true
+
+TypeTags.isArray([1, 2, 3].toString())
+// → false
+```
+
 ### Metadata (TType)
 
 | Metadata             | Value                                          |
@@ -46,6 +67,10 @@ console.log(TypeTags.Array)
 ```ts
 declare type ITypeTags = {
   [key in Types | NestedTypes]: Tags
+}
+
+declare interface Predicate {
+  predicate(value: any): boolean
 }
 ```
 

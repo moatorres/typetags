@@ -1,8 +1,8 @@
 const fs = require('fs')
 
 const types = [
-  // 'AbortController',
-  // 'AbortSignal',
+  'AbortController',
+  'AbortSignal',
   'AggregateError',
   'Arguments',
   'Array',
@@ -87,45 +87,49 @@ const types = [
   'WebAssemblyRuntimeError',
 ]
 
+const hasAlias = (meta) =>
+  String(meta).includes('WebAssembly') ||
+  String(meta).includes('AsyncGeneratorFunction')
+
+const formatOutput = (meta) => {
+  let wasm = 'WebAssembly'
+
+  if (meta.includes(wasm))
+    return 'Wasm' + String(meta).slice(wasm.length, meta.length)
+  if (meta.includes('AsyncGeneratorFunction')) return 'AsyncGenFn'
+
+  return meta
+}
+
 const predFile = (meta) => {
-  const formatNested = (meta) => {
-    let a = 'WebAssembly'
-    let b = 'Intl'
+  let formatted = formatOutput(meta)
 
-    if (meta.includes(a) && meta !== a) {
-      return a + '.' + String(meta).slice(a.length, meta.length)
-    }
-    if (meta.includes(b) && meta !== b) {
-      return b + '.' + String(meta).slice(b.length, meta.length)
-    }
-
-    return meta
-  }
-
-  return `# TypeTags \`.is${meta}\`
+  return `# TypeTags \`.is${formatted}\`
 
 ### Usage
 
-#### \`TypeTags.is${meta}(value)\`
+#### \`TypeTags.is${formatted}(value)\`
 
-- Checks if \`value\` **is** or **has** a default \`${formatNested(
-    meta
-  )}\` type tag.
+- Checks if \`value\` **is** or **has** a default \`${meta}\` type tag.
 
 \`\`\`js
 const { TypeTags } = require('typetags')
 
 let ${String(meta).toLowerCase()} = new ${meta}()
-TypeTags.is${meta}(${String(meta).toLowerCase()}.toString()) // → true
 
-let tag = TypeTags.get(${String(meta).toLowerCase()})
-TypeTags.is${meta}(tag) // → true
+TypeTags.is${formatted}(${String(meta).toLowerCase()})
+// → true
+
+TypeTags.is${formatted}(${String(meta).toLowerCase()}.toString())
+// → true
 \`\`\`
 
 ### Signature
 
 \`\`\`ts
-is${meta}(value: any): boolean
+is${formatted}(value: any): boolean ${
+    hasAlias(meta) ? `\nis${meta}(value: any): boolean` : ''
+  }
 \`\`\`
 `
 }

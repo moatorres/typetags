@@ -13,6 +13,28 @@ console.log(TypeTags.Arguments)
 // → [object Arguments]
 ```
 
+### Predicate
+
+#### `.isArguments(value)`
+
+- Checks if `value` **is** or **has** a default `arguments` type tag.
+
+```js
+const { TypeTags } = require('typetags')
+
+let tag
+;(function any() {
+  tag = TypeTags.get(arguments)
+  return
+})()
+
+TypeTags.isArguments(tag)
+// → true
+
+TypeTags.isArguments(arguments)
+// → true
+```
+
 ### Metadata (TType)
 
 | Metadata             | Value                                   |
@@ -46,6 +68,10 @@ console.log(TypeTags.Arguments)
 ```ts
 declare type ITypeTags = {
   [key in Types | NestedTypes]: Tags
+}
+
+declare interface Predicate {
+  predicate(value: any): boolean
 }
 ```
 

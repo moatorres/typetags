@@ -13,6 +13,26 @@ console.log(TypeTags.DataView)
 // → [object DataView]
 ```
 
+### Predicate
+
+#### `.isDataView(value)`
+
+- Checks if `value` **is** or **has** a default `DataView` type tag.
+
+```js
+const { TypeTags } = require('typetags')
+
+let buff = new SharedArrayBuffer(1024)
+
+let view = new DataView(buff)
+
+TypeTags.isDataView(view.toString())
+// → true
+
+TypeTags.isDataView('[object DataView]')
+// → true
+```
+
 ### Metadata (TType)
 
 | Metadata             | Value                                   |
@@ -46,6 +66,10 @@ console.log(TypeTags.DataView)
 ```ts
 declare type ITypeTags = {
   [key in Types | NestedTypes]: Tags
+}
+
+declare interface Predicate {
+  predicate(value: any): boolean
 }
 ```
 

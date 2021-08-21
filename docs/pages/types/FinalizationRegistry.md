@@ -13,6 +13,24 @@ console.log(TypeTags.FinalizationRegistry)
 // → [object FinalizationRegistry]
 ```
 
+### Predicate
+
+#### `.isFinalizationRegistry(value)`
+
+- Checks if `value` **is** or **has** a default `FinalizationRegistry` type tag.
+
+```js
+const { TypeTags } = require('typetags')
+
+let end = new FinalizationRegistry()
+
+TypeTags.isFinalizationRegistry(end)
+// → true
+
+TypeTags.isFinalizationRegistry(end.toString())
+// → true
+```
+
 ### Metadata (TType)
 
 | Metadata             | Value                                   |
@@ -46,6 +64,10 @@ console.log(TypeTags.FinalizationRegistry)
 ```ts
 declare type ITypeTags = {
   [key in Types | NestedTypes]: Tags
+}
+
+declare interface Predicate {
+  predicate(value: any): boolean
 }
 ```
 

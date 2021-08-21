@@ -15,6 +15,24 @@ console.log(TypeTags.BigInt64Array)
 // → [object BigInt64Array]
 ```
 
+### Predicate
+
+#### `.isBigInt64Array(value)`
+
+- Checks if `value` **is** or **has** a default `BigInt64Array` type tag.
+
+```js
+const { TypeTags } = require('typetags')
+
+let bigint64 = new BigInt64Array(24)
+
+TypeTags.isBigInt64Array(bigint64.toString())
+// → false
+
+TypeTags.isBigInt64Array(bigint64)
+// → true
+```
+
 ### Metadata (TType)
 
 | Metadata             | Value                                          |
@@ -48,6 +66,10 @@ console.log(TypeTags.BigInt64Array)
 ```ts
 declare type ITypeTags = {
   [key in Types | NestedTypes]: Tags
+}
+
+declare interface Predicate {
+  predicate(value: any): boolean
 }
 ```
 

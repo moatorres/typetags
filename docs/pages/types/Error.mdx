@@ -47,6 +47,24 @@ TypeTags.get(new Error('Bam!'))
 // → [object Error]
 ```
 
+### Predicate
+
+#### `TypeTags.isError(value)`
+
+- Checks if `value` **is** or **has** a default `Error` type tag.
+
+```js
+const { TypeTags } = require('typetags')
+
+let error = new Error('Bam!')
+
+TypeTags.isError(error.toString())
+// → false
+
+TypeTags.isError(error)
+// → true
+```
+
 ### Metadata (TType)
 
 | Metadata             | Value                                                                              |
@@ -80,6 +98,10 @@ TypeTags.get(new Error('Bam!'))
 ```ts
 declare type ITypeTags = {
   [key in Types | NestedTypes]: Tags
+}
+
+declare interface Predicate {
+  predicate(value: any): boolean
 }
 ```
 

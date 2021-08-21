@@ -13,6 +13,24 @@ console.log(TypeTags.Float32Array)
 // → [object Float32Array]
 ```
 
+### Predicate
+
+#### `.isFloat32Array(value)`
+
+- Checks if `value` **is** or **has** a default `Float32Array` type tag.
+
+```js
+const { TypeTags } = require('typetags')
+
+let float = new Float32Array()
+
+TypeTags.isFloat32Array(float)
+// → true
+
+TypeTags.isFloat32Array(float.toString())
+// → true
+```
+
 ### Metadata (TType)
 
 | Metadata             | Value                                          |
@@ -46,6 +64,10 @@ console.log(TypeTags.Float32Array)
 ```ts
 declare type ITypeTags = {
   [key in Types | NestedTypes]: Tags
+}
+
+declare interface Predicate {
+  predicate(value: any): boolean
 }
 ```
 
