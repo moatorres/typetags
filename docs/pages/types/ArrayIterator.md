@@ -15,6 +15,26 @@ console.log(TypeTags.ArrayIterator)
 // → [object Array Iterator]
 ```
 
+### Predicate
+
+#### `.isArrayIterator(value)`
+
+- Checks if `value` **is** or **has** a default `Array Iterator` type tag.
+
+```js
+const { TypeTags } = require('typetags')
+
+let iterator = [][Symbol.iterator]()
+
+TypeTags.isArrayIterator(iterator)
+// → true
+
+let tag = TypeTags.get(iterator)
+
+TypeTags.isArrayIterator(tag)
+// → true
+```
+
 ### Metadata (TType)
 
 | Metadata             | Value                                   |
@@ -48,6 +68,10 @@ console.log(TypeTags.ArrayIterator)
 ```ts
 declare type ITypeTags = {
   [key in Types | NestedTypes]: Tags
+}
+
+declare interface Predicate {
+  predicate(value: any): boolean
 }
 ```
 

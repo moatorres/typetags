@@ -14,9 +14,7 @@ let abort = new AbortController()
 TypeTags.isAbortSignal(abort.signal)
 // → true
 
-let tag = TypeTags.get(abort.signal)
-
-console.log(tag)
+TypeTags.get(abort.signal)
 // → [object AbortSignal]
 ```
 

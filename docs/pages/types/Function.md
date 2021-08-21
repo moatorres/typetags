@@ -13,6 +13,26 @@ console.log(TypeTags.Function)
 // → [object Function]
 ```
 
+### Predicate
+
+#### `.isFunction(value)`
+
+- Checks if `value` **is** or **has** a default `Function` type tag.
+
+```js
+const { TypeTags } = require('typetags')
+
+function sayHi() {
+  return 'Oh, hi!'
+}
+
+TypeTags.isFunction(sayHi)
+// → true
+
+TypeTags.isFunction(sayHi.toString())
+// → false
+```
+
 ### Metadata (TType)
 
 | Metadata             | Value                                   |
@@ -46,6 +66,10 @@ console.log(TypeTags.Function)
 ```ts
 declare type ITypeTags = {
   [key in Types | NestedTypes]: Tags
+}
+
+declare interface Predicate {
+  predicate(value: any): boolean
 }
 ```
 

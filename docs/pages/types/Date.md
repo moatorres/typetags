@@ -13,6 +13,24 @@ console.log(TypeTags.Date)
 // → [object Date]
 ```
 
+### Predicate
+
+#### `TypeTags.isDate(value)`
+
+- Checks if `value` **is** or **has** a default `Date` type tag.
+
+```js
+const { TypeTags } = require('typetags')
+
+let now = new Date()
+
+TypeTags.isDate(now.toString())
+// → false
+
+TypeTags.isDate(now)
+// → true
+```
+
 ### Metadata (TType)
 
 | Metadata             | Value                                        |
@@ -46,6 +64,10 @@ console.log(TypeTags.Date)
 ```ts
 declare type ITypeTags = {
   [key in Types | NestedTypes]: Tags
+}
+
+declare interface Predicate {
+  predicate(value: any): boolean
 }
 ```
 

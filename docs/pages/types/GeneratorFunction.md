@@ -13,6 +13,29 @@ console.log(TypeTags.GeneratorFunction)
 // → [object GeneratorFunction]
 ```
 
+### Predicate
+
+#### `.isGeneratorFunction(value)`
+
+- Checks if `value` **is** or **has** a default `GeneratorFunction` type tag.
+
+```js
+const { TypeTags } = require('typetags')
+
+function* generator(i) {
+  yield i
+  yield i + 10
+}
+
+const gen = generator(10)
+
+TypeTags.isGeneratorFunction(gen)
+// → false
+
+TypeTags.isGeneratorFunction(generator)
+// → true
+```
+
 ### Metadata (TType)
 
 | Metadata             | Value                                   |
@@ -46,6 +69,10 @@ console.log(TypeTags.GeneratorFunction)
 ```ts
 declare type ITypeTags = {
   [key in Types | NestedTypes]: Tags
+}
+
+declare interface Predicate {
+  predicate(value: any): boolean
 }
 ```
 

@@ -1,4 +1,4 @@
-# TypeTags `.AsyncGeneratorFunction`
+# TypeTags `.AsyncGenFn`
 
 ### Overview
 
@@ -17,8 +17,31 @@ async function* infinite() {
   }
 }
 
+console.log(TypeTags.AsyncGenFn)
+// → [object AsyncGeneratorFunction]
+
 console.log(TypeTags.AsyncGeneratorFunction)
 // → [object AsyncGeneratorFunction]
+```
+
+### Predicate
+
+#### `.isAsyncGenFn(value)`
+
+- Checks if `value` **is** or **has** a default `AsyncGeneratorFunction` type tag.
+
+```js
+const { TypeTags } = require('typetags')
+
+let myFunction = async function* () {
+  yield [1, 2, 3]
+}
+
+TypeTags.isAsyncGenFn(myFunction)
+// → true
+
+TypeTags.isAsyncGeneratorFunction(myFunction)
+// → true
 ```
 
 ### Metadata (TType)
@@ -54,6 +77,10 @@ console.log(TypeTags.AsyncGeneratorFunction)
 ```ts
 declare type ITypeTags = {
   [key in Types | NestedTypes]: Tags
+}
+
+declare interface Predicate {
+  predicate(value: any): boolean
 }
 ```
 

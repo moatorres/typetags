@@ -13,6 +13,24 @@ console.log(TypeTags.Console)
 // → [object console]
 ```
 
+### Predicate
+
+#### `.isConsole(value)`
+
+- Checks if `value` **is** or **has** a default `Console` type tag.
+
+```js
+const { TypeTags } = require('typetags')
+
+let consoleTag = TypeTags.get(console)
+
+TypeTags.isConsoleTag(console.toString())
+// → true
+
+TypeTags.isConsoleTag(consoleTag)
+// → true
+```
+
 ### Metadata (TType)
 
 | Metadata             | Value                                                                                                                                                                                                                                                                                         |
@@ -46,6 +64,10 @@ console.log(TypeTags.Console)
 ```ts
 declare type ITypeTags = {
   [key in Types | NestedTypes]: Tags
+}
+
+declare interface Predicate {
+  predicate(value: any): boolean
 }
 ```
 

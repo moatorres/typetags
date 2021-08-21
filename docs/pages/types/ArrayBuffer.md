@@ -13,6 +13,26 @@ console.log(TypeTags.ArrayBuffer)
 // → [object ArrayBuffer]
 ```
 
+### Predicate
+
+#### `.isArrayBuffer(value)`
+
+- Checks if `value` **is** or **has** a default `ArrayBuffer` type tag.
+
+```js
+const { TypeTags } = require('typetags')
+
+let buf = new ArrayBuffer(8)
+
+TypeTags.isArrayBuffer(buf.toString())
+// → true
+
+let tag = TypeTags.get(buf)
+
+TypeTags.isArrayBuffer(tag)
+// → true
+```
+
 ### Metadata (TType)
 
 | Metadata             | Value                                   |
@@ -46,6 +66,10 @@ console.log(TypeTags.ArrayBuffer)
 ```ts
 declare type ITypeTags = {
   [key in Types | NestedTypes]: Tags
+}
+
+declare interface Predicate {
+  predicate(value: any): boolean
 }
 ```
 

@@ -23,6 +23,26 @@ console.log(TypeTags.AsyncGenerator)
 // → [object AsyncGenerator]
 ```
 
+### Predicate
+
+#### `.isAsyncGenerator(value)`
+
+- Checks if `value` **is** or **has** a default `AsyncGenerator` type tag.
+
+```js
+const { TypeTags } = require('typetags')
+
+let asyncGen = (async function* () {})()
+
+TypeTags.isAsyncGenerator(asyncGen)
+// → true
+
+let maybeTag = asyncGen.toString()
+
+TypeTags.isAsyncGenerator(maybeTag)
+// → true
+```
+
 ### Metadata (TType)
 
 | Metadata             | Value                                   |
@@ -56,6 +76,10 @@ console.log(TypeTags.AsyncGenerator)
 ```ts
 declare type ITypeTags = {
   [key in Types | NestedTypes]: Tags
+}
+
+declare interface Predicate {
+  predicate(value: any): boolean
 }
 ```
 

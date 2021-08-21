@@ -13,6 +13,29 @@ console.log(TypeTags.Generator)
 // → [object Generator]
 ```
 
+### Predicate
+
+#### `.isGenerator(value)`
+
+- Checks if `value` **is** or **has** a default `Generator` type tag.
+
+```js
+const { TypeTags } = require('typetags')
+
+function* idMaker() {
+  let idx = 0
+  yield ++idx
+}
+
+const generator = idMaker()
+
+TypeTags.isGenerator(generator)
+// → true
+
+TypeTags.isGenerator(idMaker.toString())
+// → false
+```
+
 ### Metadata (TType)
 
 | Metadata             | Value                                   |
@@ -46,6 +69,10 @@ console.log(TypeTags.Generator)
 ```ts
 declare type ITypeTags = {
   [key in Types | NestedTypes]: Tags
+}
+
+declare interface Predicate {
+  predicate(value: any): boolean
 }
 ```
 

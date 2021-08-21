@@ -13,6 +13,24 @@ console.log(TypeTags.Global)
 // → [object global]
 ```
 
+### Predicate
+
+#### `.isGlobal(value)`
+
+- Checks if `value` **is** or **has** a default `global` type tag.
+
+```js
+const { TypeTags } = require('typetags')
+
+let tag = TypeTags.get(global)
+
+TypeTags.isGlobal(tag)
+// → true
+
+TypeTags.isGlobal(global)
+// → true
+```
+
 ### Metadata (TType)
 
 | Metadata             | Value                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
@@ -46,6 +64,10 @@ console.log(TypeTags.Global)
 ```ts
 declare type ITypeTags = {
   [key in Types | NestedTypes]: Tags
+}
+
+declare interface Predicate {
+  predicate(value: any): boolean
 }
 ```
 
