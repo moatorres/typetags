@@ -13,6 +13,24 @@ console.log(TypeTags.Int32Array)
 // → [object Int32Array]
 ```
 
+### Predicate
+
+#### `.isInt32Array(value)`
+
+- Checks if `value` **is** or **has** a default `Int32Array` type tag.
+
+```js
+const { TypeTags } = require('typetags')
+
+let int = new Int32Array()
+
+TypeTags.isInt32Array(int)
+// → true
+
+TypeTags.isInt32Array(int.toString())
+// → false
+```
+
 ### Metadata (TType)
 
 | Metadata             | Value                                          |
@@ -46,6 +64,10 @@ console.log(TypeTags.Int32Array)
 ```ts
 declare type ITypeTags = {
   [key in Types | NestedTypes]: Tags
+}
+
+declare interface Predicate {
+  predicate(value: any): boolean
 }
 ```
 

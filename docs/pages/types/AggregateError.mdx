@@ -6,12 +6,6 @@ import Callout from 'nextra-theme-docs/callout'
 
 The `AggregateError` object represents an error when several errors need to be wrapped in a single error. It is thrown when multiple errors need to be reported by an operation, for example by `Promise.any()`, when all promises passed to it reject.
 
-<Callout type="error" emoji="️🚫">
-  Since error objects **do not** have unique type tags, a `AggregateError` type
-  tag is the same as any other `Error` object. If you need to check if an error
-  is an instance of a `AggregateError`, use `instanceof` instead.
-</Callout>
-
 ### Usage
 
 ```js
@@ -31,6 +25,12 @@ TypeTags.get(new AggregateError([]))
 ### Predicate
 
 #### `.isAggregateError(value)`
+
+<Callout type="error" emoji="️🚫">
+  Since error objects **do not** have unique type tags, an `AggregateError` type
+  tag is the same as any other `Error` object. If you need to check if an error
+  is an instance of an `AggregateError`, use `instanceof` instead.
+</Callout>
 
 - Checks if `value` **is** or **has** a default `AggregateError` type tag.
 

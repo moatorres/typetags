@@ -56,6 +56,10 @@ TypeTags.SetIterator === TypeTags.get(mySet)
 declare type ITypeTags = {
   [key in Types | NestedTypes]: Tags
 }
+
+declare interface Predicate {
+  predicate(value: any): boolean
+}
 ```
 
 #### [See MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/@@iterator)

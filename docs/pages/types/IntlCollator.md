@@ -26,6 +26,24 @@ console.log(['Z', 'a', 'z', 'ä'].sort(german.compare))
 // expected output: ["a", "ä", "z", "Z"]
 ```
 
+### Predicate
+
+#### `.isIntlCollator(value)`
+
+- Checks if `value` **is** or **has** a default `IntlCollator` type tag.
+
+```js
+const { TypeTags } = require('typetags')
+
+let coll = new Intl.Collator('en')
+
+TypeTags.isIntlCollator(coll)
+// → true
+
+TypeTags.isIntlCollator(coll.toString())
+// → true
+```
+
 ### Metadata (TType)
 
 | Metadata             | Value                                           |
@@ -59,6 +77,10 @@ console.log(['Z', 'a', 'z', 'ä'].sort(german.compare))
 ```ts
 declare type ITypeTags = {
   [key in Types | NestedTypes]: Tags
+}
+
+declare interface Predicate {
+  predicate(value: any): boolean
 }
 ```
 

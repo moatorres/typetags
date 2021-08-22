@@ -1,35 +1,50 @@
-import img from '../../public/images/typetags-01.jpg'
-
 # Predicates
+
+### Overview
+
+Predicates are `boolean` functions that return `true` or `false` for a given input. Predicates are useful for those moments where we want to **assert** if an object's type tag is of an specific type. Hence why the `TypeTags` object has a predicate for each of its types.
+
+```js
+import { TypeTags } from 'typetags'
+
+TypeTags.String
+// → [object String]
+
+TypeTags.isString('🎉')
+// → true
+
+TypeTags.Array
+// → [object Array]
+
+TypeTags.isArray(TypeTags.Array)
+// → true
+```
 
 There are two kinds of predicate functions to help us with assertions: **generics** and **specifics**.
 
 ### Generics
 
-Used for overall checks. For example, to check if an object has a default typetag:
+Used for overall checks. For example, to check if an object has a default type tag:
 
 ```js
 const { TypeTags } = require('typetags')
 
 const o = Object.create(null)
 
-TypeTags.isDefaultTag(o)
+TypeTags.isDefault(o)
 // → false
 ```
 
 ### Specifics
 
-Allows us to check for specific tags:
+Allows us to check for specific tags or groups of tags:
 
 ```js
 const { TypeTags } = require('typetags')
 
-const arr = [1, 2, 3]
+const maybeTyped = [1, 2, 3]
 
-const maybeTag = arr.toString()
-// → 1,2,3
-
-TypeTags.isArray(maybeTag)
+TypeTags.isTypedArray(maybeTyped)
 // → false
 
 TypeTags.get(arr)
@@ -50,7 +65,7 @@ console.log(isSet(''))
 // → false
 ```
 
-We can also destructure on import with `common-js`, as well.
+We can also destructure on import when using `require` with `common-js`. There's no need to instantiate it as `TypeTags` itself is not a function or a constructor.
 
 ```js
 const { isMap } = require('typetags').TypeTags

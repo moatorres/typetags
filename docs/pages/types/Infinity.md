@@ -13,6 +13,24 @@ TypeTags.get(1 / 0) === TypeTags.Infinity
 // → true
 ```
 
+### Predicates
+
+#### `.isInfinity(value)`
+
+- Checks if `value` **is** or **has** a default `Infinity` type tag.
+
+```js
+const { TypeTags } = require('typetags')
+
+let infinity = 1 / 0
+
+TypeTags.isInfinity(infinity)
+// → true
+
+TypeTags.isInfinity(infinity.toString())
+// → true
+```
+
 ### Metadata (TType)
 
 | Metadata             | Value                                   |
@@ -46,6 +64,10 @@ TypeTags.get(1 / 0) === TypeTags.Infinity
 ```ts
 declare type ITypeTags = {
   [key in Types | NestedTypes]: Tags
+}
+
+declare interface Predicate {
+  predicate(value: any): boolean
 }
 ```
 

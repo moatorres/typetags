@@ -50,6 +50,10 @@ TypeTags.Process === TypeTags.get(process)
 declare type ITypeTags = {
   [key in Types | NestedTypes]: Tags
 }
+
+declare interface Predicate {
+  predicate(value: any): boolean
+}
 ```
 
 #### [See NodeJS.org](https://nodejs.org/api/process.html#process_process)

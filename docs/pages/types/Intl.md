@@ -13,6 +13,22 @@ console.log(TypeTags.Intl)
 // → [object Intl]
 ```
 
+### Predicate
+
+#### `.isIntl(value)`
+
+- Checks if `value` **is** or **has** a default `Intl` type tag.
+
+```js
+const { TypeTags } = require('typetags')
+
+TypeTags.isIntl(Intl)
+// → true
+
+TypeTags.isIntl(Intl.toString())
+// → true
+```
+
 ### Metadata (TType)
 
 | Metadata             | Value                                                                                                                                         |
@@ -46,6 +62,10 @@ console.log(TypeTags.Intl)
 ```ts
 declare type ITypeTags = {
   [key in Types | NestedTypes]: Tags
+}
+
+declare interface Predicate {
+  predicate(value: any): boolean
 }
 ```
 
