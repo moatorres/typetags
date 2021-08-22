@@ -23,7 +23,7 @@ declare type TypeTagHelpers = {
   of<T>(value: Types | NestedTypes | Array<T>): Array<Tags> | Tags
   enhance<T>(name: Types | NestedTypes): TTypeInterface<T>
   has(obj: any, tag?: string): boolean
-  isDefaulTag(tag: string): boolean
+  isDefaul(tag: string): boolean
   isIterator(obj: any): boolean
   isTypedArray(obj: any): boolean
   assign<T>(o: T, tag: string): T
