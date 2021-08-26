@@ -1,4 +1,4 @@
-# [TypeTags](https://typetags.org)
+# TypeTags
 
 ### String Representations of Node.js Built-in Objects
 
@@ -11,7 +11,7 @@ This package contains a list of default string representations of [built-in obje
 - No dependencies
 - Includes TypeScript `d.ts` files
 
-### Install
+## Install
 
 NPM
 
@@ -25,27 +25,7 @@ Yarn
 yarn add typetags
 ```
 
-### Bundles
-
-`esm`
-
-```js
-import { TypeTags } from 'typetags'
-```
-
-`cjs`
-
-```js
-const { TypeTags } = require('typetags')
-```
-
-`umd`
-
-```html
-<script src="dist/umd/typetags.min.js"></script>
-```
-
-### Usage
+## Usage
 
 <sup>In the examples below `console.log` and `toString` calls are not shown.</sup>
 
@@ -78,6 +58,26 @@ TypeTags.has(new Map())
 ```js
 TypeTags.of([1, '2', [3]])
 // → [ '[object Number]', '[object String]', '[object Array]' ]
+```
+
+## Bundles
+
+`esm`
+
+```js
+import { TypeTags } from 'typetags'
+```
+
+`cjs`
+
+```js
+const { TypeTags } = require('typetags')
+```
+
+`umd`
+
+```html
+<script src="dist/umd/typetags.min.js"></script>
 ```
 
 ## Using `TypeTags` to detect Object Class
