@@ -1,38 +1,83 @@
-# [`typetags`](https://typetags.org)
+# [TypeTags](https://typetags.org)
 
 ### String Representations of Node.js Built-in Objects
 
 This package contains a list of default string representations of [built-in objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference) and types of Node.js — [see the full list here](https://github.com/moatorres/typetags/blob/master/lib/constants.d.ts).
 
-## Usage
+### Features
+
+- Simple API
+- Comprehensive [documentation](https://typetags.org) and test set
+- No dependencies
+- Includes TypeScript `d.ts` files
+
+### Install
+
+NPM
+
+```sh
+npm install typetags
+```
+
+Yarn
+
+```sh
+yarn add typetags
+```
+
+### Bundles
+
+`esm`
 
 ```js
 import { TypeTags } from 'typetags'
-
-TypeTags.Array
-// → [object Array]
-
-TypeTags.Function
-// → [object Function]
-
-TypeTags.Float64Array
-// → [object Float64Array]
 ```
 
-## API Reference [→ typetags.org](https://typetags.org)
+`cjs`
+
+```js
+const { TypeTags } = require('typetags')
+```
+
+`umd`
+
+```html
+<script src="dist/umd/typetags.min.js"></script>
+```
+
+### Usage
+
+<sup>In the examples below `console.log` and `toString` calls are not shown.</sup>
 
 The `TypeTags` object contains a set of **properties**, **methods** and **predicates**, each representing an object type.
 
-We can use it to check if an object's type tag matches the default tag of a data type.
+The library exports a single object `TypeTags`.
 
 ```js
 import { TypeTags } from 'typetags'
 
 const o = { foo: 'bar' }
 
-if (o.toString() !== TypeTags.String) {
+if (TypeTags.get(o) !== TypeTags.Object) {
   doSomething()
 }
+```
+
+We can use it to check if an object's type tag matches the default tag of a data type.
+
+```js
+TypeTags.get({})
+// → [object Object]
+```
+
+```js
+TypeTags.has(new Map())
+// → true
+```
+
+```js
+TypeTags.of([1, '2', [3]])
+// → [ '[object Number]', '[object String]', '[object Array]' ]
 ```
 
 ## Using `TypeTags` to detect Object Class
@@ -56,62 +101,11 @@ function isArray(value) {
 }
 ```
 
-## Install
-
-NPM
-
-```sh
-npm install typetags
-```
-
-Yarn
-
-```sh
-yarn add typetags
-```
-
-## Bundles
-
-`esm`
-
-```js
-import { TypeTags } from 'typetags'
-```
-
-`cjs`
-
-```js
-const { TypeTags } = require('typetags')
-```
-
-`umd`
-
-```html
-<script src="dist/umd/typetags.min.js"></script>
-```
-
 ## Tests
 
 `jest --coverage`
 
 ```sh
-------------------|---------|----------|---------|---------|-------------------
-File              | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
-------------------|---------|----------|---------|---------|-------------------
-All files         |   96.02 |       65 |    83.7 |     100 |
- lib              |   98.21 |    53.85 |   57.69 |     100 |
-  assign-tag.js   |     100 |      100 |     100 |     100 |
-  constants.js    |     100 |      100 |     100 |     100 |
-  get-tag.js      |     100 |      100 |     100 |     100 |
-  initializers.js |     100 |       50 |       0 |     100 | 3-142
-  utils.js        |    97.3 |      100 |   91.67 |     100 |
- lib/resources    |   95.17 |    85.71 |   93.94 |     100 |
-  TType.js        |   90.79 |    81.82 |     100 |     100 | 73,98-105,129-146
-  TTypeUtils.js   |     100 |    66.67 |      60 |     100 | 52,59,78-80
-  TextUtils.js    |     100 |      100 |     100 |     100 |
-  TypeTags.js     |     100 |      100 |     100 |     100 |
-------------------|---------|----------|---------|---------|-------------------
-
 Test Suites: 66 passed, 66 total
 Tests:       2 skipped, 417 passed, 419 total
 Snapshots:   0 total
@@ -124,8 +118,4 @@ Ran all test suites.
 
 Using TypeScript? We've got you [covered](https://github.com/moatorres/typetags/blob/master/lib/resources/TypeTags.d.ts). Check out our `d.ts` declaration files.
 
----
-
-<sub>
-  ⚡️ Powered by [**Moka Tecnologia**](https://github.com/mokatecnologia) — `< >` with lots of ☕️ by [**Moa Torres**](https://github.com/moatorres)
-</sub>
+<sub>⚡️ Powered by [**Moka Tecnologia**](https://github.com/mokatecnologia) — `< >` with ☕️ by [**Moa Torres**](https://github.com/moatorres)</sub>
