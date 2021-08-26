@@ -23,6 +23,21 @@ console.log(korean.hourCycle)
 // expected output: 'h24'
 ```
 
+### Predicate
+
+#### `.isIntlLocale(value)`
+
+- Checks if `value` **is** or **has** a default `IntlLocale` type tag.
+
+```js
+const { TypeTags } = require('typetags')
+
+const formatter = new Intl.Locale('en-GB')
+
+TypeTags.isIntlLocale(formatter)
+// → true
+```
+
 ### Metadata (TType)
 
 | Metadata             | Value                                   |

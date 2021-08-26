@@ -18,6 +18,21 @@ console.log(arabic)
 // → 'few'
 ```
 
+### Predicate
+
+#### `.isIntlPluralRules(value)`
+
+- Checks if `value` **is** or **has** a default `IntlPluralRules` type tag.
+
+```js
+const { TypeTags } = require('typetags')
+
+const formatter = new Intl.PluralRules('en-GB')
+
+TypeTags.isIntlPluralRules(formatter)
+// → true
+```
+
 ### Metadata (TType)
 
 | Metadata             | Value                                           |

@@ -21,6 +21,21 @@ console.log(japanese.format(number))
 // expected output: '￥123,457'
 ```
 
+### Predicate
+
+#### `.isIntlNumberFormat(value)`
+
+- Checks if `value` **is** or **has** a default `IntlNumberFormat` type tag.
+
+```js
+const { TypeTags } = require('typetags')
+
+const formatter = new Intl.NumberFormat('en-GB')
+
+TypeTags.isIntlNumberFormat(formatter)
+// → true
+```
+
 ### Metadata (TType)
 
 | Metadata             | Value                                           |
