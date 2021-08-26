@@ -1,7 +1,7 @@
 {
   "index": "Introduction",
   "methods": "Methods",
-  "types": "Types",
   "predicates": "Predicates",
-  "ttype": "TType Class"
+  "types": "Types",
+  "ttype": "TType"
 }

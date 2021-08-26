@@ -4,6 +4,5 @@
   "get": ".get(...)",
   "enhance": ".enhance(...)",
   "has": ".has(...)",
-  "isDefaultTag": ".isDefaultTag(...)",
   "of": ".of(...)"
 }

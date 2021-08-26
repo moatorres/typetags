@@ -34,6 +34,21 @@ console.log(germanFormatter.format(vehicles))
 // expected output: 'Motorcycle, Bus oder Car'
 ```
 
+### Predicate
+
+#### `.isIntlListFormat(value)`
+
+- Checks if `value` **is** or **has** a default `IntlListFormat` type tag.
+
+```js
+const { TypeTags } = require('typetags')
+
+const formatter = new Intl.ListFormat('en-GB')
+
+TypeTags.isIntlListFormat(formatter)
+// → true
+```
+
 ### Metadata (TType)
 
 | Metadata             | Value                                           |
@@ -67,6 +82,10 @@ console.log(germanFormatter.format(vehicles))
 ```ts
 declare type ITypeTags = {
   [key in Types | NestedTypes]: Tags
+}
+
+declare interface Predicate {
+  predicate(value: any): boolean
 }
 ```
 

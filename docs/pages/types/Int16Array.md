@@ -13,6 +13,24 @@ console.log(TypeTags.Int16Array)
 // → [object Int16Array]
 ```
 
+### Predicate
+
+#### `.isInt16Array(value)`
+
+- Checks if `value` **is** or **has** a default `Int16Array` type tag.
+
+```js
+const { TypeTags } = require('typetags')
+
+let int = new Int16Array()
+
+TypeTags.isInt16Array(int)
+// → true
+
+TypeTags.isInt16Array(int.toString())
+// → false
+```
+
 ### Metadata (TType)
 
 | Metadata             | Value                                          |
@@ -46,6 +64,10 @@ console.log(TypeTags.Int16Array)
 ```ts
 declare type ITypeTags = {
   [key in Types | NestedTypes]: Tags
+}
+
+declare interface Predicate {
+  predicate(value: any): boolean
 }
 ```
 

@@ -9,6 +9,8 @@ The `Intl.DateTimeFormat` object enables language-sensitive date and time format
 ```js
 import { TypeTags } from 'typetags'
 
+const date = new Date(Date.UTC(2020, 11, 20, 3, 23, 16, 738))
+
 let us = new Intl.DateTimeFormat('en-US')
 
 TypeTags.get(us)
@@ -24,6 +26,24 @@ TypeTags.get(pt)
 
 console.log(pt.format(date))
 // expected output: '20/12/2020'
+```
+
+### Predicate
+
+#### `.isIntlDateTimeFormat(value)`
+
+- Checks if `value` **is** or **has** a default `IntlDateTimeFormat` type tag.
+
+```js
+const { TypeTags } = require('typetags')
+
+let english = new Intl.DateTimeFormat('en')
+
+TypeTags.isIntlDateTimeFormat(english)
+// → true
+
+TypeTags.isIntlDateTimeFormat(english.toString())
+// → true
 ```
 
 ### Metadata (TType)
@@ -59,6 +79,10 @@ console.log(pt.format(date))
 ```ts
 declare type ITypeTags = {
   [key in Types | NestedTypes]: Tags
+}
+
+declare interface Predicate {
+  predicate(value: any): boolean
 }
 ```
 

@@ -13,6 +13,24 @@ console.log(TypeTags.Int8Array)
 // → [object Int8Array]
 ```
 
+### Predicate
+
+#### `.isInt8Array(value)`
+
+- Checks if `value` **is** or **has** a default `Int8Array` type tag.
+
+```js
+const { TypeTags } = require('typetags')
+
+let int8 = new Int8Array()
+
+TypeTags.isInt8Array(int8)
+// → true
+
+TypeTags.isInt8Array(int8array.toString())
+// → false
+```
+
 ### Metadata (TType)
 
 | Metadata             | Value                                          |
@@ -46,6 +64,10 @@ console.log(TypeTags.Int8Array)
 ```ts
 declare type ITypeTags = {
   [key in Types | NestedTypes]: Tags
+}
+
+declare interface Predicate {
+  predicate(value: any): boolean
 }
 ```
 
