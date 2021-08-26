@@ -11,6 +11,7 @@ export declare const addTag: <T>(o: T, tag: string) => T
 
 export declare const getOwnKeys: (target: object) => (string | symbol)[]
 export declare const toString: <T>(v: T) => string
+export declare const hasToString: <T>(v: T) => boolean
 export declare const hasOwn: <T>(obj: T, prop: PropertyKey) => boolean
 export declare const isArray: Pick<ArrayConstructor, 'isArray'>
 export declare const define: Pick<ObjectConstructor, 'defineProperty'>

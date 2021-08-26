@@ -1,24 +1,17 @@
-# Node.js Object [TypeTags](https://github.com/moatorres/typetags)
+# TypeTags
 
-##### A [list](https://github.com/moatorres/typetags/blob/master/lib/.internal/constants.js) of type tags and string representations of [built-in types](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference) for Node.js.
+### String Representations of Node.js Built-in Objects
 
-## [`TypeTags`](https://github.com/moatorres/typetags/wiki/typetags)
+This package contains a list of default string representations of [built-in objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference) and types of Node.js — [see the full list here](https://github.com/moatorres/typetags/blob/master/lib/constants.d.ts).
 
-The `TypeTags` object contains a list of properties, each representing an object type. You can use it to check if an object's typetag matches the default tag of its data type.
+### Features
 
-```js
-import { TypeTags } from 'typetags'
+- Simple API
+- Comprehensive [documentation](https://typetags.org) and test set
+- No dependencies
+- Includes TypeScript `d.ts` files
 
-const o = { foo: 'bar' }
-
-if (o.toString() !== TypeTags.Object) {
-  doSomething()
-}
-```
-
-Check the reference [here](https://github.com/moatorres/typetags#reference)
-
-#### Installation
+## Install
 
 NPM
 
@@ -34,69 +27,60 @@ yarn add typetags
 
 ## Usage
 
-#### `.get(name | value)`
+<sup>In the examples below `console.log` and `toString` calls are not shown.</sup>
 
-- Returns the tag of any type based on its name, if it can't find the name it will return the _value_'s type tag.
+The `TypeTags` object contains a set of **properties**, **methods** and **predicates**, each representing an object type.
+
+The library exports a single object `TypeTags`.
 
 ```js
-TypeTags.get('Array') // → [object Array]
-TypeTags.get([]) // → [object Array]
+import { TypeTags } from 'typetags'
+
+const o = { foo: 'bar' }
+
+if (TypeTags.get(o) !== TypeTags.Object) {
+  doSomething()
+}
 ```
 
-#### `.of(value | [values])`
-
-- Returns the type tag of a single value or an array of type tags.
+We can use it to check if an object's type tag matches the default tag of a data type.
 
 ```js
-TypeTags.of([]) // → [object Array]
+TypeTags.get({})
+// → [object Object]
+```
 
-TypeTags.of([1, 'Hey', []])
+```js
+TypeTags.has(new Map())
+// → true
+```
+
+```js
+TypeTags.of([1, '2', [3]])
 // → [ '[object Number]', '[object String]', '[object Array]' ]
 ```
 
-#### `.enhance(typename)`
-
-- Returns an enhanced [`TType`]() object introspective methods.
-
-```js
-const ArrayType = TypeTags.enhance('Array')
-
-ArrayType.isAvailable() // → true
-ArrayType.isConstructor() // → true
-```
-
-#### `.assign(object, tag)`
-
-- Assigns a `toStringTag` to an object.
-  If the object doesn't have a `toString` method, the method will be defined along with the `tag` string value.
-
-```js
-let emptyObject = Object.create(null)
-
-TypeTags.assign('Hey')
-
-Object.prototype.toString.call(emptyObject) // → [object Hey]
-```
-
-### [`Predicates`](https://github.com/moatorres/typetags/wiki/predicates)
-
-Check [this page](https://github.com/moatorres/typetags/wiki/predicates) for a reference list of all available predicates
-
-### Bundles
+## Bundles
 
 `esm`
 
 ```js
-import { isDefaultTag } from 'typetags'
+import { TypeTags } from 'typetags'
 ```
 
 `cjs`
 
 ```js
-const { isDefaultTag } = require('typetags')
+const { TypeTags } = require('typetags')
 ```
 
-## Using `typetags` to detect object class
+`umd`
+
+```html
+<script src="dist/umd/typetags.min.js"></script>
+```
+
+## Using `TypeTags` to detect Object Class
 
 Every object has a `toString()` method that is automatically called when the object is to be represented as a text value or when an object is referred to in a manner in which a string is expected.
 
@@ -107,35 +91,31 @@ const o = new Object()
 o.toString() // → [object Object]
 ```
 
-<sup>See [Mozilla MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/toString#description)</sup>
-
 Although using `toString()` in this way is unreliable, as **objects can change the behavior of `Object.prototype.toString()`** this library might be helpful when you need to compare objects' tags inside a procedure call or if you just need a quick reference.
 
 ```js
-const { TypeTags, getTag } = require('typetags')
+const { TypeTags } = require('typetags')
 
 function isArray(value) {
-  return typeof value === 'object' && getTag(value) === TypeTags.Array
+  return typeof value === 'object' && TypeTags.get(value) === TypeTags.Array
 }
 ```
-
-See [`typetags` wiki](https://github.com/moatorres/typetags/wiki/helpers) for more info
 
 ## Tests
 
 `jest --coverage`
 
 ```sh
-Test Suites: 65 passed, 65 total
-Tests:       353 passed, 353 total
+Test Suites: 66 passed, 66 total
+Tests:       2 skipped, 417 passed, 419 total
 Snapshots:   0 total
-Time:        5.579 s
+Time:        5.342 s
 Ran all test suites.
-✨  Done in 6.71s.
+✨  Done in 6.72s.
 ```
 
 ## TypeScript
 
-Using TypeScript? We've got you [covered](https://github.com/moatorres/typetags/blob/master/lib/type-tags.d.ts). The package comes with `d.ts` declaration files.
+Using TypeScript? We've got you [covered](https://github.com/moatorres/typetags/blob/master/lib/resources/TypeTags.d.ts). Check out our `d.ts` declaration files.
 
-<sub>⚡️ Powered by [**Moka Tecnologia**](https://github.com/mokatecnologia) — `< >` with lots of ☕️ by [**Moa Torres**](https://github.com/moatorres)</sub>
+<sub>⚡️ Powered by [**Moka Tecnologia**](https://github.com/mokatecnologia) — `< >` with ☕️ by [**Moa Torres**](https://github.com/moatorres)</sub>
