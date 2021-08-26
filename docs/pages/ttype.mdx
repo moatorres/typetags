@@ -1,0 +1,389 @@
+import Callout from 'nextra-theme-docs/callout'
+
+# `TType`
+
+## Overview
+
+A `TType` object is an **enhanced Node.js type object with introspective methods**. It may be useful for metaprogramming or where we need to check global objects and types availability.
+
+<Callout emoji="🧪">
+  **TType** is an experimental feature. This API might change in the near
+  future.
+</Callout>
+
+## Class Methods
+
+```ts
+declare type TTypeInterfaceClass<T> = {
+  create<T>(name: Types | NestedTypes): TTypeInterface<Types | NestedTypes>
+}
+```
+
+#### `.create(name)`
+
+- Wraps a built-in type into a `TType` object based on its name.
+
+```js
+const objectType = TType.create('Object')
+
+objectType.isPrimitive()
+// → false
+
+objectType.isConstructor()
+// → true
+
+objectType.isAvailable()
+// → true
+```
+
+## Instance Methods
+
+#### `String → TType`
+
+##### `.isAvailable()`
+
+- Checks if `<type>` is available on runtime
+
+```js
+const xtype = TType.create('Map')
+
+xtype.isAvailable()
+// → true
+```
+
+##### `.isSyntatic()`
+
+- Checks if `<type>` is one of JavaScript's syntax special keyword
+
+```js
+const xtype = TType.create('AsyncFunction')
+
+xtype.isSyntatic()
+// → true
+```
+
+##### `.isTypedArray()`
+
+- Checks if `<type>` is a [TypedArray](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray)
+
+```js
+const xtype = TType.create('Int8Array')
+
+xtype.isTypedArray()
+// → true
+```
+
+##### `.isPrimitive()`
+
+All types except objects define immutable values. We refer to values of these
+types as "primitive values".
+
+- Checks if `<type>` is one of JavaScript's primitive types
+
+```js
+const xtype = TType.create('Boolean')
+
+xtype.isPrimitive()
+// → true
+```
+
+##### `.isConstructor()`
+
+- Checks if `<type>` is a constructor (uses the `new` keyword)
+
+```js
+const xtype = TType.create('Array')
+
+xtype.isConstructor()
+// → true
+```
+
+##### `.isFactory()`
+
+- Checks if `<type>` is a factory type
+
+```js
+const xtype = TType.create('BigInt')
+
+xtype.isFactory()
+// → true
+```
+
+##### `.isObject()`
+
+- Checks if `<type>` is an object type
+
+```js
+const xtype = TType.create('Math')
+
+xtype.isObject()
+// → true
+```
+
+##### `.isFunction()`
+
+- Checks if `<type>` is a constructor function
+
+```js
+const xtype = TType.create('AbortController')
+
+xtype.isFunction()
+// → true
+```
+
+##### `.isNested()`
+
+- Checks if `<type>` is a nested type
+
+```js
+const xtype = TType.create('Intl.Locale')
+
+xtype.isNested()
+// → true
+```
+
+##### `.isIterator()`
+
+- Checks if `<type>` is an iterator
+
+```js
+const xtype = TType.create('SetIterator')
+
+xtype.isIterator()
+// → true
+```
+
+##### `.isStringifiable()` 🧪
+
+- Checks if **an instance of** `<type>` is stringifiable
+
+```js
+const xtype = TType.create('GlobalThis')
+
+xtype.isStringifiable()
+// → false
+```
+
+##### `.hasSpecialArgs()` 🧪
+
+- Checks if `<type>` has special arguments or dependencies in order to be instantiated
+
+```js
+const xtype = TType.create('WebAssembly.Instance')
+
+xtype.hasSpecialArgs()
+// → true
+```
+
+##### `.getTag()`
+
+- If `<type>` is available, gets its type tag by creating an instance of `<type>`
+
+```js
+const xtype = TType.create('TextEncoder')
+
+xtype.getTag()
+// → [object TextEncoder]
+```
+
+##### `.instanceTypeOf()`
+
+- Returns the `typeof` of an intance of `<type>`
+
+```js
+const xtype = TType.create('Array')
+
+xtype.instanceTypeOf()
+// → 'object'
+```
+
+##### `.typeOf()`
+
+- Returns the `typeof` of the `<type>` built-in
+
+```js
+const xtype = TType.create('String')
+
+xtype.typeOf()
+// → 'function'
+```
+
+##### `.toString()`
+
+- Checks if `<type>` is available on runtime
+
+```js
+const mapType = TType.create('Map')
+
+mapType.isAvailable()
+// → true
+```
+
+##### `.isGlobal()`
+
+- Checks if `<type>` is in the `global` object
+
+```js
+const xtype = TType.create('Console')
+
+xtype.isGlobal()
+// → false
+```
+
+##### `.info(options)`
+
+- Returns an object with `TType<Types | NestedTypes>` return methods
+
+```js
+import { TType } from 'typetags'
+
+const xtype = TType.create('Map').info()
+
+const xtypeInfo = {
+  name: 'Array',
+  tag: '[object Array]',
+  type: [Function: Array],
+  typeOf: 'function',
+  hasSpecialArgs: false,
+  isGlobal: true,
+  instanceOf: 'Array',
+  instanceTypeOf: 'object',
+  isAvailable: true,
+  isConstructor: true,
+  isFactory: true,
+  isFunction: true,
+  isIterator: false,
+  isNested: false,
+  isObject: false,
+  isPrimitive: false,
+  isStringifiable: true,
+  isSyntatic: false,
+  isTypedArray: false,
+  properties: { ownKeys: [ '0', 'length' ] },
+  toString: { self: '', tag: '[object Array]', behavior: 'custom' },
+  symbols: {
+    species: [Function: Array],
+    iterator: [Function: values],
+    toStringTag: undefined,
+    hasInstance: true
+  }
+}
+```
+
+It also has an optional `options` parameter.
+
+```ts
+declare interface ReportOptions {
+  descriptors?: boolean
+  prototype?: boolean
+}
+```
+
+##### `.instance(...args)` 🧪
+
+- Returns an instance of `<type>` with received `...args`
+
+```js
+const mapType = TType.create('Array')
+
+mapType.instance(1, 2, 3)
+// → [1, 2, 3]
+```
+
+##### `.builtin()` 🧪
+
+- Returns the `<type>` is available on runtime
+
+```js
+const mapType = TType.create('Map')
+
+mapType.isAvailable()
+// → true
+```
+
+##### `.ownKeys()`
+
+- Returns an array of `<type>`'s own property names
+
+```js
+const arrayType = TType.create('Array')
+
+arrayType.ownKeys() === Object.getOwnPropertyNames(Array)
+// → true
+```
+
+## Signature
+
+```ts
+import { NestedTypes, PrimitiveTypes, Tags, Types } from '../constants'
+
+declare interface ReportOptions {
+  descriptors?: boolean
+  prototype?: boolean
+}
+
+declare type TTypeInterfaceClass<T> = {
+  create(type: Types | NestedTypes): TTypeInterface<T>
+}
+
+export declare interface TTypeInterface<T> {
+  type: Types | NestedTypes
+  tag: Tags
+  isAvailable(): boolean
+  isSyntatic(): boolean
+  isTypedArray(): boolean
+  isPrimitive(): boolean
+  isConstructor(): boolean
+  isFactory(): boolean
+  isObject(): boolean
+  isFunction(): boolean
+  isNested(): boolean
+  isIterator(): boolean
+  isStringifiable(): boolean
+  hasSpecialArgs(): boolean
+  getTag(): Tags
+  instanceTypeOf(): PrimitiveTypes | 'object'
+  typeOf(): PrimitiveTypes | 'object'
+  toString(): Tags
+  isGlobal(): boolean
+  info(options?: ReportOptions): TTypeInfo<T> | never
+  instance(...args: any): T | string | object
+  builtin<T>(): T
+  ownKeys<T>(): Array<keyof T>
+}
+
+declare interface TTypeInfo<T> {
+  name: Types
+  tag: Tags
+  type: T
+  typeOf: PrimitiveTypes | 'object'
+  hasSpecialArgs: boolean
+  isGlobal: boolean
+  instanceOf: Types | undefined
+  instanceTypeOf: PrimitiveTypes | 'object'
+  isAvailable: boolean
+  isConstructor: boolean
+  isFactory: boolean
+  isFunction: boolean
+  isIterator: boolean
+  isNested: boolean
+  isPrimitive: boolean
+  isStringifiable: boolean
+  isSyntatic: boolean
+  isTypedArray: boolean
+  properties: Array<string | symbol | number | undefined>
+  toString: {
+    self: string
+    tag: Tags
+    behavior: 'custom' | 'default'
+  }
+  symbols: {
+    species: any
+    iterator: Function | undefined
+    toStringTag: string | undefined
+    hasInstance: boolean
+  }
+}
+
+export declare const TType: TTypeInterfaceClass<any>
+```
